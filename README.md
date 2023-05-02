@@ -1,3 +1,6 @@
+- `Look at`
+  [**Layout (Figma)**](https://www.figma.com/file/z7VY1GvA5xVR2ix7xeOfxx/Cinemania?node-id=0%3A1&t=5JeXJy1vNB96LXPG-1)
+
 # GitTutorial
 
 ## Список корисних команд для роботи з git
