@@ -1,3 +1,21 @@
+# Примеры написания commita на проекте
+
+## Используем следующие типы коммитов:
+
+- Feat(HTML) Added new functionality
+
+- Fix(JS) Error correction
+
+- Perf(JPEG) Changes to improve performance
+
+- Refactor(PNG) Code edits without fixing bugs or adding new features
+
+- Revert(JS) Rollback to previous commits
+
+- Style(SCSS) Code style edits (tabs, indents, dots, commas, etc.)
+
+- Docs(README) Documentation update
+
 # API
 
 https://www.themoviedb.org/settings/api
