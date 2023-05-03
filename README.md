@@ -1,3 +1,27 @@
+# API
+
+https://www.themoviedb.org/settings/api
+
+---
+
+- API Key (v3 auth)
+
+992758a4802a699e8df27d4d6efc34fb
+
+---
+
+- Example API Request
+
+https://api.themoviedb.org/3/movie/550?api_key=992758a4802a699e8df27d4d6efc34fb
+
+---
+
+- API Read Access Token (v4 auth)
+
+eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5OTI3NThhNDgwMmE2OTllOGRmMjdkNGQ2ZWZjMzRmYiIsInN1YiI6IjY0NTI5YzA3ZDQ4Y2VlMDEzNmQ4YzU1OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.X9LNYtjV7RuaseJx77oBvOaAscCCyKYxHDtJYVYsM0g
+
+---
+
 - `Look at`
   [**Layout (Figma)**](https://www.figma.com/file/z7VY1GvA5xVR2ix7xeOfxx/Cinemania?node-id=0%3A1&t=5JeXJy1vNB96LXPG-1)
 
