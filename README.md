@@ -1,3 +1,28 @@
+### Development team :
+
+- Viktor Svertoka **Team Lead** development and design of the section
+
+- Yevhenii Lukashov **Scrum Master** development and design of the section
+
+- Volodymyr Zhyvun **Front End Developer** development and design of the section
+
+- Dmytro Samus **Front End Developer** development and design of the section
+
+- Vitalii Bashchenko **Front End Developer** development and design of the
+  section
+
+- Sergiy Yevchihen **Front End Developer** development and design of the section
+
+- Nikita Slabushevskiy **Front End Developer** development and design of the
+  section
+
+- Ihor Kulinskyi **Front End Developer** development and design of the section
+
+- Kirill Litovchenko **Front End Developer** development and design of the
+  section
+
+- Mariia Ivanova **Front End Developer** development and design of the section
+
 # Примеры написания commita на проекте
 
 ## Используем следующие типы коммитов:
