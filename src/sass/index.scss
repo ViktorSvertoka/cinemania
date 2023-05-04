@@ -1,12 +1,26 @@
-@import './common';
-@import './example';
-@import './catalog';
-@import './footer';
-@import './header';
-@import './hero-modal-watch-trailer';
-@import './hero';
-@import './loader';
-@import './modal-film';
-@import './my-library';
-@import './upcoming-mounth';
-@import './weekly-trends';
+///FOLDER BASE
+@import './base/normalize';
+@import './base/fonts';
+@import './base/colors';
+@import './base/cursor';
+
+///FOLDER UTILS
+@import './utils/reset';
+@import './utils/mixins';
+@import './utils/command';
+
+///FOLDER COMPONENTS
+@import './components/buttons';
+@import './components/modal';
+
+///FOLDER LAYOUTS
+@import './layout/header';
+@import './layout/catalog';
+@import './layout/footer';
+@import './layout/hero-modal-watch-trailer';
+@import './layout/hero';
+@import './layout/loader';
+@import './layout/modal-film';
+@import './layout/my-library';
+@import './layout/upcoming-mounth';
+@import './layout/weekly-trends';
