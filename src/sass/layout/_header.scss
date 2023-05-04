@@ -1,0 +1,143 @@
+.site-header {
+  background-color: $black-color;
+  padding: 8px 20px;
+
+  @media screen and (min-width: 768px) {
+    padding: 12px 32px;
+  }
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+//   margin-right: auto;
+
+  &-img {
+    width: 32px;
+    height: 32px;
+    background-color: $orange-color;
+    @media screen and (min-width: 768px) {
+      margin-right: 8px;
+    }
+  }
+
+  &-text {
+    display: none;
+    color: $white-color;
+    @media screen and (min-width: 768px) {
+      display: inline-block;
+    }
+  }
+}
+
+.header__menu-button {
+  display: block;
+  outline: none;
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  color: $light-gray-color;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+
+.nav-list {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__link {
+    text-transform: uppercase;
+    color: $light-gray-color;
+  }
+}
+
+.header__theme-switcher {
+  display: flex;
+  align-items: center;
+  width: 38px;
+  height: 16px;
+  background-color: $orange-color;
+  background: $linear-gradient-down;
+  border-radius: 194px;
+//   margin-left: auto;
+  padding: 2px;
+  position: relative;
+
+  @media screen and (min-width: 768px) {
+    width: 54px;
+    height: 20px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 60px;
+    height: 24px;
+  }
+
+  &::before {
+    content: '';
+    border-radius: 50px;
+    background-color: $white-color;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+
+    @media screen and (min-width: 768px) {
+      width: 16px;
+      height: 16px;
+    }
+
+    @media screen and (min-width: 1200px) {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+// ============================ MOBILE MENU ==============================/
+.backdrop {
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  // z-index: ;
+}
+
+.mobile-menu__container {
+  display: none;
+
+  &.is-open {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: calc(100% - 116px);
+    background-color: $black-color;
+    border-radius: 0px 8px 8px 0px;
+    padding: 20px;
+    z-index: 3;
+
+    & .nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    margin: 0 auto;
+  }
+}

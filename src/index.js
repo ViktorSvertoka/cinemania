@@ -12,3 +12,4 @@ import './js/loader';
 import './js/modal-film';
 import './js/upcoming-mounth';
 import './js/weekly-trends';
+import './js/mobile-menu';
