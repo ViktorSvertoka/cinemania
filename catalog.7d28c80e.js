@@ -1,2 +1,0 @@
-!function(){var e={menuBtn:document.querySelector("[data-menu-open]"),menuContainer:document.querySelector("[data-menu]"),menuBackdrop:document.querySelector("[data-backdrop]")};function n(){e.menuBackdrop.classList.toggle("visually-hidden"),e.menuContainer.classList.toggle("is-open")}e.menuBtn.addEventListener("click",n),e.menuBackdrop.addEventListener("click",(function(t){t.target===e.menuBackdrop&&n()}))}();
-//# sourceMappingURL=catalog.7d28c80e.js.map
