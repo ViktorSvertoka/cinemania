@@ -1,27 +1,34 @@
 ### Development team :
 
-- Viktor Svertoka **Team Lead** development and design of the section
+- Viktor Svertoka **Team Lead** development and design of the section **Footer,
+  Scroll Up, Modal Window Team**
 
 - Yevhenii Lukashov **Scrum Master** development and design of the section
+  **API**
 
 - Volodymyr Zhyvun **Front End Developer** development and design of the section
+  **Upcomining mounth**
 
 - Dmytro Samus **Front End Developer** development and design of the section
+  **Modal Window Watch Trailer, Loader**
 
 - Vitalii Bashchenko **Front End Developer** development and design of the
-  section
+  section **Hero, Slider, Modal Window OOPS**
 
 - Sergiy Yevchihen **Front End Developer** development and design of the section
+  **Catalog**
 
 - Nikita Slabushevskiy **Front End Developer** development and design of the
-  section
+  section **Weekly Trends**
 
 - Ihor Kulinskyi **Front End Developer** development and design of the section
+  **Header, My Library**
 
 - Kirill Litovchenko **Front End Developer** development and design of the
-  section
+  section **Catalog**
 
 - Mariia Ivanova **Front End Developer** development and design of the section
+  **Modal Window Film**
 
 # Примеры написания commita на проекте
 
