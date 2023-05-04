@@ -1,16 +1,16 @@
 ///БАЗОВЫЕ СТИЛИ
 
 body {
-  color: $main-text-color;
-  font-family: $primary-fonts, sans-serif;
+  color: $white-color;
+  // font-family: $primary-fonts, sans-serif;
   font-style: normal;
   letter-spacing: 0.04em;
-  background-color: $main-bg-color;
+  background-color: $black-color;
 }
 
-[data-slots] {
-  font-family: $primary-fonts;
-}
+// [data-slots] {
+//   font-family: $primary-fonts;
+// }
 
 .container {
   width: 100%;
