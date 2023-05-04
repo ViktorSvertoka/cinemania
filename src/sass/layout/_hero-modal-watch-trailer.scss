@@ -8,10 +8,10 @@
   width: 100%;
   height: 100%;
   overflow: auto; /* Позволяет скроллить содержимое */
-  background-color: rgba(0, 0, 0, 0.8); /* Черный цвет с прозрачностью */
+  // background-color: rgba(0, 0, 0, 0.8); /* Черный цвет с прозрачностью */
 
   @include mobile {
-    background-color: rgba(0, 0, 0, 0.5);
+    // background-color: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -24,21 +24,26 @@
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease-out;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 16px;
 
   @include mobile {
-    width: 90%; /* Ширина на мобильных устройствах */
+    width: 280px; /* Ширина на мобильных устройствах */
+    height: 289px;
     margin: 10% auto;
     padding: 10px;
   }
 
   @include tablet {
-    width: 60%; /* Ширина на планшетах */
+    width: 609px; /* Ширина на планшетах */
+    height: 400px;
     margin: 10% auto;
     padding: 20px;
   }
 
   @include desktop {
-    width: 50%; /* Ширина на настольных устройствах */
+    width: 700px; /* Ширина на настольных устройствах */
+    height: 400px;
     margin: 10% auto;
     padding: 30px;
   }
