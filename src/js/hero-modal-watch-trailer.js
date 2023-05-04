@@ -21,6 +21,8 @@ watchTrailerBtn.addEventListener('click', async () => {
 
   // Проверяем, есть ли видео
   if (data.results.length === 0) {
+    // Если видео нет, то показываем сообщение об ошибке и выходим из функции
+
     // Показываем сообщение об ошибке и выходим из функции
     // trailerVideo.src = "path/to/placeholder/image.png";
     // trailerVideo.alt = "Извините, мы не смогли найти трейлер.";
@@ -39,7 +41,7 @@ watchTrailerBtn.addEventListener('click', async () => {
 
   // Ждем, пока модальное окно полностью раскроется
   await new Promise(resolve => {
-    modalContent.style.height = 'fit-content';
+    // modalContent.style.height = 'fit-content';
     modalContent.addEventListener('transitionend', resolve, { once: true });
   });
 });
@@ -54,7 +56,7 @@ closeModalBtn.addEventListener('click', () => {
   trailerVideo.alt = '';
 
   // Сбрасываем высоту содержимого модального окна (для следующего раза)
-  modalContent.style.height = 0;
+  // modalContent.style.height = 0;
 });
 
 // Обрабатываем клики на фоне модального окна
