@@ -2,7 +2,9 @@
   background-color: $black-color;
   padding: 8px 20px;
 
-  @media screen and (min-width: 768px) {
+  // border: 2px solid green;
+
+  @media screen and (min-width: 769px) {
     padding: 12px 32px;
   }
 }
@@ -16,7 +18,6 @@
 .logo {
   display: flex;
   align-items: center;
-//   margin-right: auto;
 
   &-img {
     width: 32px;
@@ -69,7 +70,6 @@
   background-color: $orange-color;
   background: $linear-gradient-down;
   border-radius: 194px;
-//   margin-left: auto;
   padding: 2px;
   position: relative;
 
@@ -105,39 +105,53 @@
 
 // ============================ MOBILE MENU ==============================/
 .backdrop {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255);
+  opacity: 0.2;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  // z-index: ;
+  @include animation(opacity);
+
+  &.visually-hidden {
+    opacity: 0;
+  }
 }
 
 .mobile-menu__container {
-  display: none;
-
-  &.is-open {
-    display: block;
+  @media screen and (max-width: 767px) {
     position: absolute;
     top: 0;
     left: 0;
+    padding: 20px;
     height: 100%;
-    width: calc(100% - 116px);
     background-color: $black-color;
     border-radius: 0px 8px 8px 0px;
-    padding: 20px;
     z-index: 3;
+    width: calc(100% - 116px);
 
+    transform: translateX(-100%);
+    @include animation(transform);
     & .nav-list {
       display: flex;
       flex-direction: column;
       gap: 24px;
     }
-  }
 
-  @media screen and (min-width: 768px) {
-    display: block;
-    margin: 0 auto;
+    & .mobile-menu__icon {
+      display: block;
+      width: 24px;
+      height: 24px;
+      margin-bottom: 40px;
+      background-color: $orange-color;
+    }
+    &.is-open {
+      transform: translateX(0);
+    }
   }
+}
+
+.mobile-menu__icon {
+  display: none;
 }

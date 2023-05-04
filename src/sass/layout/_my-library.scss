@@ -1,0 +1,52 @@
+.my-lib__hero {
+  // border: 1px solid red;
+
+  @media screen and (max-width: 768px) {
+    min-height: 380px;
+  }
+
+  @media screen and (max-width: 1199px) {
+    min-height: 370px;
+    max-width: 768px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    min-height: 660px;
+    max-width: 1280px;
+  }
+}
+
+.my-lib__hero-container {
+  // border: 1px solid orange;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-lib__hero-title {
+  display: inline-block;
+  max-width: 235px;
+  margin-bottom: 8px;
+  @media screen and (min-width: 768px) {
+    max-width: 332px;
+  }
+  @media screen and (min-width: 1200px) {
+    max-width: 464px;
+    margin-bottom: 16px;
+  }
+}
+
+.my-lib__hero-description {
+  display: inline-block;
+  max-width: 249px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  @media screen and (min-width: 768px) {
+    max-width: 357px;
+  }
+  @media screen and (min-width: 1200px) {
+    max-width: 464px;
+
+    line-height: 19px;
+  }
+}
