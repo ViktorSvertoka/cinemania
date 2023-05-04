@@ -2,15 +2,11 @@
 
 body {
   color: $white-color;
-  // font-family: $primary-fonts, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   letter-spacing: 0.04em;
   background-color: $black-color;
 }
-
-// [data-slots] {
-//   font-family: $primary-fonts;
-// }
 
 .container {
   width: 100%;
