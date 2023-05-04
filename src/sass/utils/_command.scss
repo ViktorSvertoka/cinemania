@@ -1,0 +1,52 @@
+///БАЗОВЫЕ СТИЛИ
+
+body {
+  color: $white-color;
+  // font-family: $primary-fonts, sans-serif;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  background-color: $black-color;
+}
+
+// [data-slots] {
+//   font-family: $primary-fonts;
+// }
+
+.container {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+
+  @include tel {
+    width: 320px;
+  }
+
+  @include mobile {
+    width: 480px;
+  }
+
+  @include tablet {
+    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  @include desktop {
+    width: 1200px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.section {
+  padding: 60px 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+}

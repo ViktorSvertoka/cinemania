@@ -1,3 +1,57 @@
+### Development team :
+
+- Viktor Svertoka **Team Lead** development and design of the section **Footer,
+  Scroll Up, Modal Window Team**
+
+- Yevhenii Lukashov **Scrum Master** development and design of the section
+  **API**
+
+- Volodymyr Zhyvun **Front End Developer** development and design of the section
+  **Upcomining mounth**
+
+- Dmytro Samus **Front End Developer** development and design of the section
+  **Modal Window Watch Trailer, Loader**
+
+- Vitalii Bashchenko **Front End Developer** development and design of the
+  section **Hero, Slider, Modal Window OOPS**
+
+- Sergiy Yevchihen **Front End Developer** development and design of the section
+  **Catalog**
+
+- Nikita Slabushevskiy **Front End Developer** development and design of the
+  section **Weekly Trends**
+
+- Ihor Kulinskyi **Front End Developer** development and design of the section
+  **Header, My Library**
+
+- Kirill Litovchenko **Front End Developer** development and design of the
+  section **Catalog**
+
+- Mariia Ivanova **Front End Developer** development and design of the section
+  **Modal Window Film**
+
+# Примеры написания commita на проекте
+
+## Используем следующие типы коммитов:
+
+- Feat(HTML) Added new functionality
+
+- Fix(JS) Error correction
+
+- Perf(JPEG) Changes to improve performance
+
+- Refactor(PNG) Code edits without fixing bugs or adding new features
+
+- Revert(JS) Rollback to previous commits
+
+- Style(SCSS) Code style edits (tabs, indents, dots, commas, etc.)
+
+- Docs(README) Documentation update
+
+Выбираем из списка описание коммита которое подходит под вашу задачу, в скобках
+пишем файл в каком работали, а а в теле комита расписываем что проделали
+(изменили) и тд
+
 # API
 
 https://www.themoviedb.org/settings/api
