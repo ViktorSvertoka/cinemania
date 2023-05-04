@@ -1,4 +1,4 @@
-import './js/api-service';
+// import './js/api-service';
 import './js/dark&light-mode';
 import './js/catalog';
 import './js/catalog-search-form';
