@@ -1,3 +1,7 @@
+# Sprite icons
+
+![GitHub actions settings](./assets/sprite.png)
+
 ### Development team :
 
 - Viktor Svertoka **Team Lead** development and design of the section **Footer,
