@@ -18,6 +18,7 @@
     "url": "https://github.com/ViktorSvertoka/free-time/issues"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "modern-normalize": "^1.1.0"
   },
   "devDependencies": {
