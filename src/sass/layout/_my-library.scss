@@ -4,7 +4,6 @@
   background-size: cover;
   border: 1px solid red;
 
-  
   @include mobile {
     min-height: 380px;
     // max-width: 480px;
@@ -79,12 +78,19 @@
   display: inline-block;
   max-width: 235px;
   margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
   @include tablet {
     max-width: 332px;
+    font-size: 44px;
+    line-height: 1.18;
   }
   @include desktop {
     max-width: 464px;
     margin-bottom: 16px;
+    font-size: 64px;
+    line-height: 1.17;
   }
 }
 
@@ -93,13 +99,15 @@
   max-width: 249px;
   font-weight: 400;
   font-size: 14px;
-  line-height: 16px;
+  line-height: 1.14;
+  letter-spacing: 0.06;
   @include tablet {
     max-width: 357px;
+    letter-spacing: 0.05;
   }
   @include desktop {
     max-width: 464px;
-
-    line-height: 19px;
+    letter-spacing: 0.8;
+    line-height: 1.4;
   }
 }

@@ -12,22 +12,24 @@
 .header__container {
   display: flex;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 
 .logo {
   display: flex;
   align-items: center;
+
   @include desktop {
-    margin-right: 100px;
+    margin-right: 90px;
   }
 
   &-img {
-    width: 32px;
-    height: 32px;
-    background-color: $orange-color;
+    width: 30px;
+    height: 24px;
     @include tablet {
       margin-right: 8px;
+      width: 48px;
+      height: 48px;
     }
   }
 
@@ -36,6 +38,9 @@
     color: $white-color;
     @include tablet {
       display: inline-block;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.16;
     }
   }
 }
@@ -50,6 +55,9 @@
     border: none;
     text-transform: uppercase;
     color: $light-gray-color;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.16;
   }
 }
 
@@ -58,6 +66,9 @@
   @include tablet {
     display: flex;
     gap: 32px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.14;
   }
 
   &__link {
@@ -144,21 +155,21 @@
       gap: 24px;
     }
 
-    & .mobile-menu__icon {
-      display: block;
-      width: 24px;
-      height: 24px;
-      margin-bottom: 40px;
-      background-color: $orange-color;
-    }
     &.is-open {
       transform: translateX(0);
+
+      & .mobile-menu__logo-img {
+        display: block;
+      }
     }
   }
 
   margin: 0 auto;
 }
 
-.mobile-menu__icon {
+.mobile-menu__logo-img {
   display: none;
+  width: 30px;
+  height: 24px;
+  margin-bottom: 44px;
 }
