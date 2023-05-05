@@ -1,3 +1,16 @@
+
+<section class="hero">
+  <div class="container">
+    <form class="search__form" id="search-form">
+      <div class="search-form_wrapper">
+        <input class="search__form--input" type="text" name="search" id="searchQuery" placeholder="Search"
+          autocomplete="of" />
+        <button type="submit" aria-label="search button" class="search__form--button">
+          <svg width="20" hidden="20">
+            <use href="./images/search.png"></use>
+          </svg>
+        </button>
+      </div>
 <section class="catalog">
   <div class="catalog__container container">
     <form class="catalog__form" id="search-form">
@@ -28,7 +41,7 @@
     <section class="cards">
       <h2 class="visually-hidden" aria-label="film cards">Film cards</h2>
       <div class="container">
-        <ul class="cards__list"></ul>
+        <ul class="cards__list" id="movie-list"></ul>
       </div>
     </section>
   </div>
