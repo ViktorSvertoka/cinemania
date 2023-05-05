@@ -8,6 +8,32 @@ $light-gray-color: #b7b7b7;
 $transparent-white-color: #f8f8f8;
 $white-color: #ffffff;
 
+:root[data-theme='dark'] {
+  --page-bgc: #{$black-color};
+  --hero-bgc-clr: #{$light-black-color};
+  --primary-text-clr: #{$white-color};
+  --secondary-text-clr: #{$transparent-white-color};
+  --muted-text-clr: #{$light-gray-color};
+  --switcher-pos-mob: 18px;
+  --switcher-pos-tab: 30px;
+  --switcher-pos-desk: 34px;
+  --mobile-menu-bgc: #{$black-color};
+  --backdrop-bgc: rgb(255, 255, 255);
+}
+
+:root[data-theme='light'] {
+  --page-bgc: #{$white-color};
+  --hero-bgc-clr: #{$transparent-white-color};
+  --primary-text-clr: #{$light-black-color};
+  --secondary-text-clr: #{$light-black-color};
+  --muted-text-clr: #{$gray-color};
+  --switcher-pos-mob: -3px;
+  --switcher-pos-tab: -3px;
+  --switcher-pos-desk: -2px;
+  --mobile-menu-bgc: #{$transparent-white-color};
+  --backdrop-bgc: rgb(0, 0, 0);
+}
+
 $linear-gradient-up: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 $linear-gradient-down: linear-gradient(
   141.22deg,
