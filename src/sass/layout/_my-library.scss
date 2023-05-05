@@ -1,28 +1,76 @@
 .my-lib__hero {
-  // border: 1px solid red;
-  min-height: 380px;
-  background-image: linear-gradient(
-    to right,
-    rgba(47, 48, 58, 0.4),
-    rgba(47, 48, 58, 0.4)
-  ),
-  url(../../images/hero_2x.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid red;
 
-
-
-  @media screen and (max-width: 1199px) {
-    min-height: 370px;
-    max-width: 768px;
+  
+  @include mobile {
+    min-height: 380px;
+    // max-width: 480px;
   }
 
-  @media screen and (min-width: 1200px) {
+  background-image: linear-gradient(
+      83.48deg,
+      #0e0e0e 25.78%,
+      rgba(14, 14, 14, 0) 60.07%
+    ),
+    url(/src/images/red_seats_mob.jpg);
+
+  @include retina {
+    background-image: linear-gradient(
+        83.48deg,
+        #0e0e0e 25.78%,
+        rgba(14, 14, 14, 0) 60.07%
+      ),
+      url(/src/images/red_seats_mob@2x.jpg);
+  }
+
+  @include tablet {
+    min-height: 370px;
+    // max-width: 768px;
+
+    background-image: linear-gradient(
+        83.48deg,
+        #0e0e0e 25.78%,
+        rgba(14, 14, 14, 0) 60.07%
+      ),
+      url(/src/images/red_seats_tab.jpg);
+
+    @include retina {
+      background-image: linear-gradient(
+          83.48deg,
+          #0e0e0e 25.78%,
+          rgba(14, 14, 14, 0) 60.07%
+        ),
+        url(/src/images/red_seats_tab@2x.jpg);
+    }
+  }
+
+  @include desktop {
     min-height: 660px;
-    max-width: 1280px;
+    // max-width: 1280px;
+
+    background-image: linear-gradient(
+        83.48deg,
+        #0e0e0e 25.78%,
+        rgba(14, 14, 14, 0) 60.07%
+      ),
+      url(/src/images/red_seats_desk.jpg);
+
+    @include retina {
+      background-image: linear-gradient(
+          83.48deg,
+          #0e0e0e 25.78%,
+          rgba(14, 14, 14, 0) 60.07%
+        ),
+        url(/src/images/red_seats_desk@2x.jpg);
+    }
   }
 }
 
 .my-lib__hero-container {
-  // border: 1px solid orange;
+  border: 1px solid orange;
   display: flex;
   flex-direction: column;
 }
@@ -31,10 +79,10 @@
   display: inline-block;
   max-width: 235px;
   margin-bottom: 8px;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     max-width: 332px;
   }
-  @media screen and (min-width: 1200px) {
+  @include desktop {
     max-width: 464px;
     margin-bottom: 16px;
   }
@@ -46,10 +94,10 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     max-width: 357px;
   }
-  @media screen and (min-width: 1200px) {
+  @include desktop {
     max-width: 464px;
 
     line-height: 19px;

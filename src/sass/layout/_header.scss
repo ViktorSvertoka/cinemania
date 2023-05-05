@@ -2,9 +2,9 @@
   background-color: $black-color;
   padding: 8px 20px;
 
-  // border: 2px solid green;
+  border: 2px solid green;
 
-  @media screen and (min-width: 769px) {
+  @include tablet {
     padding: 12px 32px;
   }
 }
@@ -18,7 +18,7 @@
 .logo {
   display: flex;
   align-items: center;
-  @media screen and (min-width:1199px) {
+  @include desktop {
     margin-right: 100px;
   }
 
@@ -26,7 +26,7 @@
     width: 32px;
     height: 32px;
     background-color: $orange-color;
-    @media screen and (min-width: 768px) {
+    @include tablet {
       margin-right: 8px;
     }
   }
@@ -34,7 +34,7 @@
   &-text {
     display: none;
     color: $white-color;
-    @media screen and (min-width: 768px) {
+    @include tablet {
       display: inline-block;
     }
   }
@@ -55,7 +55,7 @@
 
 .nav-list {
   display: none;
-  @media screen and (min-width: 768px) {
+  @include tablet {
     display: flex;
     gap: 32px;
   }
@@ -77,13 +77,13 @@
   padding: 2px;
   position: relative;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 54px;
     height: 20px;
     margin-left: auto;
   }
 
-  @media screen and (min-width: 1200px) {
+  @include desktop {
     width: 60px;
     height: 24px;
   }
@@ -96,12 +96,12 @@
     width: 12px;
     height: 12px;
 
-    @media screen and (min-width: 768px) {
+    @include tablet {
       width: 16px;
       height: 16px;
     }
 
-    @media screen and (min-width: 1200px) {
+    @include desktop {
       width: 18px;
       height: 18px;
     }
