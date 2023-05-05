@@ -30,5 +30,8 @@
 <path fill="none" stroke="#fff" style="stroke: var(--color3, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M16 26c5.523 0 10-4.477 10-10s-4.477-10-10-10c-5.523 0-10 4.477-10 10s4.477 10 10 10z"></path>
 <path fill="none" stroke="#fff" style="stroke: var(--color3, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3" d="M25.814 6.186l0.182-0.182M6.004 25.996l0.182-0.182M16 2.112v-0.112M16 30v-0.112M2.112 16h-0.112M30 16h-0.112M6.186 6.186l-0.182-0.182M25.996 25.996l-0.182-0.182"></path>
 </symbol>
+<symbol id="icon-heart" viewBox="0 0 34 32">
+<path fill="#f87719" style="fill: var(--color1, #f87719)" d="M17.231 31.705l-2.412-2.412c-8.96-7.926-14.818-13.268-14.818-19.815 0-5.342 4.135-9.477 9.477-9.477 2.929 0 5.858 1.378 7.754 3.618 1.895-2.24 4.825-3.618 7.754-3.618 5.342 0 9.477 4.135 9.477 9.477 0 6.548-5.858 11.889-14.818 19.815l-2.412 2.412z"></path>
+</symbol>
 </defs>
 </svg>

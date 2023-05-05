@@ -1,0 +1,27 @@
+.footer {
+}
+
+.footer__container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.footer__copyright {
+  @include font(400, 16px, 1.19, 0);
+  color: $light-gray-color;
+}
+
+.footer__icon {
+  margin: 0 5px;
+  animation: Scale 0.7s ease infinite alternate;
+}
+
+.footer__text {
+}
+
+.footer__link {
+  @include font(400, 16px, 1.19, 0);
+  color: $light-gray-color;
+  text-decoration: underline;
+}
