@@ -8,7 +8,7 @@
   Scroll Up, Modal Window Team**
 
 - Yevhenii Lukashov **Scrum Master** development and design of the section
-  **API**
+  **API, fetch**
 
 - Volodymyr Zhyvun **Front End Developer** development and design of the section
   **Upcomining mounth**
