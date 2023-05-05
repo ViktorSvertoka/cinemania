@@ -20,17 +20,17 @@ body {
   margin: 0 auto;
 
   @include mobile {
-    width: 480px;
+    max-width: 480px;
   }
 
   @include tablet {
-    width: 704px;
+    max-width: 704px;
     padding-left: 32px;
     padding-right: 32px;
   }
 
   @include desktop {
-    width: 1216px;
+    max-width: 1216px;
     padding-left: 32px;
     padding-right: 32px;
   }
