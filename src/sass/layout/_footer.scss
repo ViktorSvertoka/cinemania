@@ -48,9 +48,34 @@
 .footer__link {
   @include font(400, 16px, 1.19, 0);
   color: $light-gray-color;
-  text-decoration: underline;
 
   &--active:hover {
     color: $orange-color;
+  }
+
+  &--animation {
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 1px; /* padding for pseudo element */
+  }
+
+  &--animation::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: $light-gray-color;
+    transform: scaleX(1); /* show the line */
+    transform-origin: left; /* starting point of transformation */
+    transition: transform 0.3s ease-out;
+  }
+
+  &--animation:hover::before {
+    transform: scaleX(0); /* hide the line */
+    transform-origin: right; /* transformation endpoint */
+    color: $light-gray-color;
+    background-color: $orange-color;
   }
 }
