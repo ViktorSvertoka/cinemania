@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./images/favicon.png" />
+    <script>
+      let localS = localStorage.getItem('theme');
+
+      if (localS === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    </script>
     <title>Free Time</title>
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
@@ -21,5 +28,7 @@
     <include src="./partials/modal-film.html"></include>
     <include src="./partials/loader.html"></include>
     <include src="./partials/scroll-up.html"></include>
+
+    <div class="modal-scroll"></div>
   </body>
 </html>

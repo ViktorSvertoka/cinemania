@@ -1,20 +1,26 @@
 <div class="watch-modal">
-  <div class="watch-modal-content">
-    <span class="close">X</span>
+  <div class="watch-modal__content">
+    <span class="watch-modal__close">X</span>
     <iframe
       id="trailer-video"
+      class="watch-modal__iframe"
       src="https://www.youtube.com/embed/your-video-id-here"
       frameborder="0"
       allowfullscreen
     ></iframe>
   </div>
 </div>
+
 <div class="watch-modal modal-error">
-  <div class="watch-modal-content">
-    <a href="#" class="close">
-      <img src="/src/images/close-watch-trailer-icon.png" alt="Close Modal" />
+  <div class="watch-modal__content">
+    <a href="#" class="watch-modal__close">
+      <img
+        class="watch-modal__close-icon"
+        src="/src/images/close-watch-trailer-icon.png"
+        alt="Close Modal"
+      />
     </a>
-    <picture>
+    <picture class="watch-modal__picture">
       <source
         srcset="/src/images/watch-trailer-modal_desk_2x.png"
         media="(min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 1200px) and (min-resolution: 192dpi), (min-width: 1200px) and (min-resolution: 2dppx)"
@@ -40,11 +46,13 @@
         media="(min-width: 480px)"
       />
       <img
-        class="modal-error-image"
+        class="watch-modal__error-image"
         src="/src/images/watch-trailer-modal_desk_1x.png"
         alt="Error"
       />
     </picture>
-    <p>OOPS... We are very sorry! But we couldn’t find the trailer.</p>
+    <p class="watch-modal__error-message">
+      OOPS... We are very sorry! But we couldn’t find the trailer.
+    </p>
   </div>
 </div>

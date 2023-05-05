@@ -5,11 +5,16 @@ html {
 }
 
 body {
-  color: $white-color;
+  color: var(--primary-text-clr);
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   letter-spacing: 0.04em;
-  background-color: $black-color;
+  background-color: var(--page-bgc);
+  @include animation(background-color);
+}
+
+body.is-open{
+  overflow: hidden;
 }
 
 .container {
@@ -19,17 +24,17 @@ body {
   margin: 0 auto;
 
   @include mobile {
-    width: 480px;
+    max-width: 480px;
   }
 
   @include tablet {
-    width: 704px;
+    max-width: 704px;
     padding-left: 32px;
     padding-right: 32px;
   }
 
   @include desktop {
-    width: 1216px;
+    max-width: 1216px;
     padding-left: 32px;
     padding-right: 32px;
   }

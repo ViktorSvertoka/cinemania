@@ -1,0 +1,115 @@
+.my-lib__hero {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // border: 1px solid red;
+
+  @include mobile {
+    min-height: 380px;
+    // max-width: 480px;
+  }
+
+  background-image: linear-gradient(
+      83.48deg,
+      #0e0e0e 25.78%,
+      rgba(14, 14, 14, 0) 60.07%
+    ),
+    url(/src/images/red_seats_mob.jpg);
+
+  @include retina {
+    background-image: linear-gradient(
+        83.48deg,
+        #0e0e0e 25.78%,
+        rgba(14, 14, 14, 0) 60.07%
+      ),
+      url(/src/images/red_seats_mob@2x.jpg);
+  }
+
+  @include tablet {
+    min-height: 370px;
+    // max-width: 768px;
+
+    background-image: linear-gradient(
+        83.48deg,
+        #0e0e0e 25.78%,
+        rgba(14, 14, 14, 0) 60.07%
+      ),
+      url(/src/images/red_seats_tab.jpg);
+
+    @include retina {
+      background-image: linear-gradient(
+          83.48deg,
+          #0e0e0e 25.78%,
+          rgba(14, 14, 14, 0) 60.07%
+        ),
+        url(/src/images/red_seats_tab@2x.jpg);
+    }
+  }
+
+  @include desktop {
+    min-height: 660px;
+    // max-width: 1280px;
+
+    background-image: linear-gradient(
+        83.48deg,
+        #0e0e0e 25.78%,
+        rgba(14, 14, 14, 0) 60.07%
+      ),
+      url(/src/images/red_seats_desk.jpg);
+
+    @include retina {
+      background-image: linear-gradient(
+          83.48deg,
+          #0e0e0e 25.78%,
+          rgba(14, 14, 14, 0) 60.07%
+        ),
+        url(/src/images/red_seats_desk@2x.jpg);
+    }
+  }
+}
+
+.my-lib__hero-container {
+  // border: 1px solid orange;
+  display: flex;
+  flex-direction: column;
+}
+
+.my-lib__hero-title {
+  display: inline-block;
+  max-width: 235px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  color: $white-color;
+  @include tablet {
+    max-width: 332px;
+    font-size: 44px;
+    line-height: 1.18;
+  }
+  @include desktop {
+    max-width: 464px;
+    margin-bottom: 16px;
+    font-size: 64px;
+    line-height: 1.17;
+  }
+}
+
+.my-lib__hero-description {
+  display: inline-block;
+  max-width: 249px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.06;
+  color: $transparent-white-color;
+  @include tablet {
+    max-width: 357px;
+    letter-spacing: 0.05;
+  }
+  @include desktop {
+    max-width: 464px;
+    letter-spacing: 0.8;
+    line-height: 1.4;
+  }
+}

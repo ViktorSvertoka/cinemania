@@ -1,0 +1,81 @@
+.footer__container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+
+    .footer__desc {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer__desc {
+      margin-top: 10px;
+    }
+    .footer__text {
+      margin-right: 5px;
+    }
+  }
+}
+
+.footer__copyright {
+  @include font(400, 16px, 1.19, 0);
+  color: $light-gray-color;
+  margin-right: 5px;
+}
+
+.footer__desc {
+  @include font(400, 16px, 1.19, 0);
+  color: $light-gray-color;
+}
+
+.footer__icon {
+  margin: 0 10px 0 10px;
+  animation: Scale 0.7s ease infinite alternate;
+}
+
+.footer__text {
+  @include font(400, 16px, 1.19, 0);
+  color: $light-gray-color;
+}
+
+.footer__link {
+  @include font(400, 16px, 1.19, 0);
+  color: $light-gray-color;
+
+  &--active:hover {
+    color: $orange-color;
+  }
+
+  &--animation {
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 1px; /* padding for pseudo element */
+  }
+
+  &--animation::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: $light-gray-color;
+    transform: scaleX(1); /* show the line */
+    transform-origin: left; /* starting point of transformation */
+    transition: transform 0.3s ease-out;
+  }
+
+  &--animation:hover::before {
+    transform: scaleX(0); /* hide the line */
+    transform-origin: right; /* transformation endpoint */
+    color: $light-gray-color;
+    background-color: $orange-color;
+  }
+}

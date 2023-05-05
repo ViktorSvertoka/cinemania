@@ -1,5 +1,5 @@
-// import './js/api-service';
-import './js/dark&light-mode';
+import './js/api-service';
+import './js/theme-switcher';
 import './js/catalog';
 import './js/catalog-search-form';
 import './js/catalog-slider';
