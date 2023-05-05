@@ -21,14 +21,8 @@
   align-items: center;
 }
 
-@mixin tel {
-  @media screen and (min-width: 320px) {
-    @content;
-  }
-}
-
 @mixin mobile {
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 320px) {
     @content;
   }
 }
