@@ -1,39 +1,55 @@
 import axios from 'axios';
 import { KEY } from './api-key.js';
-
 const BASE_URL = 'https://api.themoviedb.org/3/';
 
-export default class APIService {
-  constructor() {
-    this.page = 1;
-  }
+axios
+  .get(`${BASE_URL}trending/movie/week`, {
+    params: {
+      api_key: KEY,
+    },
+  })
+  .then(response => {
+    const movies = response.data.results;
+    const movieList = document.getElementById('movie-list');
 
-  async fetchGenres() {
-    const {
-      data: { genres },
-    } = await axios.get(`${BASE_URL}/genre/movie/list?api_key=${KEY}`);
-    return genres;
-  }
+    movies.forEach(movie => {
+      const li = document.createElement('li');
+      const img = document.createElement('img');
+      const h3 = document.createElement('h3');
+      const p = document.createElement('p');
+      const spanRating = document.createElement('span');
+      const spanGenre = document.createElement('span');
 
-  async search(type, query) {
-    const { data } = await axios.get(
-      `${BASE_URL}/search/${type}?query=${query}&api_key=${KEY}&page=${this.page}`
-    );
-    return data;
-  }
+      img.src = 'https://image.tmdb.org/t/p/w500' + movie.poster_path;
+      h3.textContent = movie.title;
+      p.textContent = movie.overview;
 
-  async fetchTrailer(id) {
-    const { data } = await axios.get(
-      `${BASE_URL}/movie/${id}/videos?api_key=${KEY}`
-    );
-    return data;
-  }
+      axios
+        .get(`${BASE_URL}movie/${movie.id}`, {
+          params: {
+            api_key: KEY,
+          },
+        })
+        .then(response => {
+          const genres = response.data.genres
+            .slice(0, 2)
+            .map(genre => genre.name);
+          spanGenre.textContent = genres.join(', ');
+          spanRating.textContent = response.data.vote_average;
+        })
+        .catch(error => {
+          console.log(error);
+        });
 
-  get page() {
-    return this._page;
-  }
+      li.appendChild(img);
+      li.appendChild(h3);
+      li.appendChild(p);
+      li.appendChild(spanRating);
+      li.appendChild(spanGenre);
 
-  set page(newPage) {
-    this._page = newPage;
-  }
-}
+      movieList.appendChild(li);
+    });
+  })
+  .catch(error => {
+    console.log(error);
+  });
