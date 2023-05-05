@@ -5,11 +5,12 @@ html {
 }
 
 body {
-  color: $white-color;
+  color: var(--primary-text-clr);
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   letter-spacing: 0.04em;
-  background-color: $black-color;
+  background-color: var(--page-bgc);
+  @include animation(background-color);
 }
 
 .container {

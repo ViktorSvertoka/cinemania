@@ -1,8 +1,7 @@
 .site-header {
-  background-color: $black-color;
   padding: 8px 20px;
 
-  border: 2px solid green;
+  // border: 2px solid green;
 
   @include tablet {
     padding: 12px 32px;
@@ -35,7 +34,7 @@
 
   &-text {
     display: none;
-    color: $white-color;
+    color: var(--primary-text-clr);
     @include tablet {
       display: inline-block;
       font-weight: 400;
@@ -77,26 +76,32 @@
   }
 }
 
+// ====================== THEME SWITCHER==============================
+
 .header__theme-switcher {
   display: flex;
   align-items: center;
+  gap: 14px;
+  cursor: pointer;
   width: 38px;
   height: 16px;
   background-color: $orange-color;
   background: $linear-gradient-down;
   border-radius: 194px;
-  padding: 2px;
+  padding: 5px;
   position: relative;
 
   @include tablet {
     width: 54px;
     height: 20px;
     margin-left: auto;
+    gap: 24px;
   }
 
   @include desktop {
     width: 60px;
     height: 24px;
+    gap: 24px;
   }
 
   &::before {
@@ -104,24 +109,44 @@
     border-radius: 50px;
     background-color: $white-color;
     position: absolute;
+    top: 12.5%;
     width: 12px;
     height: 12px;
+    transform: translateX(var(--switcher-pos-mob));
+    @include animation(transform);
 
     @include tablet {
       width: 16px;
       height: 16px;
+      transform: translateX(var(--switcher-pos-tab));
     }
 
     @include desktop {
       width: 18px;
       height: 18px;
+      transform: translateX(var(--switcher-pos-desk));
     }
+  }
+}
+
+#icon-moon,
+#icon-sun {
+  width: 8px;
+  height: 8px;
+
+  @include tablet {
+    width: 11px;
+    height: 11px;
+  }
+  @include desktop {
+    width: 13px;
+    height: 13px;
   }
 }
 
 // ============================ MOBILE MENU ==============================/
 .backdrop {
-  background-color: rgb(255, 255, 255);
+  background-color: var(--backdrop-bgc);
   opacity: 0.2;
   position: absolute;
   top: 0;
@@ -137,12 +162,12 @@
 
 .mobile-menu__container {
   @media screen and (max-width: 767px) {
+    background-color: var(--mobile-menu-bgc);
     position: absolute;
     top: 0;
     left: 0;
     padding: 20px;
     height: 100%;
-    background-color: $black-color;
     border-radius: 0px 8px 8px 0px;
     z-index: 3;
     width: calc(100% - 116px);
