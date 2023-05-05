@@ -49,4 +49,8 @@
   @include font(400, 16px, 1.19, 0);
   color: $light-gray-color;
   text-decoration: underline;
+
+  &--active:hover {
+    color: $orange-color;
+  }
 }
