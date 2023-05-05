@@ -1,3 +1,66 @@
+.hero {
+  position: relative;
+  
+
+}
+
+.container{
+  width: 1280px;
+  padding: 0 32px;
+}
+
+.hero .container {
+  background-image: url(../images/Subtract_black.png) , url(../images/hero.jpg) ;
+  // background-position: left 93px ;
+  background-position-x: 92px;
+
+  height: 720px;
+  background-repeat: no-repeat;
+}
+
+
+.hero__title {
+  
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 64px;
+line-height: 1.17;
+letter-spacing: 0em;
+
+color: $white-color;
+
+margin-bottom: 16px;
+
+}
+
+.hero__block-left {
+  position: absolute;
+  top: 169px;
+  
+  width: 464px;
+}
+.hero__text {
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 1.19;
+letter-spacing: 0;
+
+color: $transparent-white-color;
+
+margin-bottom: 32px;
+}
+
+.hero__img {
+  //  position: absolute;
+}
+.hero__subtract {
+  position: absolute;
+}
+
+
 .watch-trailer {
   display: flex;
   flex-direction: row;
