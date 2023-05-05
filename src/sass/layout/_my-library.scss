@@ -1,9 +1,14 @@
 .my-lib__hero {
   // border: 1px solid red;
+  min-height: 380px;
+  background-image: linear-gradient(
+    to right,
+    rgba(47, 48, 58, 0.4),
+    rgba(47, 48, 58, 0.4)
+  ),
+  url(../../images/hero_2x.jpg);
 
-  @media screen and (max-width: 768px) {
-    min-height: 380px;
-  }
+
 
   @media screen and (max-width: 1199px) {
     min-height: 370px;
