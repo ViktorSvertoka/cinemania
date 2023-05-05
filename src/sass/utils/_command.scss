@@ -1,5 +1,9 @@
 ///БАЗОВЫЕ СТИЛИ
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: $white-color;
   font-family: 'Roboto', sans-serif;
@@ -14,29 +18,35 @@ body {
   padding-right: 20px;
   margin: 0 auto;
 
-  @include tel {
-    width: 320px;
-  }
-
   @include mobile {
     width: 480px;
   }
 
   @include tablet {
-    width: 768px;
+    width: 704px;
     padding-left: 32px;
     padding-right: 32px;
   }
 
   @include desktop {
-    width: 1200px;
-    padding-left: 16px;
-    padding-right: 16px;
+    width: 1216px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }
 
 .section {
-  padding: 60px 0;
+  @include mobile {
+    padding: 28px 0;
+  }
+
+  @include tablet {
+    padding: 40px 0;
+  }
+
+  @include desktop {
+    padding: 80px 0;
+  }
 }
 
 .visually-hidden {

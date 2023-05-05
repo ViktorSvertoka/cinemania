@@ -1,0 +1,144 @@
+// Стили для модального окна с видео
+.watch-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Модальное окно видео */
+.watch-modal-content {
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 16px;
+  z-index: 9999;
+  background-color: #111111;
+
+  @include mobile {
+    width: 280px; /* Ширина на мобильных устройствах */
+    height: 289px;
+    margin: 10% auto;
+    padding: 10px;
+  }
+
+  @include tablet {
+    width: 609px; /* Ширина на планшетах */
+    height: 400px;
+    margin: 10% auto;
+    padding: 20px;
+  }
+
+  @include desktop {
+    width: 700px; /* Ширина на настольных устройствах */
+    height: 400px;
+    margin: 10% auto;
+    padding: 30px;
+  }
+}
+
+/* Содержимое модального окна (видео) */
+.watch-modal-content iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Кнопка закрытия */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+
+  @include mobile {
+    font-size: 24px;
+  }
+
+  @include tablet {
+    font-size: 26px;
+  }
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.watch-modal-content p {
+  position: absolute;
+  width: 214px;
+  height: 65px;
+  left: 33px;
+  top: 39px;
+
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+
+  color: #ffffff;
+
+  @include tablet {
+    width: 321px;
+    height: 92px;
+    left: 44px;
+    top: 132px;
+
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  @include desktop {
+    width: 321px;
+    height: 100px;
+    left: 50px;
+    top: 150px;
+
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+/* Модальное окно ошибки */
+.modal-error {
+  display: none;
+}
+
+.modal-error-image {
+  position: absolute;
+  width: 159px;
+  height: 153px;
+  left: 61px;
+  top: 128px;
+
+  @include tablet {
+    width: 296px;
+    height: 260px;
+
+    left: 303px;
+    top: 124px;
+  }
+
+  @include desktop {
+    width: 363px;
+    height: 318px;
+    left: 337px;
+    top: 77px;
+  }
+}
