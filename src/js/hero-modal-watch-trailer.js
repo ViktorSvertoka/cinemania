@@ -7,9 +7,11 @@ const modalError = document.querySelector('.modal-error');
 const modalContent = document.querySelector('.watch-modal-content');
 const closeModalBtn = document.querySelector('.close');
 const trailerVideo = document.querySelector('#trailer-video');
+const loader = document.getElementById('loader');
 
 watchTrailerBtn.addEventListener('click', async () => {
   try {
+    loader.style.display = 'flex';
     const movieId = watchTrailerBtn.dataset.movieId;
 
     // Получение списка видео для фильма из API
@@ -26,6 +28,7 @@ watchTrailerBtn.addEventListener('click', async () => {
     // Проверка на наличие видео
     if (!data || data.results.length === 0 || !data.results[0].key) {
       modalError.style.display = 'block';
+
       return;
     }
 
@@ -34,7 +37,7 @@ watchTrailerBtn.addEventListener('click', async () => {
 
     // Установка источника видео для трейлера на URL видео на YouTube
     trailerVideo.src = `https://www.youtube.com/embed/${video.key}`;
-
+    loader.style.display = 'none';
     modal.style.display = 'block';
 
     // Ожидание, пока модальное окно полностью раскроется
