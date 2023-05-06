@@ -1,4 +1,4 @@
-<section class="catalog">
+<section class="catalog section">
   <div class="catalog__container container">
     <form class="catalog__form" id="search-form">
       <div class="catalog__form_wrapper">
@@ -10,26 +10,33 @@
           placeholder="Search"
           autocomplete="off"
         />
-      
-      <button
-        class="catalog__form-button"
-        type="submit"
-        aria-label="search button"
-        
-      >
-        <img class="catalog__icon" src="./images/search1.png" alt="">
-        <!-- <svg class="search__icon" width="20" height="20">
+
+        <button
+          class="catalog__form-button"
+          type="submit"
+          aria-label="search button"
+        >
+          <img class="catalog__icon" src="./images/search1.png" alt="search" />
+          <!-- <svg class="search__icon" width="20" height="20">
           <use href="./images/search.png"></use>
         </svg> -->
-      </button>
-    </div>
-    </form>
-
-    <section class="cards">
-      <h2 class="visually-hidden" aria-label="film cards">Film cards</h2>
-      <div class="container">
-        <ul class="cards__list"></ul>
+        </button>
       </div>
-    </section>
+    </form>
+    <!-- <div class="gallery"></div> -->
+    <ul class="cards__list" id="movie-list"></ul>
+    <!-- <div class="gallery"></div>
+    <h2 class="visually-hidden" aria-label="film cards">Film cards</h2> -->
+    <!-- <div class="cards">
+      
+      <div class="container">
+        
+      </div>
+    </div> -->
+
+    <div class="pagination container">
+      <button class="prev-button" id="prev-button" disabled>Prev</button>
+      <button class="next-button" id="next-button">Next</button>
+    </div>
   </div>
 </section>
