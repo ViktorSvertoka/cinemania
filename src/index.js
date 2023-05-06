@@ -1,9 +1,9 @@
 import './js/api-service';
+import './js/mobile-menu';
 import './js/theme-switcher';
 import './js/catalog';
 import './js/catalog-search-form';
 import './js/catalog-slider';
-import './js/footer-modal-team';
 import './js/hero';
 import './js/hero-modal-oops';
 import './js/hero-modal-watch-trailer';
@@ -12,5 +12,5 @@ import './js/loader';
 import './js/modal-film';
 import './js/upcoming-mounth';
 import './js/weekly-trends';
-import './js/mobile-menu';
 import './js/genres';
+import './js/footer-modal-team';
