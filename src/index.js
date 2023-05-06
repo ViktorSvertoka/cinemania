@@ -14,3 +14,4 @@ import './js/modal-film';
 import './js/upcoming-mounth';
 import './js/weekly-trends';
 import './js/genres';
+import './js/scroll-up';
