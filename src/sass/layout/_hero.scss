@@ -1,56 +1,61 @@
 .hero {
   position: relative;
-  
-
-}
-
-.container{
-  width: 1280px;
-  padding: 0 32px;
 }
 
 .hero .container {
-  background-image: url(../images/Subtract_black.png) , url(../images/hero.jpg) ;
   // background-position: left 93px ;
-  background-position-x: 92px;
-
-  height: 720px;
+  // background-position-x: 92px;
+  background-image: linear-gradient(
+      87.8deg,
+      #0e0e0e 15.61%,
+      rgba(14, 14, 14, 0) 20.39%
+    ),
+    url(../images/hero.jpg);
+  background-position-x: 325px;
+  padding: 0;
   background-repeat: no-repeat;
 }
-
-
-.hero__title {
-  
-font-family: 'Roboto';
-font-style: normal;
-font-weight: 700;
-font-size: 64px;
-line-height: 1.17;
-letter-spacing: 0em;
-
-color: $white-color;
-
-margin-bottom: 16px;
-
+.hero__container {
+  background-image: var(--hero-subtract-clr);
+  background-repeat: no-repeat;
+  height: 720px;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
 .hero__block-left {
   position: absolute;
-  top: 169px;
-  
+  top: 228px;
+
   width: 464px;
 }
+
+
+.hero__title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 1.17;
+  letter-spacing: 0em;
+
+  color: var(--hero-title-clr);
+
+  margin-bottom: 16px;
+}
+
+
 .hero__text {
   font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 1.19;
-letter-spacing: 0;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19;
+  letter-spacing: 0;
 
-color: $transparent-white-color;
+  color: var(--primary-text-clr);;
 
-margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
 .hero__img {
@@ -59,7 +64,6 @@ margin-bottom: 32px;
 .hero__subtract {
   position: absolute;
 }
-
 
 .watch-trailer {
   display: flex;

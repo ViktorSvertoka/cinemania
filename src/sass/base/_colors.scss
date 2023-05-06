@@ -8,10 +8,14 @@ $light-gray-color: #b7b7b7;
 $transparent-white-color: #f8f8f8;
 $white-color: #ffffff;
 $red-color: #ff0000;
+$subtract-white-color: "../images/subtract_white.png";
+$subtract-black-color: "../images/subtract_black.png";
 
 :root[data-theme='dark'] {
   --page-bgc: #{$black-color};
   --hero-bgc-clr: #{$light-black-color};
+  --hero-title-clr: #{$white-color};
+  --hero-subtract-clr: url(/src/images/subtract_black.png);
   --primary-text-clr: #{$white-color};
   --secondary-text-clr: #{$transparent-white-color};
   --muted-text-clr: #{$light-gray-color};
@@ -33,6 +37,8 @@ $red-color: #ff0000;
 :root[data-theme='light'] {
   --page-bgc: #{$white-color};
   --hero-bgc-clr: #{$transparent-white-color};
+  --hero-title-clr: #{$black-color};
+  --hero-subtract-clr: url(/src/images/subtract_white.png);
   --primary-text-clr: #{$light-black-color};
   --secondary-text-clr: #{$light-black-color};
   --muted-text-clr: #{$gray-color};
