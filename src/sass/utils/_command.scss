@@ -1,8 +1,8 @@
 ///БАЗОВЫЕ СТИЛИ
 
-html {
-  scroll-behavior: smooth;
-}
+// html {
+//   scroll-behavior: smooth;
+// }
 
 body {
   color: var(--primary-text-clr);
@@ -13,7 +13,7 @@ body {
   @include animation(background-color);
 }
 
-body.is-open{
+body.is-open {
   overflow: hidden;
 }
 
