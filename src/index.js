@@ -1,5 +1,6 @@
 import './js/api-service';
 import './js/mobile-menu';
+import './js/footer-modal-team';
 import './js/theme-switcher';
 import './js/catalog';
 import './js/catalog-search-form';
@@ -13,4 +14,3 @@ import './js/modal-film';
 import './js/upcoming-mounth';
 import './js/weekly-trends';
 import './js/genres';
-import './js/footer-modal-team';
