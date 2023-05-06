@@ -14,9 +14,17 @@ $white-color: #ffffff;
   --primary-text-clr: #{$white-color};
   --secondary-text-clr: #{$transparent-white-color};
   --muted-text-clr: #{$light-gray-color};
+
   --switcher-pos-mob: 18px;
   --switcher-pos-tab: 30px;
   --switcher-pos-desk: 34px;
+
+  --switcher-bow-pos-mob: -16px;
+  --switcher-bow-pos-tab: -4px;
+  --switcher-bow-pos-desk: 0px;
+
+  --switcher-bow-rotaion: 0;
+
   --mobile-menu-bgc: #{$black-color};
   --backdrop-bgc: rgb(255, 255, 255);
 }
@@ -27,9 +35,17 @@ $white-color: #ffffff;
   --primary-text-clr: #{$light-black-color};
   --secondary-text-clr: #{$light-black-color};
   --muted-text-clr: #{$gray-color};
+
   --switcher-pos-mob: -3px;
   --switcher-pos-tab: -3px;
   --switcher-pos-desk: -2px;
+
+  --switcher-bow-pos-mob: -36px;
+  --switcher-bow-pos-tab: -36px;
+  --switcher-bow-pos-desk: -35px;
+
+  --switcher-bow-rotaion: 180deg;
+
   --mobile-menu-bgc: #{$transparent-white-color};
   --backdrop-bgc: rgb(0, 0, 0);
 }

@@ -14,6 +14,8 @@
   justify-content: space-between;
 }
 
+//========================== LOGO ================================
+
 .logo {
   display: flex;
   align-items: center;
@@ -35,6 +37,7 @@
   &-text {
     display: none;
     color: var(--primary-text-clr);
+    @include animation(color);
     @include tablet {
       display: inline-block;
       font-weight: 400;
@@ -43,6 +46,8 @@
     }
   }
 }
+
+// ==================== SITE NAV ===============================
 
 .header__menu-button {
   display: none;
@@ -53,7 +58,8 @@
     background-color: transparent;
     border: none;
     text-transform: uppercase;
-    color: $light-gray-color;
+    color: var(--muted-text-clr);
+    @include animation(color);
     font-weight: 500;
     font-size: 12px;
     line-height: 1.16;
@@ -72,7 +78,8 @@
 
   &__link {
     text-transform: uppercase;
-    color: $light-gray-color;
+    color: var(--muted-text-clr);
+    @include animation(color);
   }
 }
 
@@ -109,7 +116,8 @@
     border-radius: 50px;
     background-color: $white-color;
     position: absolute;
-    top: 12.5%;
+    top: 12%;
+
     width: 12px;
     height: 12px;
     transform: translateX(var(--switcher-pos-mob));
@@ -125,6 +133,40 @@
       width: 18px;
       height: 18px;
       transform: translateX(var(--switcher-pos-desk));
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 17%;
+    left: 40px;
+
+    border-width: 0 2px 0 0;
+    border-radius: 50px;
+    border-style: solid;
+    border-color: $orange-color;
+    background-color: transparent;
+
+    width: 10px;
+    height: 10px;
+    transform: translateX(var(--switcher-bow-pos-mob))
+      rotate(var(--switcher-bow-rotaion));
+    @include animation(transform);
+
+    @include tablet {
+      width: 14px;
+      height: 14px;
+      transform: translateX(var(--switcher-bow-pos-tab))
+        rotate(var(--switcher-bow-rotaion));
+    }
+
+    @include desktop {
+      top: 19%;
+      width: 15px;
+      height: 15px;
+      transform: translateX(var(--switcher-bow-pos-desk))
+        rotate(var(--switcher-bow-rotaion));
     }
   }
 }
@@ -153,6 +195,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 2;
   @include animation(opacity);
 
   &.visually-hidden {
