@@ -1,17 +1,4 @@
-
-<section class="hero">
-  <div class="container">
-    <form class="search__form" id="search-form">
-      <div class="search-form_wrapper">
-        <input class="search__form--input" type="text" name="search" id="searchQuery" placeholder="Search"
-          autocomplete="of" />
-        <button type="submit" aria-label="search button" class="search__form--button">
-          <svg width="20" hidden="20">
-            <use href="./images/search.png"></use>
-          </svg>
-        </button>
-      </div>
-<section class="catalog">
+<section class="catalog section">
   <div class="catalog__container container">
     <form class="catalog__form" id="search-form">
       <div class="catalog__form_wrapper">
@@ -23,25 +10,40 @@
           placeholder="Search"
           autocomplete="off"
         />
-      
-      <button
-        class="catalog__form-button"
-        type="submit"
-        aria-label="search button"
-        
-      >
-        <img class="catalog__icon" src="./images/search1.png" alt="">
-        <!-- <svg class="search__icon" width="20" height="20">
+
+        <button
+          class="catalog__form-button"
+          type="submit"
+          aria-label="search button"
+        >
+          <img class="catalog__icon" src="./images/search1.png" alt="" />
+          <!-- <svg class="search__icon" width="20" height="20">
           <use href="./images/search.png"></use>
         </svg> -->
-      </button>
-    </div>
+        </button>
+      </div>
     </form>
-
+    <!-- disabled container-->
     <section class="cards">
       <h2 class="visually-hidden" aria-label="film cards">Film cards</h2>
-      <div class="container">
+      <ul class="cards__error disabled" id="cards__error">
+        
+      </ul>
+      <div class="cards__container">
+        <div class="cards__messendge disabled">
+          <p class="cards__text">
+                 OOPS...<br> 
+            We are very sorry!<br>
+            We don’t have any results due to your search.
+            
+          </p>
+        </div>
         <ul class="cards__list" id="movie-list"></ul>
+        <ul class="cards__error" id="cards__error"></ul>
+      </div>
+      <div class="pagination">
+        <button class="prev-button" id="prev-button">Prev</button>
+        <button class="next-button" id="next-button">Next</button>
       </div>
     </section>
   </div>
