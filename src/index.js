@@ -1,3 +1,5 @@
+import './js/my-library';
+
 import './js/api-service';
 import './js/mobile-menu';
 import './js/footer-modal-team';
@@ -15,3 +17,5 @@ import './js/upcoming-mounth';
 import './js/weekly-trends';
 import './js/genres';
 import './js/scroll-up';
+
+
