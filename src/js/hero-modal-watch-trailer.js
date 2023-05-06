@@ -1,13 +1,13 @@
-const API_KEY = '992758a4802a699e8df27d4d6efc34fb';
-const BASE_API_URL = 'https://api.themoviedb.org/3';
+// const API_KEY = '992758a4802a699e8df27d4d6efc34fb';
+// const BASE_API_URL = 'https://api.themoviedb.org/3';
 
 // const watchTrailerBtn = document.querySelector('.watch-trailer');
-const modal = document.querySelector('.watch-modal');
-const modalError = document.querySelector('.modal-error');
-const modalContent = document.querySelector('.watch-modal-content');
-const closeModalBtn = document.querySelector('.close');
-const trailerVideo = document.querySelector('#trailer-video');
-const loader = document.getElementById('loader');
+// const modal = document.querySelector('.watch-modal');
+// const modalError = document.querySelector('.modal-error');
+// const modalContent = document.querySelector('.watch-modal-content');
+// const closeModalBtn = document.querySelector('.close');
+// const trailerVideo = document.querySelector('#trailer-video');
+// const loader = document.getElementById('loader');
 
 // watchTrailerBtn.addEventListener('click', async () => {
 //   try {
@@ -50,17 +50,17 @@ const loader = document.getElementById('loader');
 //   }
 // });
 
-closeModalBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
+// closeModalBtn.addEventListener('click', () => {
+//   modal.style.display = 'none';
+// });
 
-modal.addEventListener('click', event => {
-  // Если клик был на фоне, а не на содержимом модального окна, закрыть модальное окно
-  if (event.target === modal) {
-    closeModalBtn.click();
-  }
-});
+// modal.addEventListener('click', event => {
+//   // Если клик был на фоне, а не на содержимом модального окна, закрыть модальное окно
+//   if (event.target === modal) {
+//     closeModalBtn.click();
+//   }
+// });
 
-modalError.addEventListener('click', () => {
-  modalError.style.display = 'none';
-});
+// modalError.addEventListener('click', () => {
+//   modalError.style.display = 'none';
+// });
