@@ -9,15 +9,23 @@ export default class LibraryAPI {
   }
 
   setLibrary() {
-    this.movies = localStorage.getItem(this.keyValue)
-      ? JSON.parse(localStorage.getItem(this.keyValue))
-      : [];
+    const localStorageData = localStorage.getItem(this.keyValue);
+
+    if (localStorageData) {
+      this.movies = JSON.parse(localStorageData);
+    } else {
+      localStorage.setItem(this.keyValue, JSON.stringify([]));
+      this.movies = [];
+    }
+
+    // console.log(this.movies);
   }
 
   addMovie(movie) {
     if (!JSON.stringify(this.movies).includes(JSON.stringify(movie))) {
       this.movies.push(movie);
       this.updateLocalStorage();
+      return;
     } else {
       console.log('movie already in library', movie);
     }

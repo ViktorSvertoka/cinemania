@@ -2,6 +2,12 @@ import LibraryAPI from './library-api-service';
 
 const library = new LibraryAPI();
 
+library.setLibrary();
+
+
+
+// ============================= TESTS ================================
+
 // localStorage.setItem(
 //   'library',
 //   JSON.stringify([
@@ -11,7 +17,7 @@ const library = new LibraryAPI();
 //   ])
 // );
 
-library.setLibrary();
+// library.setLibrary();
 
 // library.addMovie({ name: 'cat' });
 // library.addMovie({ name: 'cat' });
