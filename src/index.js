@@ -1,7 +1,5 @@
 import './js/my-library';
 
-import './js/current-link';
-
 import './js/api-service';
 import './js/mobile-menu';
 import './js/footer-modal-team';
