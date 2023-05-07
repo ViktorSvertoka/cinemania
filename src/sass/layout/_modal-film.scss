@@ -5,7 +5,7 @@
     line-height: calc(14/12);
 
     cursor: pointer;
-    color: #FFFFFF;
+    color: $white-color;
     padding: 12px 24px;
     border-radius: 74px;
     background-color: transparent;
@@ -32,7 +32,7 @@
 
 .modal-film {
     display: none;
-    background-color: #111111;
+    background-color: $black-color;
     box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
     text-align: left;
     position: absolute;
@@ -108,7 +108,7 @@
 .modal-film__img {
     width: 248px;
     height: 315px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     @media screen and (min-width: 768px) {
     width: 294px;
     height: 400px;
@@ -178,7 +178,7 @@
     width: 100px;
 }
 .modal-film__link-item {
-    color: #FFFFFF;
+    color: $white-color;
   
     
 }
