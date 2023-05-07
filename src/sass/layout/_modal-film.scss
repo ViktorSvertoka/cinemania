@@ -5,12 +5,12 @@
     line-height: calc(14/12);
 
     cursor: pointer;
-    color: #FFFFFF;
+    color: $white-color;
     padding: 12px 24px;
     border-radius: 74px;
-    border-color: transparent;
+    background-color: transparent;
     border: 1px solid;
-    border-color: rgba(255, 194, 38, 1) rgba(248, 65, 25, 1);
+    border-color: $orange-color;
 
     transition-property: color, background-color;
     transition-duration: 250ms;
@@ -23,8 +23,8 @@
 }
 .btn:hover,
 .btn:focus {
-    background-color: #FFFFFF;
-    color: #F87719;
+    background-color: $white-color;
+    color: $orange-color;
     border: none;
     }
 
@@ -32,7 +32,7 @@
 
 .modal-film {
     display: none;
-    background-color: #111111;
+    background-color: $black-color;
     box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
     text-align: left;
     position: absolute;
@@ -65,20 +65,26 @@
     margin: 0;
     width: 24px;
     height: 24px;
-    padding: 3px;
+    fill: $transparent-white-color;
     outline: none;
     cursor: pointer;
     background-color: transparent;
-    border: 1px solid red;
-}
-.modal-film__close-icon {
-
-    fill: #FFFFFF;
-}
-
-.modal-film__close-icon:hover,
-.modal-film__close-icon:focus {
-    fill: orange;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover {
+            fill: $orange-color;
+        }
+    @media screen and (min-width: 768px) {
+    top: 24px;
+    right: 24px;
+    }
+    @media screen and (min-width: 1200px) {
+    top: 40px;
+    right: 40px;
+    
+    }
+ 
 }
 
 .modal-film__container {
@@ -102,7 +108,7 @@
 .modal-film__img {
     width: 248px;
     height: 315px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
     @media screen and (min-width: 768px) {
     width: 294px;
     height: 400px;
@@ -117,7 +123,8 @@
   
 }
 
-.modal-film__container h2 {
+.modal-film__title{
+    color: $white-color;
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -125,30 +132,36 @@
     margin-bottom: 29px;
     @media screen and (min-width: 768px) {
     font-size: 24px;
+    line-height: calc(28/24);
     margin-bottom: 26px;
     }
 
     @media screen and (min-width: 1200px) {
     margin-bottom: 28px;
+    font-size: 24px;
+    line-height: calc(32/24);
     }
 
 }
 
 .modal-film__blok {
     display: flex;
-    color: #B7B7B7;
+    color: $light-gray-color;
     justify-content: space-between;
     margin-bottom: 20px;
 
 }
 .attribute {
+    margin-right: 50px;
+    @media screen and (min-width: 768px) {
     margin-right: 62px;
+}
 }
 
 .modal-film__about {
     font-style: normal;
     font-weight: 500;
-    color: #B7B7B7;
+    color: $light-gray-color;
     text-transform: uppercase;
     font-size: 14px;
      line-height: calc(16/14);
@@ -165,8 +178,11 @@
     width: 100px;
 }
 .modal-film__link-item {
-    color: #FFFFFF;
+    color: $white-color;
+  
+    
 }
+
 .modal-film__link,
 .modal-film__link-item {
     font-family: 'Roboto';
@@ -174,6 +190,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
+    
     margin-bottom: 12px;
     &:last-child {
         margin-bottom: 0;
@@ -181,6 +198,7 @@
     
     @media screen and (min-width: 1200px) {
     font-size: 16px; 
+    line-height: calc(19/16);
     margin-bottom: 14px;
     }
 }
@@ -189,28 +207,44 @@
     display: flex;
 }
 
-.vote,
-.votes {
+.vote {
     font-weight: 500;
     font-size: 12px;
     line-height: calc(14/12);
-    background-color: #FFFFFF;
+    background-color: $white-color;
     border-radius: 5px;
-    color: #111111;
-    padding: 1px 4px;
+    color: $black-color;
+    padding: 1px 8px;
     @media screen and (min-width: 1200px) {
         font-size: 14px;
         line-height: calc(16/14);
         padding: 1px 8px;
         }
 }
+.votes {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(14/12);
+    background-color: $white-color;
+    border-radius: 5px;
+    color: $black-color;
+    padding: 1px 4px;
+   
+    @media screen and (min-width: 1200px) {
+        font-size: 14px;
+        line-height: calc(16/14);
+        padding: 1px 4px;
+        }
+
+}
 
 .modal-film__about-txt {
     font-family: 'Roboto';
+    font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    line-height: 1.66;
-    color: #F8F8F8;
+    line-height: calc(20/12);
+    color: $transparent-white-color;
     margin-bottom: 16px;
     @media screen and (min-width: 768px) {
     margin-top: 4px;    
@@ -219,6 +253,7 @@
 
     @media screen and (min-width: 1200px) {
     font-size: 14px;
+    line-height: calc(20/14);
     margin-top: 4px;    
     margin-bottom: 24px;  
     }
