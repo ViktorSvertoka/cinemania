@@ -9,9 +9,10 @@
   overflow: hidden;
 }
 
-.catalog__container {
+.catalog__container.container {
   padding: 0;
-  background-color:inherit;
+  background-color: inherit;
+  // background-color: #7fdb24;
 }
 
 .catalog {
@@ -21,12 +22,13 @@
 .catalog__form {
   display: flex;
   justify-content: center;
-  position: relative;
+  // position: relative;
 }
 
 .catalog__form-input {
   // outline: none;
-  min-width: 334px;
+  max-width: 350px;
+  width: 100%;
   height: 48px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -34,10 +36,18 @@
   line-height: 1.9;
   background-color: transparent;
   color: #ffffff;
-  padding:  12px 24px;
+  padding: 12px 24px;
 
   border: 1px solid #ffffff;
   border-radius: 8px;
+
+  @media screen and (min-width: 767px) {
+    min-width: 222px;
+  }
+
+  @media screen and (max-width: 320px) {
+    min-width: 224px;
+  }
 }
 
 .catalog__form-button {
@@ -76,11 +86,25 @@
   gap: 16px;
   list-style-type: none;
   padding-top: 48px;
-  // position: absolute;
+  //  position: absolute;
 }
 
+// @media screen and (min-width: 320px) {
+//   #movie-list {
+//     // width: 100%;
+//     display: flex;
+//     flex-direction: column;
+//      display: grid;
+//     grid-template-columns: repeat(1, 1fr);
+//     gap: 16px;
+//     list-style-type: none;
+//     padding-top: 36px;
+//   }
+//   // position: absolute;
+// }
+
 #movie-list li {
-  width: 395px;
+  max-width: 395px;
   height: 574px;
   border: 1px solid #0e0e0e;
   background: linear-gradient(
@@ -90,7 +114,17 @@
   );
   border-radius: 5px;
   position: relative;
+  
+  @media screen and (max-width: 767px) {
+  
+    width: 224px;
+    height: 325px;
+  
 }
+
+}
+
+
 
 #movie-list li img {
   display: block;
@@ -128,6 +162,7 @@
   padding-top: 60px;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .prev-button {
@@ -159,7 +194,7 @@
   // position: relative;
 }
 
-.cards__messendge{
+.cards__message {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -168,11 +203,11 @@
   // background-color: #ffffff;
 }
 
-.cards__messendge.disabled {
+.cards__disabled {
   display: none;
 }
 
-.cards__text{
+.cards__text {
   color: #f84119;
   text-align: center;
   display: flex;
