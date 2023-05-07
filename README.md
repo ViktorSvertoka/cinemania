@@ -5,10 +5,10 @@
 ### Development team :
 
 - Viktor Svertoka **Team Lead** development and design of the section **Footer,
-  Scroll Up, Modal Window Team**
+  Scroll Up, Modal Window Team, add local Fonts, custom Cursors, Favicon**
 
 - Yevhenii Lukashov **Scrum Master** development and design of the section
-  **API, fetch**
+  **API, Fetch**
 
 - Volodymyr Zhyvun **Front End Developer** development and design of the section
   **Upcomining mounth**
@@ -20,7 +20,7 @@
   section **Hero, Slider, Modal Window OOPS**
 
 - Sergiy Yevchihen **Front End Developer** development and design of the section
-  **Catalog**
+  **Catalog, Pagination, Search form**
 
 - Nikita Slabushevskiy **Front End Developer** development and design of the
   section **Weekly Trends**
