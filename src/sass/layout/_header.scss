@@ -1,8 +1,6 @@
 .site-header {
   padding: 8px 20px;
 
-  // border: 2px solid green;
-
   @include tablet {
     padding: 12px 32px;
   }
@@ -80,10 +78,18 @@
     text-transform: uppercase;
     color: var(--muted-text-clr);
     @include animation(color);
+
+    body.current-page__home &.current-page__home,
+    body.current-page__catalog &.current-page__catalog,
+    body.current-page__my-library &.current-page__my-library,
+    &:hover,
+    &:focus {
+      color: $orange-color;
+    }
   }
 }
 
-// ====================== THEME SWITCHER==============================
+// ====================== THEME SWITCHER ==============================
 
 .header__theme-switcher {
   display: flex;
