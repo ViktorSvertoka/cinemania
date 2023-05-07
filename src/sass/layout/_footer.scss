@@ -1,3 +1,20 @@
+.footer {
+  @include mobile {
+    padding-top: 40px;
+    padding-bottom: 30px;
+  }
+
+  @include tablet {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+
+  @include desktop {
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+}
+
 .footer__container {
   padding-top: 30px;
   padding-bottom: 30px;
