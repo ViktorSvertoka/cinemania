@@ -1,4 +1,3 @@
-import './js/my-library';
 import './js/api-service';
 import './js/mobile-menu';
 import './js/footer-modal-team';
