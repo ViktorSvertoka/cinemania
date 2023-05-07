@@ -1,6 +1,6 @@
 const API_KEY = '992758a4802a699e8df27d4d6efc34fb';
-const POPUP_URL = `https://api.themoviedb.org/3/movie/`;
-const POPUP_ID =  157336;
+const BASE_URL = `https://api.themoviedb.org/3/movie/`;
+const MOVIE_ID =  157336;
 
 
 const refs = {  
@@ -39,6 +39,7 @@ function handlePopUpModalClose({code}) {
 }
 
 function handlePopUpModal() {
+  getPopUpMovies();
   document.body.classList.toggle(classes.openModal);
   overlayPopUp.classList.toggle(classes.visual);
   modalPopUp.classList.toggle(classes.visual);  
@@ -47,27 +48,25 @@ function handlePopUpModal() {
 
 
 function fetchPopUpMovies() {
-  return fetch(`${POPUP_URL}${POPUP_ID}?api_key=${API_KEY}`)
+  return fetch(`${BASE_URL}${MOVIE_ID}?api_key=${API_KEY}`)
   .then(data => {    
     return data.json();      
   })
 }
 
-function getPopUpMovies() {
-  fetchPopUpMovies()
-    .then(({ poster_path, title, overview, popularity, vote_average, vote_count, tagline, genres }) => {
-      console.log(genres)           
-      refs.image.src = `https://image.tmdb.org/t/p/w500/${poster_path}`;      
-      refs.titles.textContent = title;            
-      refs.vote.textContent = vote_average;         
-      refs.votes.textContent = vote_count;      
-      refs.popular.textContent = popularity;      
-      refs.genre.textContent = genres;
-      refs.aboutTxtPopUp.textContent = overview;      
-    })
-        .catch(error => console.log(error));
-    
+async function getPopUpMovies() {
+  try {
+    const { poster_path, title, overview, popularity, vote_average, vote_count, tagline, genres } = await fetchPopUpMovies();    
+    refs.image.src = `https://image.tmdb.org/t/p/w500/${poster_path}`;      
+    refs.titles.textContent = title;            
+    refs.vote.textContent = vote_average;         
+    refs.votes.textContent = vote_count;      
+    refs.popular.textContent = popularity;    
+    console.log(genres);       
+    refs.genre.textContent = genres.map((genres) => genres.name).join(" ");   
+    refs.aboutTxtPopUp.textContent = overview;      
+  } catch (error) {
+    console.log(error);
+  }
 }
-
-getPopUpMovies();
 
