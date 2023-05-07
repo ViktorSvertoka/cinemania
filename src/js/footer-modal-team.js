@@ -83,26 +83,52 @@ const teamLink = document.querySelector('.footer__link');
 const teamBackdrop = document.querySelector('.team__backdrop');
 const teamCloseBtn = document.querySelector('.team__modal-close-btn');
 
-function openModal() {
+function onLinkClick(event) {
+  event.preventDefault();
+
   teamBackdrop.classList.remove('is-hidden');
   document.body.classList.add('modal-open');
-  document.addEventListener('keydown', closeModal);
-  teamBackdrop.addEventListener('click', closeModal);
-  teamCloseBtn.addEventListener('click', closeModal);
+
+  addAllEventListeners();
 }
 
-function closeModal(event) {
-  if (event.type === 'keydown' && event.code !== 'Escape') {
+function onEscClick(event) {
+  event.preventDefault();
+
+  if (event.code !== 'Escape') {
     return;
   }
-  teamBackdrop.classList.add('is-hidden');
-  document.body.classList.remove('modal-open');
-  document.removeEventListener('keydown', closeModal);
-  teamBackdrop.removeEventListener('click', closeModal);
-  teamCloseBtn.removeEventListener('click', closeModal);
+
+  closingModalStaff();
 }
 
-teamLink.addEventListener('click', event => {
+function onBackdropClick(event) {
+  if (event.target.closest('.team__wrapper')) {
+    return;
+  }
+
+  closingModalStaff();
+}
+
+function onCloseBtnClick(event) {
   event.preventDefault();
-  openModal();
-});
+
+  closingModalStaff();
+}
+
+function addAllEventListeners() {
+  document.addEventListener('keydown', onEscClick);
+  teamBackdrop.addEventListener('click', onBackdropClick);
+  teamCloseBtn.addEventListener('click', onCloseBtnClick);
+}
+
+function closingModalStaff() {
+  document.removeEventListener('keydown', onEscClick);
+  teamBackdrop.removeEventListener('click', onBackdropClick);
+  teamCloseBtn.removeEventListener('click', onCloseBtnClick);
+
+  teamBackdrop.classList.add('is-hidden');
+  document.body.classList.remove('modal-open');
+}
+
+teamLink.addEventListener('click', onLinkClick);
