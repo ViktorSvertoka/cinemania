@@ -42,13 +42,13 @@
 }
 
 .footer__copyright {
-  @include font(400, 16px, 1.19, 0);
+  @include font(400, 16px, 1.19, null);
   color: var(--muted-text-clr);
   margin-right: 5px;
 }
 
 .footer__desc {
-  @include font(400, 16px, 1.19, 0);
+  @include font(400, 16px, 1.19, null);
   color: var(--muted-text-clr);
 }
 
@@ -58,12 +58,12 @@
 }
 
 .footer__text {
-  @include font(400, 16px, 1.19, 0);
+  @include font(400, 16px, 1.19, null);
   color: var(--muted-text-clr);
 }
 
 .footer__link {
-  @include font(400, 16px, 1.19, 0);
+  @include font(400, 16px, 1.19, null);
   color: var(--muted-text-clr);
 
   &--active:hover {

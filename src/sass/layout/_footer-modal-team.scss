@@ -33,11 +33,11 @@
   margin-right: auto;
   padding: 25px 15px 20px;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     width: 580px;
   }
 
-  @media screen and (min-width: 1280px) {
+  @include desktop {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -67,7 +67,7 @@
   cursor: pointer;
   color: $black-color;
 
-  @media screen and (min-width: 768px) {
+  @include tablet {
     top: 10px;
     right: 10px;
   }
@@ -120,10 +120,9 @@
 }
 
 .team__box {
+  @include font(500, 16px, null, null);
   padding: 10px;
   text-align: center;
-  font-weight: 500;
-  font-size: 16px;
   margin-bottom: 3px;
 }
 
@@ -152,9 +151,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @include animation3(background-color, color, fill);
 
   &--active:hover,
   &--active:focus {
@@ -173,9 +171,8 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @include animation3(background-color, color, fill);
 
   &--active:hover,
   &--active:focus {
