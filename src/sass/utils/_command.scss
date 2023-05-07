@@ -17,6 +17,13 @@ body.is-open {
   overflow: hidden;
 }
 
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
 .container {
   width: 100%;
   padding-left: 20px;
