@@ -1,7 +1,10 @@
+// import Pagination from './Pagination';
 const axios = require('axios').default;
 
 const API_KEY = '992758a4802a699e8df27d4d6efc34fb';
-const URL = 'https://api.themoviedb.org/3';
+const BASE_URL = 'https://api.themoviedb.org/3';
+const URL_SEARCH_MOVIE = `${BASE_URL}/search/movie`;
+const URL_GET_MOVIE = `${BASE_URL}/movie`;
 
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('searchQuery');
@@ -13,7 +16,7 @@ let currentPage = 1;
 let totalPages = 1;
 
 async function searchMovies(query, page = 1) {
-  const response = await axios.get(`${URL}/search/movie`, {
+  const response = await axios.get(URL_SEARCH_MOVIE, {
     params: {
       api_key: API_KEY,
       query: query,
@@ -27,39 +30,18 @@ async function searchMovies(query, page = 1) {
 
 async function renderWeekMovies(movies) {
   const movieList = document.getElementById('movie-list');
-  //document.querySelector('.cards__list');
+
   let markup = '';
 
-  // for (const movie of movies) {
-  //   if (!movie.poster_path) {
-  //     continue; // пропускаем фильм без картинки
-  //   }
-  //   const movieGenre = await getGenre(movie.id);
-  //   const movieYear = await getYear(movie.release_date);
-  //   markup += `<li class='cards__list'>
-  //     <img src='https://image.tmdb.org/t/p/w500/${movie.poster_path}' alt='${movie.title}' width='395' height='574' />
-  //     <div class="search__render">
-  //       <h3>${movie.title}</h3>
-  //       <p>${movieGenre} <span>| ${movieYear}</span></p>
-  //       <p>${movie.vote_average}</p>
-  //     </div>
-  //   </li>`;
-  // }
-  if (movies.length === 0) {
-    document.querySelector('.cards__messendge').classList.add('disabled');
-    //   markup = `<li class="cards__eror">
-    //     //   <div class="cards__messendge">
-    //     //     <p class="cards__text">
-    //     //       OOPS... We are very sorry! We don’t have any results due to your
-    //     //       search.
-    //     //     </p>
-    //     //   </div>
-    //     // </li>`;
+  if (movies.length === []) {
+    document
+      .querySelector('.cards__message')
+      .classList.remove('cards__disabled');
   } else {
     for (let i = 0; i < 10; i++) {
       const movie = movies[i];
-      if (!movie.poster_path) {
-        continue; // пропускаем фильм без картинки
+      if (!movie || !movie.poster_path) {
+        continue; // пропускаем фильм без картинки или фильм, равный null
       }
       const movieGenre = await getGenre(movie.id);
       const movieYear = await getYear(movie.release_date);
@@ -77,7 +59,7 @@ async function renderWeekMovies(movies) {
 }
 
 async function getGenre(movieId) {
-  const response = await axios.get(`${URL}/movie/${movieId}`, {
+  const response = await axios.get(`${URL_GET_MOVIE}/${movieId}`, {
     params: {
       api_key: API_KEY,
     },
