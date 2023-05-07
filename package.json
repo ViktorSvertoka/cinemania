@@ -1,7 +1,7 @@
 {
   "name": "free-time",
   "version": "2.0.0",
-  "description": "",
+  "description": "cinemania team project",
   "homepage": "https://ViktorSvertoka.github.io/free-time",
   "scripts": {
     "start": "parcel src/*.html",
