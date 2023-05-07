@@ -6,6 +6,7 @@ export default class LibraryAPI {
 
   updateLocalStorage() {
     localStorage.setItem(this.keyValue, JSON.stringify(this.movies));
+    console.log(this.movies, 'updated localS');
   }
 
   setLibrary() {
@@ -18,30 +19,27 @@ export default class LibraryAPI {
       this.movies = [];
     }
 
-    // console.log(this.movies);
+    console.log(this.movies, 'this.movies');
   }
 
   addMovie(movie) {
-    if (!JSON.stringify(this.movies).includes(JSON.stringify(movie))) {
-      this.movies.push(movie);
-      this.updateLocalStorage();
-      return;
+    if (!this.movies.some(m => m.id === movie.id)) {
+    this.movies.push(movie);
+    this.updateLocalStorage();
     } else {
-      console.log('movie already in library', movie);
+      console.log('movie already in library', movie.id, movie.title);
+      return;
     }
   }
 
   deleteMovie(movie) {
-    if (JSON.stringify(this.movies).includes(JSON.stringify(movie))) {
-      for (let i = 0; i < this.movies.length; i++) {
-        if (JSON.stringify(this.movies[i]) === JSON.stringify(movie)) {
-          this.movies.splice(i, 1);
-          this.updateLocalStorage();
-          return;
-        }
-      }
+    const index = this.movies.findIndex(m => m.id === movie.id);
+    if (index !== -1) {
+      this.movies.splice(index, 1);
+      this.updateLocalStorage();
     } else {
-      console.log('there is no such movie', movie);
+      console.log('there is no such movie', movie.id, movie.title);
+      return;
     }
   }
 }
