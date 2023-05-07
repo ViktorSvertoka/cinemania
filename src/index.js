@@ -7,7 +7,6 @@ import './js/catalog';
 import './js/catalog-search-form';
 import './js/catalog-slider';
 import './js/hero';
-import './js/hero-modal-oops';
 import './js/hero-modal-watch-trailer';
 import './js/hero-slider';
 import './js/loader';
