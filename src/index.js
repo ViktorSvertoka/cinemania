@@ -4,7 +4,6 @@ import './js/footer-modal-team';
 import './js/modal-film';
 import './js/theme-switcher';
 import './js/catalog';
-import './js/catalog-search-form';
 import './js/catalog-slider';
 import './js/hero';
 import './js/hero-modal-watch-trailer';
