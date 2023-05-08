@@ -64,3 +64,26 @@
 // modalError.addEventListener('click', () => {
 //   modalError.style.display = 'none';
 // });
+import axios from 'axios';
+import successModalTemplate from '../templates/success-trailer-modal.hbs';
+import errorModalTemplate from '../templates/error-trailer-modal.hbs';
+
+const watchTrailerBtn = document.getElementByIds('watch-trailer-btn');
+const markupId = document.getElementById('trailer-modal');
+
+console.log('hello');
+export default async function openTrailerModal() {
+  try {
+    const {
+      data: { results },
+    } = await axios.get(
+      `https://api.themoviedb.org/3/movie/505/videos?api_key=992758a4802a699e8df27d4d6efc34fb&language=en-US`
+    );
+    console.log('hi', results);
+
+    const videoUrl = `https://www.youtube.com/embed/${results[0].key}`;
+
+    markupId.insertAdjacentHTML('beforeend', successModalTemplate(videoUrl));
+  } catch {}
+}
+openTrailerModal();
