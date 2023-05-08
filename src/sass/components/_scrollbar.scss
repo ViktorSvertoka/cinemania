@@ -2,11 +2,15 @@ body {
   scrollbar-width: none;
 }
 
-::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 40px;
 }
 
-::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
   background-image: url('../images/scrollbar.svg');
   background-repeat: no-repeat;
   background-position: center center;
