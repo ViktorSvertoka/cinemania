@@ -1,6 +1,6 @@
 import APIService from './api-service-main';
 
-const apiService = new APIService(arguments);
+const apiService = new APIService();
 
 const refs = {
   hero: document.querySelector('.hero'),
