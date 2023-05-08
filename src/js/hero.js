@@ -1,4 +1,5 @@
 import APIService from './api-service-main';
+import openTrailerModal from './hero-modal-watch-trailer';
 
 const apiService = new APIService();
 
@@ -7,9 +8,7 @@ const refs = {
 };
 
 // Создем запрос страницу
-if (
-  document.querySelector('.current-page__my-library').localName !==
-  'body') {
+if (document.querySelector('.current-page__my-library').localName !== 'body') {
   createHeroCard();
 }
 //   .then(() => {})
@@ -29,8 +28,11 @@ async function createHeroCard() {
 
 // формирование карточки
 async function getTrendsMovieMarkUp() {
+  loader.style.display = 'flex';
+
   try {
     const results = await apiService.getTrends('day'); //запрос данных на сервере
+    loader.style.display = 'none';
 
     if (results.length !== 0) {
       return createHeroWithoutFilms();
@@ -94,6 +96,8 @@ function createHeroWithoutFilms() {
 function updateHeroMarkup(markup) {
   if (markup !== undefined) {
     refs.hero.insertAdjacentHTML('beforeend', markup);
+    const watchTrailerBtn = document.getElementById('hero__btn');
+    watchTrailerBtn.addEventListener('click', async(openTrailerModal));
   }
 }
 
