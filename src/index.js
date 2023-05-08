@@ -8,6 +8,5 @@ import './js/hero-modal-watch-trailer';
 import './js/hero-slider';
 import './js/loader';
 import './js/upcoming-mounth';
-import './js/weekly-trends';
 import './js/genres';
 import './js/scroll-up';
