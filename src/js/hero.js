@@ -32,7 +32,7 @@ async function getTrendsMovieMarkUp() {
   try {
     const results = await apiService.getTrends('day'); //запрос данных на сервере
 
-    if (results.length !== 0) {
+    if (results.length === 0) {
       return createHeroWithoutFilms();
     } else {
       return createCardTrendsOfDay(
@@ -59,11 +59,7 @@ function createCardTrendsOfDay({
                 <p class="hero__text hero__text--render">
                 ${overview}    
                 </p>
-
                 <a class="watch-trailer button" type="button" id ="hero__btn" data-movie-id="${id}">Watch trailer</a>
-
-                <button class="watch-trailer" id="hero__btn" data-movie-id="${id}">Watch trailer</button>
-
             </div>
         </div>
     </div>`;
@@ -82,13 +78,6 @@ function createHeroWithoutFilms() {
                 </p>
 
                 <a href="./catalog.html" type="button" class="watch-trailer button" id="hero__btn" data-movie-id="">Get Started</a>
-
-
-                <a href="./catalog.html" type="button" class="watch-trailer button" id ="hero__btn" data-movie-id="" >Get Started</a>
-
-                <a href="./catalog.html" type="button" class="watch-trailer button" id="hero__btn" data-movie-id="">Get Started</a>
-
-
             </div>
         </div>
     </div>`;
