@@ -17,7 +17,6 @@ createHeroCard();
 async function createHeroCard() {
   try {
     const markup = await getTrendsMovieMarkUp();
-    console.log('createHeroCard', markup);
     if (markup !== undefined) {
       updateHeroMarkup(markup); //вывод карточки Героя на страницу
     }
@@ -30,18 +29,13 @@ async function createHeroCard() {
 async function getTrendsMovieMarkUp() {
   try {
     const results = await apiService.getTrends('day'); //запрос данных на сервере
-    console.log(results.length);
-    console.log(Math.floor(Math.random(results.length) * 10));
 
-    if (results.length === 0) {
+      if (results.length === 0) {
       return createHeroWithoutFilms();
     } else {
-      console.log(
-        'results',
+      return createCardTrendsOfDay(
         results[Math.floor(Math.random(results.length) * 20)]
-      );
-      console.log('markup', markup);
-      return createCardTrendsOfDay(results[19]); //рендер карточки
+      ); //рендер карточки
     }
   } catch (error) {}
 }
@@ -53,7 +47,6 @@ function createCardTrendsOfDay({
   vote_average,
   overview,
 }) {
-  console.log(id, backdrop_path, title, vote_average, overview);
   return `<div class="container imgApi" id="heroContainerImg" style="background-image:linear-gradient(87.8deg, #0E0E0E 15.61%, rgba(14, 14, 14, 0) 60.39%), url('https://image.tmdb.org/t/p/original${backdrop_path}')" >
         <div class="hero__container hero__container--render"> 
             <div class="hero__block-left--render">
