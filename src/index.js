@@ -1,4 +1,5 @@
 import './js/mobile-menu';
+import './js/scroll-up';
 import './js/footer-modal-team';
 import './js/modal-film';
 import './js/theme-switcher';
@@ -9,4 +10,3 @@ import './js/hero-slider';
 import './js/loader';
 import './js/upcoming-mounth';
 import './js/genres';
-import './js/scroll-up';
