@@ -11,6 +11,7 @@
     background-color: transparent;
     border: 1px solid;
     border-color: $orange-color;
+ 
 
     transition-property: color, background-color;
     transition-duration: 250ms;
@@ -35,21 +36,30 @@
     background-color: $black-color;
     box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
     text-align: left;
-    position: absolute;
+
+    position: fixed;
+    
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    min-width: 280px;
+    transform: translate(-50%, -50%) scale(0.8);
+   
+    width: 280px;
     min-height: 847px;
     padding: 52px 16px;
     border-radius: 16px;
     
     @media screen and (min-width: 768px) {
+    transform: translate(-50%, -50%) scale(0.9);
+    top: 50%;
+    left: 50%;
     min-width: 704px;
     min-height: 488px;
     padding: 44px;
      }
     @media screen and (min-width: 1200px) {
+    transform: translate(-50%, -50%) scale(0.9);
+    top: 50%;
+    left: 50%;
     min-width: 846px;
     min-height: 598px;
     padding: 60px;
@@ -91,6 +101,7 @@
     padding: 0;
     box-sizing: border-box;
     width: 248px;
+    
     @media screen and (min-width: 768px) {
     width: 616px;    
     height: 400px;
@@ -272,6 +283,7 @@
     right: 0;
     background-color: transparent;
     display: none;
+   
 }
 
 .visual {
@@ -283,6 +295,3 @@
     display: block;
 }
 
-body.open-modal {
-    overflow-y: hidden;
-}
