@@ -1,12 +1,10 @@
 import APIService from './api-service-main';
 
-const apiService = new APIService(arguments);
+const apiService = new APIService();
 
 const refs = {
   hero: document.querySelector('.hero'),
 };
-
-const markup = '';
 
 // Создем запрос страницу
 createHeroCard();
@@ -30,14 +28,16 @@ async function getTrendsMovieMarkUp() {
   try {
     const results = await apiService.getTrends('day'); //запрос данных на сервере
 
-      if (results.length === 0) {
+    if (results.length === 0) {
       return createHeroWithoutFilms();
     } else {
       return createCardTrendsOfDay(
         results[Math.floor(Math.random(results.length) * 20)]
       ); //рендер карточки
     }
-  } catch (error) {}
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 function createCardTrendsOfDay({
@@ -83,4 +83,9 @@ function updateHeroMarkup(markup) {
   if (markup !== undefined) {
     refs.hero.insertAdjacentHTML('beforeend', markup);
   }
+}
+
+// обработка ошибок
+function onError(error) {
+  console.error(error);
 }
