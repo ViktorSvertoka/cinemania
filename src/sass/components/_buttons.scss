@@ -1,0 +1,25 @@
+.button {
+
+  @include font(500, 12px, null, null);
+  padding: 12px 24px;
+  background: $linear-gradient-up;
+  border-radius: 74px;
+  color: $black-color;
+
+  @include tablet {
+    @include font(null, 14px, 1.43, null);
+    padding: 10px 24px;
+  }
+
+  @include desktop {
+    @include font(null, 16px, 1.4, null);
+    padding: 12px 24px;
+  }
+}
+
+.button:hover, .button:focus {
+    color: $orange-color;
+    background: none;
+    border: 1px solid  #f87719 ;
+
+}
