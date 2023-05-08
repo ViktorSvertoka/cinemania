@@ -5,7 +5,7 @@ import './js/modal-film';
 import './js/theme-switcher';
 import './js/catalog-slider';
 import './js/hero';
-// import './js/hero-modal-watch-trailer';
+import './js/hero-modal-watch-trailer';
 import './js/hero-slider';
 import './js/loader';
 import './js/upcoming-mounth';
