@@ -7,7 +7,7 @@
 // const modalContent = document.querySelector('.watch-modal-content');
 // const closeModalBtn = document.querySelector('.close');
 // const trailerVideo = document.querySelector('#trailer-video');
-// const loader = document.getElementById('loader');
+const loader = document.getElementById('loader');
 
 // watchTrailerBtn.addEventListener('click', async () => {
 //   try {
@@ -64,26 +64,28 @@
 // modalError.addEventListener('click', () => {
 //   modalError.style.display = 'none';
 // });
+import { APIService } from './api-service-main';
 import axios from 'axios';
 import successModalTemplate from '../templates/success-trailer-modal.hbs';
 import errorModalTemplate from '../templates/error-trailer-modal.hbs';
+const watchTrailerBtn = document.getElementById('hero__btn');
 
-const watchTrailerBtn = document.getElementByIds('watch-trailer-btn');
 const markupId = document.getElementById('trailer-modal');
 
 console.log('hello');
+
 export default async function openTrailerModal() {
   try {
+    const movieId = watchTrailerBtn.dataset.movieId;
     const {
       data: { results },
-    } = await axios.get(
-      `https://api.themoviedb.org/3/movie/505/videos?api_key=992758a4802a699e8df27d4d6efc34fb&language=en-US`
-    );
+    } = await APIService.getMovieTrailer(movieId);
     console.log('hi', results);
 
     const videoUrl = `https://www.youtube.com/embed/${results[0].key}`;
 
     markupId.insertAdjacentHTML('beforeend', successModalTemplate(videoUrl));
-  } catch {}
+  } catch {
+    markupId.insertAdjacentHTML('beforeend', errorModalTemplate());
+  }
 }
-openTrailerModal();
