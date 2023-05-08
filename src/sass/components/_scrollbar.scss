@@ -1,0 +1,15 @@
+body {
+  scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+  width: 40px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: url('../images/scrollbar.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  cursor: pointer;
+}
