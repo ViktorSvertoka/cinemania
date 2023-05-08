@@ -4,6 +4,15 @@ export default class APIService {
   constructor() {
     this.key = '992758a4802a699e8df27d4d6efc34fb';
     this.baseURL = 'https://api.themoviedb.org/3/';
+    this.page = 1;
+  }
+
+  incrementPage() {
+    this.page += 1;
+  }
+
+  resetPage() {
+    this.page = 1;
   }
 
   async getTrends(param) {
@@ -39,6 +48,8 @@ export default class APIService {
       const response = await axios.get(
         `${this.baseURL}search/movie?api_key=${this.key}&query=${query}`
       );
+
+      this.incrementPage();
 
       console.log(response.data.results);
 
