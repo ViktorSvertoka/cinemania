@@ -72,7 +72,7 @@ function createHeroWithoutFilms() {
                         your
                         films, and stock up on snacks for the full experience.</span>
                 </p>
-                <a href="./catalog.html" type="button" class="watch-trailer button" id ="hero__btn" data-movie-id="" >Get Started</a>
+                <a href="./catalog.html" type="button" class="watch-trailer button" id="hero__btn" data-movie-id="">Get Started</a>
             </div>
         </div>
     </div>`;
