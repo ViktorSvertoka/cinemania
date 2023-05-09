@@ -8,6 +8,6 @@ import './js/mobile-menu';
 import './js/upcoming-mounth';
 import './js/scroll-up';
 import './js/footer-modal-team';
-// import './js/modal-film';
-// import './js/catalog';
+import './js/modal-film';
+import './js/catalog';
 import './js/catalog-slider';
