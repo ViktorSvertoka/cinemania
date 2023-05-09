@@ -1,9 +1,9 @@
 import { emptyStar, fullStar, halfStar } from './stars';
 const axios = require('axios').default;
 
-export default async function renderMoviesCards(movies) {
-  // в каталоге рендерится в ul c классом cards__list
-  const movieList = document.querySelector('.cards__list');
+export default async function renderMoviesCards(movies, selector) {
+  // в каталоге рендерится в переданный селектор
+  const movieList = document.querySelector(`${selector}`);
   const POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
   let markup = '';
   for (const movie of movies) {
@@ -20,13 +20,12 @@ export default async function renderMoviesCards(movies) {
       continue; // пропускаем фильм без картинки
     }
 
-    
     const movieImg = POSTER_URL + poster;
     const movieGenre = await getGenre(id);
     const movieYear = await getYear(date);
     const starRating = await createStarRating(rating);
     // Надо добавить классы
-    markup += `<li class='cards__list__item'>
+    markup += `<li class='cards__list__item' data-id='${id}'>
                     <img src='${movieImg}' alt='${title}' width='395' height='574' />
                     <div>
                         <h3>${title}</h3>

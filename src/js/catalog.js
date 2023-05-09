@@ -34,9 +34,11 @@ function onSubmit(e) {
 
 async function setCatalogCards() {
   try {
+
     const response = await apiService.getTrends('week', currentPage);
 
     
+
     if (response.results.length === 0 || !response.results) {
       return error;
     }
@@ -45,7 +47,9 @@ async function setCatalogCards() {
 
     renderMoviesCards(movies, '.cards__list');
 
+
     renderPagination(response.page, response.total_pages);
+
   } catch (error) {
     console.log(error);
     movieList.classList.add('visually-hidden');
@@ -63,6 +67,7 @@ async function searchMovies(query) {
       return error;
     }
 
+
     const movies = response.results;
 
     renderMoviesCards(movies, '.cards__list');
@@ -74,6 +79,7 @@ async function searchMovies(query) {
     }
     renderPagination(response.page, response.total_pages, query);
   
+
   } catch (error) {
     console.log(error);
     movieList.classList.add('visually-hidden');
