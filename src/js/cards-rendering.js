@@ -1,9 +1,9 @@
 import { emptyStar, fullStar, halfStar } from './stars';
 const axios = require('axios').default;
 
-export default async function renderMoviesCards(movies) {
-  // в каталоге рендерится в ul c классом cards__list
-  const movieList = document.querySelector('.cards__list');
+export default async function renderMoviesCards(movies, selector) {
+  // в каталоге рендерится в переданный селектор
+  const movieList = document.querySelector(`${selector}`);
   const POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
   let markup = '';
   for (const movie of movies) {
@@ -25,19 +25,13 @@ export default async function renderMoviesCards(movies) {
     const movieYear = await getYear(date);
     const starRating = await createStarRating(rating);
     // Надо добавить классы
-    markup += `<li class='cards__list-item'>
-                    
-    <img class='cards__list-img' src='${movieImg}' alt='${title}' width='395' height='574' />
-                   
-                    <div class='cards__list-search'>
+    markup += `<li class='cards__list__item' data-id='${id}'>
+                    <img src='${movieImg}' alt='${title}' width='395' height='574' />
                     <div>
-                    <h3 class='cards__list-title'>${title}</h3>
-                        <p class='cards__list-text'> |${movieGenre} <span class='cards__list-span'>${movieYear}</span></p>
+                        <h3>${title}</h3>
+                        <p>${movieGenre} <span>${movieYear}</span></p>
+                        ${starRating}
                     </div>
-                        
-                        <div></div><p class='cards__list-stars'>${starRating}</p></div>
-                    </div>
-                    
                 </li>`;
   }
 
@@ -45,12 +39,13 @@ export default async function renderMoviesCards(movies) {
 }
 
 // Получает год из даты
-function getYear(data) {
+async function getYear(data) {
   if (!data) {
     return 'There is no release date';
   }
 
-  return (year = data.slice(0, 4));
+  const year = await data.slice(0, 4);
+  return year;
 }
 
 // Получает жанры фильма

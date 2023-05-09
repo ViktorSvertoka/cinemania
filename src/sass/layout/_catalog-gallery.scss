@@ -226,16 +226,11 @@
   justify-content: flex-start;
   align-items: flex-start;
   box-sizing: border-box;
-  // №№№№№№№№№№№№№№№№№№№№№№№№№№№№№
-  @include mobile {
+   @include mobile {
     max-width: 280px;
     max-height: 406px;
-    border: 1px solid #0e0e0e;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 63.48%,
-      rgba(0, 0, 0, 0.9) 92.16%
-    );
+    
+    
     border-radius: 5px;
     position: relative;
   }
@@ -243,12 +238,8 @@
   @include tablet {
     max-width: 224px;
     max-height: 325px;
-    border: 1px solid #0e0e0e;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 63.48%,
-      rgba(0, 0, 0, 0.9) 92.16%
-    );
+   
+    
     border-radius: 5px;
     position: relative;
   }
@@ -256,12 +247,8 @@
   @include desktop {
     max-width: 395px;
     max-height: 574px;
-    border: 1px solid #0e0e0e;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 63.48%,
-      rgba(0, 0, 0, 0.9) 92.16%
-    );
+    
+    
     border-radius: 5px;
     position: relative;
   }
@@ -271,11 +258,7 @@
   position: relative;
   
   border-radius: 5px;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 63.48%,
-    rgba(0, 0, 0, 0.9) 92.16%
-  );
+  
   @include mobile {
     max-width: 280px;
     max-height: 406px;
@@ -296,21 +279,28 @@
 //  <div class="weekly-trends__overlay">
 
 .cards__list-search {
-  // width: 100%;
-  display: flex;
+   width: 100%;
+  
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   flex-grow: 1;
-
+  box-sizing: border-box;
   position: absolute;
   bottom: 0;
-  left: 10px;
-  width: calc(100% - 20px);
+  left: 0;
+  padding: 0 10;
+  // width: calc(100% - 20px);
 }
 // 
+.cards__bloc-stars {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 .weekly-trends__overlay {
+  // display: flex;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -334,6 +324,27 @@
   font-size: 14px;
   margin: 0;
   margin-bottom: 10px;
+  font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 1.9;
+  @include mobile {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  
+
+  @include tablet {
+    font-size: 12px;
+line-height: 1.8;
+  }
+
+  @include desktop {
+    font-size: 20px;
+line-height: 1.2;
+    
+  }
 }
 
 .cards__list-span {
@@ -445,4 +456,3 @@
     padding-top: 48px;
   }
 }
-
