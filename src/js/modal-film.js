@@ -4,9 +4,8 @@ const apiService = new APIService();
 
 const refs = {
   catalog: document.getElementById('movie-list'),
-  card: document.querySelector('.cards__list-item'),
+  card: document.querySelector('.cards__list__item'),
   modalWindow: document.getElementById('modalPopUp'),
-  closeModal: document.querySelector('.modal-film__close'),
   overlayPopUp: document.getElementById('overlayPopUp'),
   btnPopUp: document.getElementById('mylibrary'),
 };
@@ -14,13 +13,13 @@ const refs = {
 refs.catalog.addEventListener('click', onMovieCardClick);
 
 async function onMovieCardClick(e) {
-  if (!e.target.closest('.cards__list-item')) {
+  if (!e.target.closest('.cards__list__item')) {
     return;
   }
 
   try {
     const movieID = e.target
-      .closest('.cards__list-item')
+      .closest('.cards__list__item')
       .getAttribute('data-id');
     const movieData = await apiService.getMovieInfo(movieID);
     const markup = createMarkup(movieData);
@@ -29,44 +28,6 @@ async function onMovieCardClick(e) {
   } catch (error) {
     console.log(error);
   }
-
-  document.body.addEventListener('keyup', closeOnEsc);
-  document
-    .querySelector('.modal-film__close')
-    .addEventListener('click', modalClose);
-  document
-    .getElementById('modalPopUp')
-    .addEventListener('click', closeOnOverlay);
-}
-
-function modalClose(e) {
-  const modalFilm = document.getElementById('modalPopUp');
-  if (modalFilm) {
-    modalFilm.remove();
-  }
-  return;
-  e.target.removeEventListener('click', onMovieCardClick);
-}
-
-function closeOnEsc(e) {
-  if (e.keyCode === 27) {
-    const modalFilm = document.getElementById('modalPopUp');
-    if (modalFilm) {
-      modalFilm.remove();
-    }
-    e.target.removeEventListener('keyup', onMovieCardClick);
-  }
-  return;
-}
-
-function closeOnOverlay(e) {
-  const modalFilm = document.getElementById('modalPopUp');
-  if (modalFilm && e.target === modalFilm) {
-    modalFilm.remove();
-  }
-
-  e.target.removeEventListener('click', onMovieCardClick);
-  return;
 }
 
 function toggleModal() {
