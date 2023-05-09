@@ -1,13 +1,10 @@
 <div class='watch-modal modal-error'>
   <div class='watch-modal__content'>
-    <a href='#' class='watch-modal__close'>
-      <img
-        class='watch-modal__close-icon'
-        src='/src/images/close-watch-trailer-icon.png'
-        alt='Close Modal'
-      />
-    </a>
-    <picture class='watch-modal__picture'>
+    <button type='button' class='watch-modal__close'>
+      X
+    </button>
+    <img src='/src/images/watch-trailer-modal_desk_1x.png' alt='' />
+    {{! <picture class='watch-modal__picture'>
       <source
         srcset='/src/images/watch-trailer-modal_desk_2x.png'
         media='(min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 1200px) and (min-resolution: 192dpi), (min-width: 1200px) and (min-resolution: 2dppx)'
@@ -37,7 +34,7 @@
         src='/src/images/watch-trailer-modal_desk_1x.png'
         alt='Error'
       />
-    </picture>
+    </picture> }}
     <p class='watch-modal__error-message'>
       OOPS... We are very sorry! But we couldn’t find the trailer.
     </p>

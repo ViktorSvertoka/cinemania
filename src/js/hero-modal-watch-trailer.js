@@ -8,12 +8,13 @@ const apiService = new APIService();
 const loader = document.getElementById('loader');
 
 export default async function openTrailerModal() {
-  const watchTrailerBtn = document.getElementById('hero__btn');
+  const watchTrailerBtn = document.getElementById('watch__btn');
   const movieId = watchTrailerBtn.dataset.movieId;
   console.log(movieId);
 
   watchTrailerBtn.addEventListener('click', async () => {
-    loaderClassAdd();
+    console.log('object');
+    //   loaderClassAdd();
 
     try {
       const { key } = await apiService.getMovieTrailer(movieId);
@@ -45,3 +46,5 @@ export default async function openTrailerModal() {
     });
   }
 }
+
+errorModalTemplate();
