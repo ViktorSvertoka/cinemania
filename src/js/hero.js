@@ -128,7 +128,8 @@ function createHeroWithoutFilms() {
 function updateHeroMarkup(markup) {
   if (markup !== undefined) {
     refs.hero.insertAdjacentHTML('beforeend', markup);
-
+    // const watchTrailerBtn = document.getElementById('watch__btn');
+    // watchTrailerBtn.removeEventListener();
     openTrailerModal();
   }
 }
