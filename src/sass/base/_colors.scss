@@ -19,6 +19,10 @@ $red-color: #ff0000;
   --primary-text-clr: #{$white-color};
   --secondary-text-clr: #{$transparent-white-color};
   --muted-text-clr: #{$light-gray-color};
+  --secondary-bcg-clr: #{$white-color};
+  --muted-secondary-text-clr: #{$light-gray-color};
+  --modal-text-color: #{$black-color};
+  --modal-secondary-color: #{$transparent-white-color};
 
   --switcher-pos-mob: 18px;
   --switcher-pos-tab: 30px;
@@ -44,6 +48,10 @@ $red-color: #ff0000;
   --primary-text-clr: #{$light-black-color};
   --secondary-text-clr: #{$light-black-color};
   --muted-text-clr: #{$gray-color};
+  --secondary-bcg-clr: #{$transparent-white-color};
+  --muted-secondary-text-clr: #{$black-color};
+  --modal--text-color: #{$light-black-color};
+  --modal-secondary-color: #{$black-color};
 
   --switcher-pos-mob: -3px;
   --switcher-pos-tab: -3px;

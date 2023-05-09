@@ -6,7 +6,7 @@ const MOVIE_ID =  157336;
 const refs = {  
   overlayPopUp: document.getElementById('overlayPopUp'),  
   closeModalPopUp: document.getElementById('closeModalPopUp'),
-  openModalPopUp: document.getElementById('openModalPopUp'),
+  // openModalPopUp: document.getElementById('openModalPopUp'),
   modalPopUp: document.getElementById('modalPopUp'),
   btnPopUp: document.getElementById('mylibrary'),
   closeIconPopUp: document.querySelector('.modal-film__close-icon'),
@@ -26,7 +26,7 @@ const classes = {
   visual: 'visual',
 };
 
-refs.openModalPopUp.addEventListener('click', handlePopUpModal);
+// refs.openModalPopUp.addEventListener('click', handlePopUpModal);
 refs.closeModalPopUp.addEventListener('click', handlePopUpModal);
 refs.overlayPopUp.addEventListener('click', handlePopUpModal);
 
@@ -56,7 +56,7 @@ function fetchPopUpMovies() {
 
 async function getPopUpMovies() {
   try {
-    const { poster_path, title, overview, popularity, vote_average, vote_count, tagline, genres } = await fetchPopUpMovies();    
+    const { poster_path, title, overview, popularity, vote_average, vote_count, genres } = await fetchPopUpMovies();    
     refs.image.src = `https://image.tmdb.org/t/p/w500/${poster_path}`;      
     refs.titles.textContent = title;            
     refs.vote.textContent = vote_average;         
