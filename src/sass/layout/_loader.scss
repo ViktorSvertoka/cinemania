@@ -9,6 +9,10 @@
   width: 100px;
   height: 100px;
   z-index: 9999;
+
+  & .is-active {
+    display: flex;
+  }
 }
 
 .loader:before,

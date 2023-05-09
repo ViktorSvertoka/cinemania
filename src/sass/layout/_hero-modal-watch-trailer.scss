@@ -2,7 +2,7 @@
 .watch-modal {
   display: flex;
   position: fixed;
-  z-index: 9998;
+  z-index: 8;
   left: 0;
   top: 0;
   width: 100%;
@@ -22,7 +22,7 @@
   transition: all 0.3s ease-out;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 16px;
-  z-index: 9999;
+  z-index: 9;
   background-color: #111111;
 
   @include mobile {
@@ -58,17 +58,25 @@
 
 /* Кнопка закрытия */
 .watch-modal__close-icon {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-
-  @include mobile {
-    font-size: 24px;
-  }
+  position: absolute;
+  color: #fff;
+  width: 16px;
+  height: 16px;
+  left: 244px;
+  top: 20px;
 
   @include tablet {
-    font-size: 26px;
+    width: 24px;
+    height: 24px;
+    left: 561px;
+    top: 24px;
+  }
+
+  @include desktop {
+    width: 24px;
+    height: 24px;
+    left: 648px;
+    top: 28px;
   }
 
   &:hover,
