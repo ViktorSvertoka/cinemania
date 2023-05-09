@@ -7,15 +7,19 @@ const apiService = new APIService();
 getWeeklyTrends();
 
 async function getWeeklyTrends() {
-  viewportSize = window.innerWidth;
   try {
     const response = await apiService.getTrends('week');
 
     if (response.length === 0 || !response) {
       return error;
     }
-    const movies = response.slice(0, 3);
-    renderMoviesCards(movies, '.weekly-trends__list');
+    if (window.innerWidth < 768) {
+      const movies = response.slice(0, 1);
+      renderMoviesCards(movies, '.weekly-trends__list');
+    } else {
+      const movies = response.slice(0, 3);
+      renderMoviesCards(movies, '.weekly-trends__list');
+    }
   } catch (error) {
     console.log(error);
   }
