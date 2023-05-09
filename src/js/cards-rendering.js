@@ -133,3 +133,6 @@ function createStarRating(data) {
 
   return `<div>${ratingStars}</div>`;
 }
+
+
+export { createStarRating };
