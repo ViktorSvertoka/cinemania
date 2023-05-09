@@ -25,7 +25,7 @@ export default async function renderMoviesCards(movies, selector) {
     const movieYear = await getYear(date);
     const starRating = await createStarRating(rating);
     // Надо добавить классы
-    markup += `<li class='cards__list__item'>
+    markup += `<li class='cards__list__item' data-id='${id}'>
                     <img src='${movieImg}' alt='${title}' width='395' height='574' />
                     <div>
                         <h3>${title}</h3>

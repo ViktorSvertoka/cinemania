@@ -1,4 +1,3 @@
-
 import APIService from './api-service-main';
 
 const apiService = new APIService();
@@ -32,15 +31,14 @@ async function onMovieCardClick(e) {
   }
 
   document.body.addEventListener('keyup', closeOnEsc);
-document
-      .querySelector('.modal-film__close')
-      .addEventListener('click', modalClose);
-document
-  .getElementById('modalPopUp')
-  .addEventListener('click', closeOnOverlay);
+  document
+    .querySelector('.modal-film__close')
+    .addEventListener('click', modalClose);
+  document
+    .getElementById('modalPopUp')
+    .addEventListener('click', closeOnOverlay);
 }
 
-  
 function modalClose(e) {
   const modalFilm = document.getElementById('modalPopUp');
   if (modalFilm) {
@@ -80,7 +78,8 @@ function updateModal(markup) {
   refs.modalWindow.insertAdjacentHTML('beforeend', markup);
 }
 
-function createMarkup({id,
+function createMarkup({
+  id,
   poster_path,
   title,
   overview,
@@ -122,19 +121,3 @@ function createMarkup({id,
     </p>
     <button class="btn" id="mylibrary" data-action="add">Add to my library</button>`;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
