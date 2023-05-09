@@ -2,10 +2,14 @@ import APIService from './api-service-main';
 import renderMoviesCards from './cards-rendering';
 
 const apiService = new APIService();
+let viewportSize = 0;
+
+window.addEventListener('resize', getWeeklyTrends);
 
 getWeeklyTrends();
 
 async function getWeeklyTrends() {
+  viewportSize = window.innerWidth;
   try {
     const response = await apiService.getTrends('week');
 
@@ -13,12 +17,23 @@ async function getWeeklyTrends() {
       return error;
     }
 
-    const movies = response.slice(0, 3);
-
-    console.log(movies);
-
-    renderMoviesCards(movies);
+    testViewportAndDoMarkup(response, viewportSize);
   } catch (error) {
     console.log(error);
   }
+}
+
+function testViewportAndDoMarkup(response, viewportSize) {
+  if (viewportSize > 768) {
+    const movies = response.slice(0, 3);
+    renderMoviesCards(movies);
+  } else {
+    const movies = response.slice(0, 1);
+    renderMoviesCards(movies);
+  }
+}
+
+async function updateViewport() {
+  console.log(viewportSize);
+  return (viewportSize = window.innerWidth);
 }
