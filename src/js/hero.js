@@ -2,8 +2,8 @@ import APIService from './api-service-main';
 import openTrailerModal from './hero-modal-watch-trailer';
 import {
   showSlide,
-    addSlideListener,
-    onNavButtonLeft,
+  addSlideListener,
+  onNavButtonLeft,
   onNavButtonRight,
 } from './hero-slider';
 
@@ -26,27 +26,26 @@ if (document.querySelector('.current-page__my-library').localName !== 'body') {
 async function createHeroCard() {
   try {
     const markup = await getTrendsMovieMarkUp();
-      if (markup !== undefined) {
-          updateHeroMarkup(markup); //вывод карточки Героя на страницу
-          const slides = document.querySelectorAll('.slider-card');
-          const navBtns = [];
-          const navBtnsLeft = document.querySelectorAll('.slider-btn-left');
-          const navBtnsRight = document.querySelectorAll('.slider-btn-right');
-          for (let i = 0; i < slides.length; i += 1) {
-              navBtns.push(slides[i].querySelectorAll('.slider-nav-btn'));
- 
-          };
-
-          showSlide(currentSlide, 5, navBtns, slides, currentButton);
-          addSlideListener(
-            navBtns,
-            slides,
-            currentSlide,
-            currentButton,
-            navBtnsLeft,
-            navBtnsRight
-          );
+    if (markup !== undefined) {
+      updateHeroMarkup(markup); //вывод карточки Героя на страницу
+      const slides = document.querySelectorAll('.slider-card');
+      const navBtns = [];
+      const navBtnsLeft = document.querySelectorAll('.slider-btn-left');
+      const navBtnsRight = document.querySelectorAll('.slider-btn-right');
+      for (let i = 0; i < slides.length; i += 1) {
+        navBtns.push(slides[i].querySelectorAll('.slider-nav-btn'));
       }
+
+      showSlide(currentSlide, 5, navBtns, slides, currentButton);
+      addSlideListener(
+        navBtns,
+        slides,
+        currentSlide,
+        currentButton,
+        navBtnsLeft,
+        navBtnsRight
+      );
+    }
   } catch (error) {
     onError(error);
   }
@@ -57,11 +56,11 @@ async function getTrendsMovieMarkUp() {
   try {
     const results = await apiService.getTrends('day'); //запрос данных на сервере
     currentSlide = Math.ceil(Math.random(results.length) * 5);
-      currentButton = currentSlide-1;
+    currentButton = currentSlide - 1;
     if (results.length === 0) {
       return createHeroWithoutFilms(); //рендер карточки, если нет данные
     } else {
-    //   createButtonSlider(results.length > 5 ? 5 : results.length);
+      //   createButtonSlider(results.length > 5 ? 5 : results.length);
 
       return results.reduce(
         (markup, movie) => markup + createCardTrendsOfDay(movie),
@@ -88,7 +87,7 @@ function createCardTrendsOfDay({
                 <p class="hero__text hero__text--render">
                 ${overview}    
                 </p>
-                <button class="watch-trailer button" type="button" id ="hero__btn" data-movie-id="${id}">Watch trailer</button>
+                <button class="watch-trailer" type="button" id ="watch__btn" data-movie-id="${id}">Watch trailer</button>
                       <div class="slider__buttons">
         <button type="button" class="slider-btn-left slider-btn">
         </button>
