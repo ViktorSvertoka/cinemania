@@ -64,28 +64,28 @@ const loader = document.getElementById('loader');
 // modalError.addEventListener('click', () => {
 //   modalError.style.display = 'none';
 // });
-import { APIService } from './api-service-main';
-import axios from 'axios';
-import successModalTemplate from '../templates/success-trailer-modal.hbs';
-import errorModalTemplate from '../templates/error-trailer-modal.hbs';
-const watchTrailerBtn = document.getElementById('hero__btn');
+// import { APIService } from './api-service-main';
+// import axios from 'axios';
+// import successModalTemplate from '../templates/success-trailer-modal.hbs';
+// import errorModalTemplate from '../templates/error-trailer-modal.hbs';
+// const watchTrailerBtn = document.getElementById('hero__btn');
 
-const markupId = document.getElementById('trailer-modal');
+// const markupId = document.getElementById('trailer-modal');
 
-console.log('hello');
+// console.log('hello');
 
-export default async function openTrailerModal() {
-  try {
-    const movieId = watchTrailerBtn.dataset.movieId;
-    const {
-      data: { results },
-    } = await APIService.getMovieTrailer(movieId);
-    console.log('hi', results);
+// export default async function openTrailerModal() {
+//   try {
+//     const movieId = watchTrailerBtn.dataset.movieId;
+//     const {
+//       data: { results },
+//     } = await APIService.getMovieTrailer(movieId);
+//     console.log('hi', results);
 
-    const videoUrl = `https://www.youtube.com/embed/${results[0].key}`;
+//     const videoUrl = `https://www.youtube.com/embed/${results[0].key}`;
 
-    markupId.insertAdjacentHTML('beforeend', successModalTemplate(videoUrl));
-  } catch {
-    markupId.insertAdjacentHTML('beforeend', errorModalTemplate());
-  }
-}
+//     markupId.insertAdjacentHTML('beforeend', successModalTemplate(videoUrl));
+//   } catch {
+//     markupId.insertAdjacentHTML('beforeend', errorModalTemplate());
+//   }
+// }
