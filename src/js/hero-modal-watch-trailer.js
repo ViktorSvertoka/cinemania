@@ -77,13 +77,16 @@ export default async function openTrailerModal() {
   const movieId = watchTrailerBtn.dataset.movieId;
   console.log(movieId);
 
-  watchTrailerBtn.addEventListener('click', () => {
+  watchTrailerBtn.addEventListener('click', async () => {
     try {
-      const { key } = apiService.getMovieTrailer(movieId);
+      const { key } = await apiService.getMovieTrailer(movieId);
 
       const videoUrl = `https://www.youtube.com/embed/${key}`;
 
-      markupId.insertAdjacentHTML('beforeend', successModalTemplate(videoUrl));
+      markupId.insertAdjacentHTML(
+        'beforeend',
+        successModalTemplate({ videoUrl })
+      );
     } catch (error) {
       console.log(error);
       markupId.insertAdjacentHTML('beforeend', errorModalTemplate());

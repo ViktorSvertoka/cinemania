@@ -13,7 +13,7 @@ export default class APIService {
 
   async getTrends(param) {
     try {
-      this.page+=1;
+      this.page += 1;
       const response = await axios.get(
         `${this.baseURL}trending/movie/${param}?api_key=${this.key}&page=${this.page}`
       );
