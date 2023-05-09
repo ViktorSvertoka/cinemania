@@ -29,6 +29,12 @@
 
   color: $orange-color;
 
+  transition: color ease-out 0.3s;
+
+  &:hover,
+  &:active {
+    color: var(--primary-text-clr);
+  }
   @media (max-width: 767px) {
     font-size: 16px;
     line-height: 19px;
