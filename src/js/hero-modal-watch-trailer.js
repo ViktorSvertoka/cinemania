@@ -7,7 +7,7 @@
 // const modalContent = document.querySelector('.watch-modal-content');
 // const closeModalBtn = document.querySelector('.close');
 // const trailerVideo = document.querySelector('#trailer-video');
-// const loader = document.getElementById('loader');
+const loader = document.getElementById('loader');
 
 // watchTrailerBtn.addEventListener('click', async () => {
 //   try {
@@ -64,26 +64,46 @@
 // modalError.addEventListener('click', () => {
 //   modalError.style.display = 'none';
 // });
-import axios from 'axios';
+
+import APIService from './api-service-main';
 import successModalTemplate from '../templates/success-trailer-modal.hbs';
 import errorModalTemplate from '../templates/error-trailer-modal.hbs';
 
-const watchTrailerBtn = document.getElementByIds('watch-trailer-btn');
 const markupId = document.getElementById('trailer-modal');
+const apiService = new APIService();
 
-console.log('hello');
 export default async function openTrailerModal() {
-  try {
-    const {
-      data: { results },
-    } = await axios.get(
-      `https://api.themoviedb.org/3/movie/505/videos?api_key=992758a4802a699e8df27d4d6efc34fb&language=en-US`
-    );
-    console.log('hi', results);
+  const watchTrailerBtn = document.getElementById('hero__btn');
+  const movieId = watchTrailerBtn.dataset.movieId;
+  console.log(movieId);
 
-    const videoUrl = `https://www.youtube.com/embed/${results[0].key}`;
+  watchTrailerBtn.addEventListener('click', async () => {
+    try {
+      const { key } = await apiService.getMovieTrailer(movieId);
 
-    markupId.insertAdjacentHTML('beforeend', successModalTemplate(videoUrl));
-  } catch {}
+      const videoUrl = `https://www.youtube.com/embed/${key}`;
+
+      markupId.insertAdjacentHTML(
+        'beforeend',
+        successModalTemplate({ videoUrl })
+      );
+    } catch (error) {
+      console.log(error);
+      markupId.insertAdjacentHTML('beforeend', errorModalTemplate());
+    }
+  });
+
+  if (markupId) {
+    markupId.addEventListener('click', event => {
+      if (event.target.classList.contains('watch-modal')) {
+        markupId.innerHTML = '';
+      }
+    });
+
+    window.addEventListener('keydown', event => {
+      if (event.code === 'Escape') {
+        markupId.innerHTML = '';
+      }
+    });
+  }
 }
-openTrailerModal();

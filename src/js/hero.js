@@ -1,4 +1,5 @@
 import APIService from './api-service-main';
+import openTrailerModal from './hero-modal-watch-trailer';
 
 const apiService = new APIService();
 
@@ -7,7 +8,9 @@ const refs = {
 };
 
 // Создем запрос страницу
-createHeroCard();
+if (document.querySelector('.current-page__my-library').localName !== 'body') {
+  createHeroCard();
+}
 //   .then(() => {})
 //   .finally(() => {});
 
@@ -55,7 +58,7 @@ function createCardTrendsOfDay({
                 <p class="hero__text hero__text--render">
                 ${overview}    
                 </p>
-                <button class="watch-trailer" id ="hero__btn" data-movie-id="${id}">Watch trailer</button>
+                <a class="watch-trailer button" type="button" id ="hero__btn" data-movie-id="${id}">Watch trailer</a>
             </div>
         </div>
     </div>`;
@@ -72,7 +75,8 @@ function createHeroWithoutFilms() {
                         your
                         films, and stock up on snacks for the full experience.</span>
                 </p>
-                <button class="watch-trailer button" id ="hero__btn" type = "button" data-movie-id="" href="../catalog.html">Get Started</button>
+
+                <a href="./catalog.html" type="button" class="watch-trailer button" id="hero__btn" data-movie-id="">Get Started</a>
             </div>
         </div>
     </div>`;
@@ -82,6 +86,8 @@ function createHeroWithoutFilms() {
 function updateHeroMarkup(markup) {
   if (markup !== undefined) {
     refs.hero.insertAdjacentHTML('beforeend', markup);
+
+    openTrailerModal();
   }
 }
 

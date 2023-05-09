@@ -4,28 +4,39 @@ export default class APIService {
   constructor() {
     this.key = '992758a4802a699e8df27d4d6efc34fb';
     this.baseURL = 'https://api.themoviedb.org/3/';
-    this.page = 1;
-  }
-
-  incrementPage() {
-    this.page += 1;
+    this.page = 0;
   }
 
   resetPage() {
-    this.page = 1;
+    this.page = 0;
   }
 
-  async getTrends(param) {
-    try {
-      const response = await axios.get(
-        `${this.baseURL}trending/movie/${param}?api_key=${this.key}`
-      );
+  async getTrends(param, page) {
+    if (arguments.length < 2) {
+      try {
+        this.page += 1;
+        const response = await axios.get(
+          `${this.baseURL}trending/movie/${param}?api_key=${this.key}&page=${this.page}`
+        );
 
-      console.log(response.data.results);
+        console.log(response.data.results);
 
-      return response.data.results;
-    } catch (error) {
-      console.log(error);
+        return response.data.results;
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        const response = await axios.get(
+          `${this.baseURL}trending/movie/${param}?api_key=${this.key}&page=${page}`
+        );
+
+        console.log(response.data);
+
+        return response.data;
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
@@ -45,13 +56,10 @@ export default class APIService {
 
   async searchMovieByQuery(query) {
     try {
+      this.page += 1;
       const response = await axios.get(
-        `${this.baseURL}search/movie?api_key=${this.key}&query=${query}`
+        `${this.baseURL}search/movie?api_key=${this.key}&query=${query}&page=${this.page}`
       );
-
-      this.incrementPage();
-
-      console.log(response.data.results);
 
       return response.data.results;
     } catch (error) {

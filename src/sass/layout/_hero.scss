@@ -3,7 +3,6 @@
 }
 
 .hero .container {
- 
   padding: 0;
   background-repeat: no-repeat;
 
@@ -84,13 +83,13 @@
   background-position-x: -50px;
 
   @include tablet {
-  background-size: 768px;
-  background-position-x: 286px;
+    background-size: 768px;
+    background-position-x: 286px;
   }
 
   @include desktop {
     background-size: 1280px;
-  background-position-x: 325px;
+    background-position-x: 325px;
   }
 }
 
@@ -179,10 +178,10 @@
 }
 
 .hero__title--render {
-   margin-bottom: 12px;
- 
+  margin-bottom: 12px;
+
   @include desktop {
-      margin-bottom: 16px;
+    margin-bottom: 16px;
   }
 }
 
@@ -196,7 +195,7 @@
   }
 
   @include desktop {
-      height: 24px;
+    height: 24px;
     margin-bottom: 28px;
   }
 }
@@ -217,21 +216,19 @@
   }
 }
 
-
 .hero__text--render {
   margin-bottom: 20px;
   height: 128px;
   overflow: hidden;
 
   @include tablet {
-  height: 64px;
-  margin-bottom: 28px;
- 
+    height: 64px;
+    margin-bottom: 28px;
   }
 
   @include desktop {
-   margin-bottom: 36px;
-   height: 76px;
+    margin-bottom: 36px;
+    height: 76px;
   }
 }
 
@@ -256,7 +253,6 @@
   @include tablet {
     @include font(null, 14px, 1.43, null);
     padding: 10px 24px;
-
   }
 
   @include desktop {
