@@ -3,9 +3,6 @@ import renderMoviesCards from './cards-rendering';
 import throttle from 'lodash.throttle';
 
 const apiService = new APIService();
-let viewportSize = 0;
-
-window.addEventListener('resize', getWeeklyTrends);
 
 getWeeklyTrends();
 
@@ -17,18 +14,12 @@ async function getWeeklyTrends() {
     if (response.length === 0 || !response) {
       return error;
     }
-
     const movies = response.slice(0, 3);
     renderMoviesCards(movies, '.weekly-trends__list');
-
-
-    testViewportAndDoMarkup(response, viewportSize);
-
   } catch (error) {
     console.log(error);
   }
 }
-
 
 window.addEventListener('resize', throttle(cardListShuffling, 100));
 
@@ -42,19 +33,3 @@ function cardListShuffling() {
     cardList[2].classList.remove('weekly-trends__none');
   }
 }
-
-function testViewportAndDoMarkup(response, viewportSize) {
-  if (viewportSize > 768) {
-    const movies = response.slice(0, 3);
-    renderMoviesCards(movies);
-  } else {
-    const movies = response.slice(0, 1);
-    renderMoviesCards(movies);
-  }
-}
-
-async function updateViewport() {
-  console.log(viewportSize);
-  return (viewportSize = window.innerWidth);
-}
-
