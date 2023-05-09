@@ -11,18 +11,32 @@ export default class APIService {
     this.page = 0;
   }
 
-  async getTrends(param) {
-    try {
-      this.page += 1;
-      const response = await axios.get(
-        `${this.baseURL}trending/movie/${param}?api_key=${this.key}&page=${this.page}`
-      );
+  async getTrends(param, page) {
+    if (arguments.length < 2) {
+      try {
+        this.page += 1;
+        const response = await axios.get(
+          `${this.baseURL}trending/movie/${param}?api_key=${this.key}&page=${this.page}`
+        );
 
-      console.log(response.data.results);
+        console.log(response.data.results);
 
-      return response.data.results;
-    } catch (error) {
-      console.log(error);
+        return response.data.results;
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        const response = await axios.get(
+          `${this.baseURL}trending/movie/${param}?api_key=${this.key}&page=${page}`
+        );
+
+        console.log(response.data);
+
+        return response.data;
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
