@@ -1,16 +1,14 @@
 import APIService from './api-service-main';
+import sprite from '../images/sprite.svg';
 
 const apiService = new APIService();
 
-const refs = {
-  catalog: document.getElementById('movie-list'),
-  card: document.querySelector('.cards__list__item'),
-  modalWindow: document.getElementById('modalPopUp'),
-  overlayPopUp: document.getElementById('overlayPopUp'),
-  btnPopUp: document.getElementById('mylibrary'),
-};
+const btnModalClose = document.querySelector('.modal-film__close');
+const catalog = document.getElementById('movie-list');
+const modalWindow = document.querySelector('.modal-film');
+const overlay = document.querySelector('.overlay');
 
-refs.catalog.addEventListener('click', onMovieCardClick);
+catalog.addEventListener('click', onMovieCardClick);
 
 async function onMovieCardClick(e) {
   if (!e.target.closest('.cards__list__item')) {
@@ -24,19 +22,34 @@ async function onMovieCardClick(e) {
     const movieData = await apiService.getMovieInfo(movieID);
     const markup = createMarkup(movieData);
     updateModal(markup);
-    toggleModal();
+    openModal();
   } catch (error) {
     console.log(error);
   }
 }
 
-function toggleModal() {
-  overlayPopUp.classList.toggle('visual');
-  modalPopUp.classList.toggle('visual');
+function openModal() {
+  modalWindow.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
 }
 
+function closeModalWindows() {
+  modalWindow.classList.add('hidden');
+  overlay.classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+
+// btnModalClose.addEventListener('click', closeModalWindows);
+overlay.addEventListener('click', closeModalWindows);
+window.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modalWindow.classList.contains('hidden')) {
+    closeModalWindows();
+  }
+});
+
 function updateModal(markup) {
-  refs.modalWindow.insertAdjacentHTML('beforeend', markup);
+  modalWindow.innerHTML = markup;
 }
 
 function createMarkup({
@@ -50,10 +63,10 @@ function createMarkup({
   genres,
 }) {
   return `<div class="modal-film__container" data-id=${id}>
-  <button class="modal-film__close" id="closeModalPopUp">
+  <button class="modal-film__close">
     <svg width="18" height="18" class="modal-film__close-icon">
-      <use href="./images/sprite.svg#icon-cross-closed"></use>
-    </svg>
+    <use href="${sprite}#icon-cross"></use>       
+</svg>
   </button>
   <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="movie-poster" class="modal-film__img" />
   <div class="modal-film__card">
