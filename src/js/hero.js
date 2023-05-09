@@ -1,11 +1,19 @@
 import APIService from './api-service-main';
 import openTrailerModal from './hero-modal-watch-trailer';
+import {
+  showSlide,
+    addSlideListener,
+    onNavButtonLeft,
+  onNavButtonRight,
+} from './hero-slider';
 
 const apiService = new APIService();
 
 const refs = {
-  hero: document.querySelector('.hero'),
+  hero: document.querySelector('.slider'),
 };
+let currentSlide = 0;
+let currentButton = 0;
 
 // Создем запрос страницу
 if (document.querySelector('.current-page__my-library').localName !== 'body') {
@@ -18,9 +26,27 @@ if (document.querySelector('.current-page__my-library').localName !== 'body') {
 async function createHeroCard() {
   try {
     const markup = await getTrendsMovieMarkUp();
-    if (markup !== undefined) {
-      updateHeroMarkup(markup); //вывод карточки Героя на страницу
-    }
+      if (markup !== undefined) {
+          updateHeroMarkup(markup); //вывод карточки Героя на страницу
+          const slides = document.querySelectorAll('.slider-card');
+          const navBtns = [];
+          const navBtnsLeft = document.querySelectorAll('.slider-btn-left');
+          const navBtnsRight = document.querySelectorAll('.slider-btn-right');
+          for (let i = 0; i < slides.length; i += 1) {
+              navBtns.push(slides[i].querySelectorAll('.slider-nav-btn'));
+ 
+          };
+
+          showSlide(currentSlide, 5, navBtns, slides, currentButton);
+          addSlideListener(
+            navBtns,
+            slides,
+            currentSlide,
+            currentButton,
+            navBtnsLeft,
+            navBtnsRight
+          );
+      }
   } catch (error) {
     onError(error);
   }
@@ -30,13 +56,17 @@ async function createHeroCard() {
 async function getTrendsMovieMarkUp() {
   try {
     const results = await apiService.getTrends('day'); //запрос данных на сервере
-
+    currentSlide = Math.ceil(Math.random(results.length) * 5);
+      currentButton = currentSlide-1;
     if (results.length === 0) {
-      return createHeroWithoutFilms();
+      return createHeroWithoutFilms(); //рендер карточки, если нет данные
     } else {
-      return createCardTrendsOfDay(
-        results[Math.floor(Math.random(results.length) * 20)]
-      ); //рендер карточки
+    //   createButtonSlider(results.length > 5 ? 5 : results.length);
+
+      return results.reduce(
+        (markup, movie) => markup + createCardTrendsOfDay(movie),
+        ''
+      ); //рендер карточек слайдера, если есть данные
     }
   } catch (error) {
     console.error(error);
@@ -50,7 +80,7 @@ function createCardTrendsOfDay({
   vote_average,
   overview,
 }) {
-  return `<div class="container imgApi" id="heroContainerImg" style="background-image:linear-gradient(87.8deg, #0E0E0E 15.61%, rgba(14, 14, 14, 0) 60.39%), url('https://image.tmdb.org/t/p/original${backdrop_path}')" >
+  return `<div class="container imgApi slider-card" id="heroContainerImg" style="background-image:linear-gradient(87.8deg, #0E0E0E 15.61%, rgba(14, 14, 14, 0) 60.39%), url('https://image.tmdb.org/t/p/original${backdrop_path}')" >
         <div class="hero__container hero__container--render"> 
             <div class="hero__block-left--render">
                 <h1 class="hero__title hero__title--render">${title}</h1>
@@ -59,6 +89,19 @@ function createCardTrendsOfDay({
                 ${overview}    
                 </p>
                 <a class="watch-trailer button" type="button" id ="hero__btn" data-movie-id="${id}">Watch trailer</a>
+                      <div class="slider__buttons">
+        <button type="button" class="slider-btn-left slider-btn">
+        </button>
+        <div class="slider-nav">
+            <button class="slider-nav-btn" type="button" data-slide="1">01</button>
+            <button class="slider-nav-btn" type="button" data-slide="2">02</button>
+            <button class="slider-nav-btn" type="button" data-slide="3">03</button>
+            <button class="slider-nav-btn" type="button" data-slide="4">04</button>
+            <button class="slider-nav-btn" type="button" data-slide="5">05</button>
+        </div>
+        <button type="button" class="slider-btn-right slider-btn">
+        </button>
+      </div>
             </div>
         </div>
     </div>`;
