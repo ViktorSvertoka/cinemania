@@ -11,13 +11,13 @@ const overlay = document.querySelector('.overlay');
 catalog.addEventListener('click', onMovieCardClick);
 
 async function onMovieCardClick(e) {
-  if (!e.target.closest('.cards__list__item')) {
+  if (!e.target.closest('.cards__list-item')) {
     return;
   }
 
   try {
     const movieID = e.target
-      .closest('.cards__list__item')
+      .closest('.cards__list-item')
       .getAttribute('data-id');
     const movieData = await apiService.getMovieInfo(movieID);
     const markup = createMarkup(movieData);
