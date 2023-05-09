@@ -1,5 +1,8 @@
 .weekly-trends {
   padding: 52px 32px 22px 32px;
+  @media (max-width: 767px) {
+    padding: 40px 20px 16px 20px;
+  }
 }
 
 .flex_wrapper {
@@ -9,22 +12,27 @@
 }
 
 .weekly-trends__title {
-  font-style: normal;
-  font-weight: 500;
   font-size: 24px;
   line-height: 28px;
 
   color: var(--primary-text-clr);
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 
 .weekly-trends__link {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
   font-size: 24px;
   line-height: 28px;
 
   color: $orange-color;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 
 .weekly-trends__list {
@@ -77,5 +85,6 @@
   line-height: 19px;
 }
 
-.weekly-trends__stars {
+.weekly-trends__none {
+  display: none;
 }
