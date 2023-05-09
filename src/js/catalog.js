@@ -7,7 +7,7 @@ const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('searchQuery');
 
 const apiService = new APIService();
-setCatalogCards(); 
+setCatalogCards();
 searchForm.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
@@ -15,25 +15,24 @@ function onSubmit(e) {
 
   movieList.innerHTML = '';
 
-  searchValue = searchInput.value.trim();
+  let searchValue = searchInput.value.trim();
 
   if (!searchValue) {
     return;
   }
 
   movieList.classList.remove('visually-hidden');
-    messageNoMovie.classList.add('visually-hidden');
+  messageNoMovie.classList.add('visually-hidden');
 
   searchMovies(searchValue);
 }
 
 async function setCatalogCards() {
-
   try {
     const response = await apiService.getTrends('week');
 
     if (response.length === 0 || !response) {
-      return error
+      return error;
     }
 
     const movies = response.slice(0, 10);
@@ -47,12 +46,11 @@ async function setCatalogCards() {
 }
 
 async function searchMovies(query) {
-
   try {
     const response = await apiService.searchMovieByQuery(query);
 
     if (response.length === 0 || !response) {
-      return error
+      return error;
     }
 
     const movies = response.slice(0, 10);

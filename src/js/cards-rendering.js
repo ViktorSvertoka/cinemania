@@ -20,6 +20,7 @@ export default async function renderMoviesCards(movies) {
       continue; // пропускаем фильм без картинки
     }
 
+    
     const movieImg = POSTER_URL + poster;
     const movieGenre = await getGenre(id);
     const movieYear = await getYear(date);
@@ -39,12 +40,13 @@ export default async function renderMoviesCards(movies) {
 }
 
 // Получает год из даты
-function getYear(data) {
+async function getYear(data) {
   if (!data) {
     return 'There is no release date';
   }
 
-  return (year = data.slice(0, 4));
+  const year = await data.slice(0, 4);
+  return year;
 }
 
 // Получает жанры фильма
