@@ -7,7 +7,14 @@ const catalog = document.getElementById('movie-list');
 const modalWindow = document.querySelector('.modal-film');
 const overlay = document.querySelector('.overlay');
 
-catalog.addEventListener('click', onMovieCardClick);
+addListenerOnCatalog();
+
+function addListenerOnCatalog() {
+  if (!catalog) {
+    return;
+  }
+  catalog.addEventListener('click', onMovieCardClick);
+}
 
 async function onMovieCardClick(e) {
   if (!e.target.closest('.cards__list-item')) {
