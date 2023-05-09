@@ -5,18 +5,17 @@ const library = new LibraryAPI();
 library.setLibrary();
 
 export default class BtnState {
-  constructor(btn, btnStateStorageKey, fetchFunction) {
+  constructor(btn, btnStateStorageKey, movie) {
     this.btn = btn;
     this.btnStateStorageKey = btnStateStorageKey;
-    this.fetchFunction = fetchFunction;
+    this.movie = movie;
   }
 
   setBtnState() {
-    this.fetchFunction().then(movie => {
-      const isInLibrary = library.movies.some(m => m.id === movie.id);
+      const isInLibrary = library.movies.some(m => m.id === this.movie.id);
       if (isInLibrary) {
         this.btn.setAttribute('data-action', 'remove');
-        this.btn.textContent = 'Remove';
+        this.btn.textContent = 'Remove from library';
         // console.log(isInLibrary);
       } else {
         this.btn.setAttribute('data-action', 'add');
@@ -32,28 +31,23 @@ export default class BtnState {
         //   console.log('Callback:', this.fetchFunction);
         }
       });
-    });
   }
 
   toAdd() {
-    this.fetchFunction().then(movie => {
-      library.addMovie(movie);
+      library.addMovie(this.movie);
       this.btn.removeEventListener('click', this.toAdd);
       this.btn.setAttribute('data-action', 'remove');
       localStorage.setItem(this.btnStateStorageKey, 'remove');
-      this.btn.textContent = 'Remove';
+      this.btn.textContent = 'Remove from library';
     //   console.log(this.btn.getAttribute('data-action'));
-    });
   }
 
   toRemove() {
-    this.fetchFunction().then(movie => {
-      library.deleteMovie(movie);
+      library.deleteMovie(this.movie);
       this.btn.removeEventListener('click', this.toRemove);
       this.btn.setAttribute('data-action', 'add');
       localStorage.setItem(this.btnStateStorageKey, 'add');
       this.btn.textContent = 'Add to library';
     //   console.log(this.btn.getAttribute('data-action'));
-    });
   }
 }

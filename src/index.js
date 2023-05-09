@@ -1,3 +1,4 @@
+import './js/my-library';
 import './js/genres';
 import './js/theme-switcher';
 import './js/hero';

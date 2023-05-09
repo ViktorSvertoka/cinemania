@@ -113,3 +113,43 @@
     line-height: 1.4;
   }
 }
+
+.my-lib__gallery-list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  list-style-type: none;
+  // padding-top: 48px;
+  //  position: absolute;
+  @media screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+  }
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    padding-top: 36px;
+  }
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+    padding-top: 48px;
+  }
+}
