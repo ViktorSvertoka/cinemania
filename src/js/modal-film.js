@@ -3,7 +3,6 @@ import sprite from '../images/sprite.svg';
 
 const apiService = new APIService();
 
-const btnModalClose = document.querySelector('.modal-film__close');
 const catalog = document.getElementById('movie-list');
 const modalWindow = document.querySelector('.modal-film');
 const overlay = document.querySelector('.overlay');
@@ -22,6 +21,8 @@ async function onMovieCardClick(e) {
     const movieData = await apiService.getMovieInfo(movieID);
     const markup = createMarkup(movieData);
     updateModal(markup);
+    const btnModalClose = document.querySelector('.modal-film__close');
+    btnModalClose.addEventListener('click', closeModalWindows);
     openModal();
   } catch (error) {
     console.log(error);
@@ -33,20 +34,6 @@ function openModal() {
   overlay.classList.remove('hidden');
   document.body.style.overflow = 'hidden';
 }
-
-function closeModalWindows() {
-  modalWindow.classList.add('hidden');
-  overlay.classList.add('hidden');
-  document.body.style.overflow = 'auto';
-}
-
-// btnModalClose.addEventListener('click', closeModalWindows);
-overlay.addEventListener('click', closeModalWindows);
-window.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && !modalWindow.classList.contains('hidden')) {
-    closeModalWindows();
-  }
-});
 
 function updateModal(markup) {
   modalWindow.innerHTML = markup;
@@ -95,3 +82,16 @@ function createMarkup({
     </p>
     <button class="btn" id="mylibrary" data-action="add">Add to my library</button>`;
 }
+
+function closeModalWindows() {
+  modalWindow.classList.add('hidden');
+  overlay.classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+
+overlay.addEventListener('click', closeModalWindows);
+window.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modalWindow.classList.contains('hidden')) {
+    closeModalWindows();
+  }
+});
