@@ -54,16 +54,28 @@ export default class APIService {
     }
   }
 
-  async searchMovieByQuery(query) {
-    try {
-      this.page += 1;
-      const response = await axios.get(
-        `${this.baseURL}search/movie?api_key=${this.key}&query=${query}&page=${this.page}`
-      );
+  async searchMovieByQuery(query, page) {
+    if (arguments.length < 2) {
+      try {
+        this.page += 1;
+        const response = await axios.get(
+          `${this.baseURL}search/movie?api_key=${this.key}&query=${query}&page=${this.page}`
+        );
 
-      return response.data.results;
-    } catch (error) {
-      console.log(error);
+        return response.data.results;
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      try {
+        const response = await axios.get(
+          `${this.baseURL}search/movie?api_key=${this.key}&query=${query}&page=${page}`
+        );
+
+        return response.data;
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 
