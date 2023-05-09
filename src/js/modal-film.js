@@ -112,9 +112,6 @@ function createMarkup({id,
 
 
 
-
-
-
 // // import renderMoviesCards from './cards-rendering.js';
 
 // const API_KEY = '992758a4802a699e8df27d4d6efc34fb';
