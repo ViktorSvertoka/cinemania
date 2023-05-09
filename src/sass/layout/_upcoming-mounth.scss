@@ -1,0 +1,167 @@
+.container-position {
+  width: 100%;
+  @include desktop {
+    display: flex;
+  }
+}
+
+.upcoming__section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.upcoming__title {
+  font-family: Roboto;
+
+  @include font(500, 16px, 19px, 0em);
+  text-align: left;
+  margin-bottom: 24px;
+
+  @include tablet {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  @include desktop {
+    font-size: 28px;
+    line-height: 33px;
+    margin-bottom: 28px;
+  }
+}
+
+.upcoming__foto {
+  margin-bottom: 24px;
+  width: 280px;
+  height: 402px;
+  background-size: contain;
+  display: block;
+
+  @include tablet {
+    width: 704px;
+    height: 400px;
+  }
+
+  @include desktop {
+    width: 805px;
+    height: 458px;
+  }
+}
+
+.container-text {
+  width: 100%;
+  @include desktop {
+    margin-left: 16px;
+    width: 390px;
+  }
+}
+
+.upcoming__movie-name {
+  font-family: Roboto;
+
+  @include font(500, 20px, 23px, 0em);
+  text-align: left;
+  margin-bottom: 20px;
+
+  @include tablet {
+    font-size: 28px;
+    line-height: 33px;
+    margin-bottom: 24px;
+  }
+
+  @include desktop {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
+
+//-----Table----------
+.upcoming__movie-data {
+  font-family: 'Roboto';
+  font-style: normal;
+  @include font(500, 16px, 1.33, 0em);
+
+  &__row > td {
+    vertical-align: top;
+  }
+
+  &__row > td:first-child {
+    white-space: nowrap;
+    border-right: 39px solid transparent;
+    color: $light-gray-color;
+
+    @include desktop {
+      border-right: 83px solid transparent;
+    }
+  }
+
+  table#t01 &__row > td:first-child {
+    border-right: 20px solid transparent;
+    @include desktop {
+      border-right: 63px solid transparent;
+    }
+  }
+
+  &__row > td {
+    border-bottom: 8px solid transparent;
+    background-clip: padding-box;
+  } // коли була одна таблиця стояло &__row:not(:last-child) > td
+
+  &__release-date {
+    color: $orange-color;
+  }
+
+  &__vote {
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: $white-color;
+    color: $black-color;
+    border-radius: 4;
+  }
+}
+
+.container-text__table-block {
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+  }
+  @include desktop {
+    display: block;
+  }
+}
+
+.container-text__table-one,
+.container-text__table-two {
+  display: flex;
+  justify-content: space-between;
+}
+
+//-------------
+
+.upcoming__about-title {
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.upcoming__about {
+  font-family: Roboto;
+  @include font(auto, 14px, 20px, 0em);
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.upcoming__btn {
+  @include font(500, 12px, null, null);
+  padding: 12px 24px;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+  border-radius: 74px;
+
+  @include tablet {
+    @include font(null, 14px, 1.43, null);
+    padding: 10px 24px;
+  }
+
+  @include desktop {
+    @include font(null, 16px, 1.4, null);
+    padding: 12px 24px;
+  }
+}
