@@ -89,4 +89,18 @@ export default async function openTrailerModal() {
       markupId.insertAdjacentHTML('beforeend', errorModalTemplate());
     }
   });
+
+  if (markupId) {
+    markupId.addEventListener('click', event => {
+      if (event.target.classList.contains('watch-modal')) {
+        markupId.innerHTML = '';
+      }
+    });
+
+    window.addEventListener('keydown', event => {
+      if (event.code === 'Escape') {
+        markupId.innerHTML = '';
+      }
+    });
+  }
 }
