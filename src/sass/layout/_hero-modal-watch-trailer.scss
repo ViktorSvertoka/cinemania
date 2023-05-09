@@ -1,6 +1,6 @@
 // Стили для модального окна с видео
 .watch-modal {
-  display: none;
+  display: flex;
   position: fixed;
   z-index: 9998;
   left: 0;
@@ -117,7 +117,7 @@
 
 /* Модальное окно ошибки */
 .modal-error {
-  display: none;
+  display: flex;
 }
 
 .watch-modal__error-image {
