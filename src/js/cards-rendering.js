@@ -20,19 +20,24 @@ export default async function renderMoviesCards(movies) {
       continue; // пропускаем фильм без картинки
     }
 
-    
     const movieImg = POSTER_URL + poster;
     const movieGenre = await getGenre(id);
     const movieYear = await getYear(date);
     const starRating = await createStarRating(rating);
     // Надо добавить классы
-    markup += `<li class='cards__list__item'>
-                    <img src='${movieImg}' alt='${title}' width='395' height='574' />
+    markup += `<li class='cards__list-item'>
+                    
+    <img class='cards__list-img' src='${movieImg}' alt='${title}' width='395' height='574' />
+                   
+                    <div class='cards__list-search'>
                     <div>
-                        <h3>${title}</h3>
-                        <p>${movieGenre} <span>${movieYear}</span></p>
-                        ${starRating}
+                    <h3 class='cards__list-title'>${title}</h3>
+                        <p class='cards__list-text'> |${movieGenre} <span class='cards__list-span'>${movieYear}</span></p>
                     </div>
+                        
+                        <div></div><p class='cards__list-stars'>${starRating}</p></div>
+                    </div>
+                    
                 </li>`;
   }
 
@@ -40,13 +45,12 @@ export default async function renderMoviesCards(movies) {
 }
 
 // Получает год из даты
-async function getYear(data) {
+function getYear(data) {
   if (!data) {
     return 'There is no release date';
   }
 
-  const year = await data.slice(0, 4);
-  return year;
+  return (year = data.slice(0, 4));
 }
 
 // Получает жанры фильма
