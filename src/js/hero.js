@@ -7,6 +7,8 @@ import {
   onNavButtonRight,
 } from './hero-slider';
 
+import {createStarRating} from './cards-rendering'
+
 const apiService = new APIService();
 
 const refs = {
@@ -80,11 +82,12 @@ function createCardTrendsOfDay({
   vote_average,
   overview,
 }) {
+  const stars = createStarRating(vote_average);
   return `<div class="container imgApi slider-card" id="heroContainerImg" style="background-image:linear-gradient(87.8deg, #0E0E0E 15.61%, rgba(14, 14, 14, 0) 60.39%), url('https://image.tmdb.org/t/p/original${backdrop_path}')" >
         <div class="hero__container hero__container--render"> 
             <div class="hero__block-left--render">
                 <h1 class="hero__title hero__title--render">${title}</h1>
-                <div class = "hero__stars">${vote_average}</div>
+                <div class = "hero__stars">${stars}</div>
                 <p class="hero__text hero__text--render">
                 ${overview}    
                 </p>
