@@ -92,8 +92,12 @@ function createButton(
 ) {
   const newButton = createBaseButton();
   newButton.dataset['page'] = pageNum;
-  newButton.textContent =
-    additionalClass && additionalClass.includes('arrow') ? '' : pageNum;
+  newButton.textContent = newButton.textContent =
+    additionalClass && additionalClass.includes('arrow')
+      ? ''
+      : pageNum < 10
+      ? '0' + pageNum
+      : pageNum;
 
   if (additionalClass) {
     newButton.classList.add(additionalClass);
@@ -132,5 +136,4 @@ async function pageButtonPressed(event) {
   }
 }
 
-// классы для стилизации button-arrow-left - стрелочка влево, button-arrow-right - стрелочка вправо
-// pagination-button-current - текущая кнопка (активная), .pagination-button - общий класс на все кнопки пагинации
+
