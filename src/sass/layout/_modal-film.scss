@@ -5,7 +5,7 @@
     line-height: calc(14/12);
 
     cursor: pointer;
-    color: $white-color;
+    color: var(--hero-title-clr);
     padding: 12px 24px;
     border-radius: 74px;
     background-color: transparent;
@@ -24,7 +24,7 @@
 }
 .btn:hover,
 .btn:focus {
-    background-color: $white-color;
+    background-color: $black-color;
     color: $orange-color;
     border: none;
     }
@@ -33,7 +33,7 @@
 
 .modal-film {
     display: none;
-    background-color: $black-color;
+    background-color: var(--page-bgc);
     box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
     text-align: left;
 
@@ -41,7 +41,7 @@
     
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.7);
    
     width: 280px;
     min-height: 847px;
@@ -55,7 +55,7 @@
     min-width: 704px;
     min-height: 488px;
     padding: 44px;
-     }
+    }
     @media screen and (min-width: 1200px) {
     transform: translate(-50%, -50%) scale(0.9);
     top: 50%;
@@ -75,16 +75,13 @@
     margin: 0;
     width: 24px;
     height: 24px;
-    fill: $transparent-white-color;
     outline: none;
     cursor: pointer;
     background-color: transparent;
     transition-property: color;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    &:hover {
-            fill: $orange-color;
-        }
+   
     @media screen and (min-width: 768px) {
     top: 24px;
     right: 24px;
@@ -95,6 +92,13 @@
     
     }
  
+}
+.modal-film__close-icon {
+fill: var(--secondary-text-clr);
+&:hover,
+&:focus {
+        fill: $orange-color;
+    }
 }
 
 .modal-film__container {
@@ -135,7 +139,7 @@
 }
 
 .modal-film__title{
-    color: $white-color;
+    color: var(--primary-text-clr);
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -157,7 +161,8 @@
 
 .modal-film__blok {
     display: flex;
-    color: $light-gray-color;
+
+    color: var(--muted-secondary-text-clr);
     justify-content: space-between;
     margin-bottom: 20px;
 
@@ -172,7 +177,8 @@
 .modal-film__about {
     font-style: normal;
     font-weight: 500;
-    color: $light-gray-color;
+
+    color: var(--muted-secondary-text-clr);
     text-transform: uppercase;
     font-size: 14px;
      line-height: calc(16/14);
@@ -189,7 +195,7 @@
     width: 100px;
 }
 .modal-film__link-item {
-    color: $white-color;
+    color: var(--primary-text-clr);
   
     
 }
@@ -222,9 +228,9 @@
     font-weight: 500;
     font-size: 12px;
     line-height: calc(14/12);
-    background-color: $white-color;
+    background-color: var(--secondary-bcg-clr);
     border-radius: 5px;
-    color: $black-color;
+    color: var(--modal-text-color);
     padding: 1px 8px;
     @media screen and (min-width: 1200px) {
         font-size: 14px;
@@ -236,9 +242,9 @@
     font-weight: 500;
     font-size: 12px;
     line-height: calc(14/12);
-    background-color: $white-color;
+    background-color: var(--secondary-bcg-clr);
     border-radius: 5px;
-    color: $black-color;
+    color: var(--modal-text-color);
     padding: 1px 4px;
    
     @media screen and (min-width: 1200px) {
@@ -255,7 +261,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: calc(20/12);
-    color: $transparent-white-color;
+    color: var(--modal-secondary-color);
     margin-bottom: 16px;
     @media screen and (min-width: 768px) {
     margin-top: 4px;    
