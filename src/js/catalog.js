@@ -1,10 +1,13 @@
 import APIService from './api-service-main';
 import renderMoviesCards from './cards-rendering';
+import renderPagination from './catalog-slider';
 
 const movieList = document.querySelector('.cards__list');
 const messageNoMovie = document.querySelector('.cards__message');
 const searchForm = document.getElementById('search-form');
 const searchInput = document.getElementById('searchQuery');
+let currentPage = 1;
+const paginationCont = document.querySelector('.pagination');
 
 const apiService = new APIService();
 setCatalogCards();
@@ -23,42 +26,58 @@ function onSubmit(e) {
 
   movieList.classList.remove('visually-hidden');
   messageNoMovie.classList.add('visually-hidden');
+  paginationCont.classList.remove('visually-hidden');
+  
 
   searchMovies(searchValue);
 }
 
 async function setCatalogCards() {
   try {
-    const response = await apiService.getTrends('week');
+    const response = await apiService.getTrends('week', currentPage);
 
-    if (response.length === 0 || !response) {
+    
+    if (response.results.length === 0 || !response.results) {
       return error;
     }
 
-    const movies = response.slice(0, 10);
+    const movies = response.results;
 
-    renderMoviesCards(movies);
+    renderMoviesCards(movies, '.cards__list');
+
+    renderPagination(response.page, response.total_pages);
   } catch (error) {
     console.log(error);
     movieList.classList.add('visually-hidden');
     messageNoMovie.classList.remove('visually-hidden');
+    paginationCont.classList.add('visually-hidden');
   }
 }
 
 async function searchMovies(query) {
   try {
-    const response = await apiService.searchMovieByQuery(query);
+    const response = await apiService.searchMovieByQuery(query, currentPage);
+    console.log (response)
 
-    if (response.length === 0 || !response) {
+    if (response.results.length === 0 || !response.results) {
       return error;
     }
 
-    const movies = response.slice(0, 10);
+    const movies = response.results;
 
-    renderMoviesCards(movies);
+    renderMoviesCards(movies, '.cards__list');
+
+    if (response.total_pages === 1) {
+      paginationCont.classList.add('visually-hidden');
+      return
+      
+    }
+    renderPagination(response.page, response.total_pages, query);
+  
   } catch (error) {
     console.log(error);
     movieList.classList.add('visually-hidden');
     messageNoMovie.classList.remove('visually-hidden');
+    paginationCont.classList.add('visually-hidden');
   }
 }
