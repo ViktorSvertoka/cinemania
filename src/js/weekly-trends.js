@@ -13,13 +13,9 @@ async function getWeeklyTrends() {
     if (response.length === 0 || !response) {
       return error;
     }
-    if (window.innerWidth < 768) {
-      const movies = response.slice(0, 1);
-      renderMoviesCards(movies, '.weekly-trends__list');
-    } else {
-      const movies = response.slice(0, 3);
-      renderMoviesCards(movies, '.weekly-trends__list');
-    }
+
+    const movies = response.slice(0, 3);
+    renderMoviesCards(movies, '.weekly-trends__list');
   } catch (error) {
     console.log(error);
   }
@@ -28,12 +24,13 @@ async function getWeeklyTrends() {
 window.addEventListener('resize', throttle(cardListShuffling, 100));
 
 function cardListShuffling() {
-  const cardList = document.querySelectorAll('.cards__list__item');
+  const cardList = document.querySelectorAll('.cards__list-item');
+  console.log(window.innerWidth);
   if (window.innerWidth < 768) {
-    cardList[1].classList.add('weekly-trends__none');
-    cardList[2].classList.add('weekly-trends__none');
+    cardList[1].classList.add('visually-hidden');
+    cardList[2].classList.add('visually-hidden');
   } else {
-    cardList[1].classList.remove('weekly-trends__none');
-    cardList[2].classList.remove('weekly-trends__none');
+    cardList[1].classList.remove('visually-hidden');
+    cardList[2].classList.remove('visually-hidden');
   }
 }
