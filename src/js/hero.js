@@ -88,7 +88,7 @@ function createCardTrendsOfDay({
                 <p class="hero__text hero__text--render">
                 ${overview}    
                 </p>
-                <a class="watch-trailer button" type="button" id ="hero__btn" data-movie-id="${id}">Watch trailer</a>
+                <button class="watch-trailer button" type="button" id ="hero__btn" data-movie-id="${id}">Watch trailer</button>
                       <div class="slider__buttons">
         <button type="button" class="slider-btn-left slider-btn">
         </button>
