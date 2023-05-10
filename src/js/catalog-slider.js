@@ -1,8 +1,8 @@
 import APIService from './api-service-main';
 import renderMoviesCards from './cards-rendering';
+import { loaderShow, loaderHide } from './loader';
 const apiService = new APIService();
 let currentQuary;
-
 
 export default function renderPagination(currentPage, totalPages, query) {
   const paginationCont = document.querySelector('.pagination');
@@ -115,7 +115,7 @@ function createButton(
 async function pageButtonPressed(event) {
   const page = event.target.dataset.page;
   const catalogForm = document.querySelector('.catalog__form');
-  // loaderShow();
+  loaderShow();
 
   try {
     if (currentQuary === null) {
@@ -134,9 +134,9 @@ async function pageButtonPressed(event) {
       renderPagination(response.page, response.total_pages, currentQuary);
     }
     catalogForm.scrollIntoView({ behavior: 'smooth' });
+    loaderHide();
   } catch (error) {
     console.log(error);
+    loaderHide();
   }
-
-  // loaderHide()
 }
