@@ -4,6 +4,12 @@
 
 .hero .container {
   padding: 0;
+}
+
+.imgApi {
+  // background-size: 380px;
+  background-size: auto 100%;
+  background-position-x: -50px;
   background-repeat: no-repeat;
 
   background-image: linear-gradient(
@@ -41,6 +47,8 @@
   // }
 
   @include tablet {
+    background-size: 768px;
+    background-position-x: 286px;
     background-image: linear-gradient(
         87.8deg,
         #0e0e0e 15.61%,
@@ -59,6 +67,8 @@
   }
 
   @include desktop {
+    background-size: 1280px;
+    background-position-x: 325px;
     background-image: linear-gradient(
         87.8deg,
         #0e0e0e 15.61%,
@@ -74,22 +84,6 @@
         ),
         url(../images/hero_2x.jpg);
     }
-  }
-}
-
-.imgApi {
-  // background-size: 380px;
-  background-size: auto 100%;
-  background-position-x: -50px;
-
-  @include tablet {
-    background-size: 768px;
-    background-position-x: 286px;
-  }
-
-  @include desktop {
-    background-size: 1280px;
-    background-position-x: 325px;
   }
 }
 
@@ -158,7 +152,6 @@
   @include desktop {
     top: 178px;
     width: 419px;
-    
   }
 }
 
@@ -192,7 +185,6 @@
   @include desktop {
     margin-bottom: 16px;
     max-height: 225px;
-      
   }
 }
 
@@ -222,7 +214,6 @@
   @include tablet {
     color: var(--primary-text-clr);
     margin-bottom: 32px;
-    
   }
 
   @include desktop {
@@ -281,60 +272,82 @@
 }
 
 .slider {
-  display: flex;
+  // display: flex;
   width: 100%;
-  overflow: hidden;
-  justify-content: center;
+  // overflow: hidden;
+  // justify-content: center;
   // position: relative;
 }
 
 .slider__buttons {
   display: flex;
   margin-top: 20px;
-  // position: absolute;
-  // left: 134px;
-  // bottom: 159px;
+  position: absolute;
+  bottom: 28px;
+  padding-left: 20px;
 
   @include tablet {
-    margin-top: 32px;
+    bottom: 36px;
+    padding-left: 32px;
   }
 
   @include desktop {
-     margin-top: 40px;
+    
+    margin-top: 40px;
+    padding-left: 135px;
+   
   }
-  
 }
+
+  
 
 .slider-btn {
   margin-top: auto;
+  margin-bottom: auto;
   // margin: auto 0;
   width: 28px;
   height: 28px;
 }
+
+
+
 .slider-btn-left {
   // background-image: url('../images/slider-btn-left.png');
   margin-right: 4px;
-    @include tablet {
-  margin-right: 8px;
+  @include tablet {
+    margin-right: 8px;
   }
-  
+
   @include desktop {
     margin-right: 12px;
   }
-  
 }
 
 .slider-btn-right {
-    // background-image: url('../images/slider-btn-right.png');
-    margin-left: 4px;
-      @include tablet {
-  margin-left: 8px;
+  // background-image: url('../images/slider-btn-right.png');
+  margin-left: 4px;
+  @include tablet {
+    margin-left: 8px;
   }
-  
+
   @include desktop {
- margin-left: 12px;
+    margin-left: 12px;
   }
 }
+
+.slider__icon {
+  stroke: var(--hero-slider-arrow); 
+}
+
+.slider__icon:hover {
+  stroke: $orange-color;
+}
+
+.slider-btn:disabled .slider__icon {
+  stroke: $light-gray-color;
+}
+
+
 
 .button__arrow {
   width: 28px;
@@ -343,6 +356,7 @@
 .slider-nav {
   display: flex;
   justify-content: center;
+
 }
 
 .slider-nav-btn {
@@ -355,17 +369,17 @@
   transition: color 0.2s ease-in-out;
   border-radius: 25px;
   padding: 7px 6px;
-  
+
   @include tablet {
     @include font(400, 12px, 1.17, 0em);
     padding: 9px;
     margin-right: 12px;
   }
-  
+
   @include desktop {
     @include font(400, 14px, 1, 0em);
     margin-right: 16px;
-     padding: 13px 12px;
+    padding: 13px 12px;
   }
 }
 
