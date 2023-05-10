@@ -1,10 +1,5 @@
 import APIService from './api-service-main';
-import LibraryAPI from './library-api-service';
 import BtnState from './btn-state';
-
-const libraryApi = new LibraryAPI();
-
-libraryApi.setLibrary();
 
 const insertResult = document.querySelector('.upcoming__content');
 const apiService = new APIService();

@@ -1,19 +1,24 @@
 import APIService from './api-service-main';
 import sprite from '../images/sprite.svg';
+import BtnState from './btn-state';
 
 const apiService = new APIService();
 
 const catalog = document.getElementById('movie-list');
+const myLibGallery = document.getElementById('my-lib-gallery-list');
+const weeklyTrends = document.getElementById('weekly-trnds-list');
 const modalWindow = document.querySelector('.modal-film');
 const overlay = document.querySelector('.overlay');
 
-addListenerOnCatalog();
+addModalListener(catalog);
+addModalListener(weeklyTrends);
+addModalListener(myLibGallery);
 
-function addListenerOnCatalog() {
-  if (!catalog) {
+function addModalListener(listRef){
+  if (!listRef) {
     return;
   }
-  catalog.addEventListener('click', onMovieCardClick);
+  listRef.addEventListener('click',onMovieCardClick);
 }
 
 async function onMovieCardClick(e) {
@@ -31,6 +36,9 @@ async function onMovieCardClick(e) {
     const btnModalClose = document.querySelector('.modal-film__close');
     btnModalClose.addEventListener('click', closeModalWindows);
     openModal();
+    const toLibraryBtn = document.getElementById('mylibrary');
+    const btnApi = new BtnState(toLibraryBtn,'modal-btn-attr',movieData);
+    btnApi.setBtnState();
   } catch (error) {
     console.log(error);
   }
@@ -89,6 +97,7 @@ function createMarkup({
     </p>
     <button class="btn" id="mylibrary" data-action="add">Add to my library</button>`;
 }
+
 
 function closeModalWindows() {
   modalWindow.classList.add('hidden');
