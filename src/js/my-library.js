@@ -4,8 +4,13 @@ import LibraryAPI from './library-api-service';
 const library = new LibraryAPI();
 
 library.setLibrary();
-
 checkStorage();
+
+window.addEventListener('storage', () => {
+    console.log('hello');
+  console.log(JSON.parse(localStorage.getItem(library.keyValue)));
+  checkStorage();
+});
 
 function checkStorage() {
   if (library.movies.length === 0) {
