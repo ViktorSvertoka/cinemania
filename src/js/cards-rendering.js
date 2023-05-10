@@ -41,6 +41,9 @@ export default async function renderMoviesCards(movies, selector) {
                 </li>`;
   }
 
+  if (!movieList) {
+    return;
+  }
   movieList.innerHTML = markup;
 }
 
@@ -133,3 +136,6 @@ function createStarRating(data) {
 
   return `<div>${ratingStars}</div>`;
 }
+
+
+export { createStarRating };

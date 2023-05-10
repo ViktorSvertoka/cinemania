@@ -1,10 +1,5 @@
 import APIService from './api-service-main';
-import LibraryAPI from './library-api-service';
 import BtnState from './btn-state';
-
-const libraryApi = new LibraryAPI();
-
-libraryApi.setLibrary();
 
 const insertResult = document.querySelector('.upcoming__content');
 const apiService = new APIService();
@@ -17,7 +12,7 @@ async function makeUpcomingMovieMarkup() {
     const markup = createdMarkup(...data);
     insertResult.insertAdjacentHTML('beforeend', markup);
     const libraryBtn = document.getElementById('library-btn-home');
-    const btn = new BtnState(libraryBtn,'btn-upcoming',data[0]);
+    const btn = new BtnState(libraryBtn, 'btn-upcoming', data[0]);
     btn.setBtnState();
   } catch (error) {
     console.log(error);
@@ -59,8 +54,11 @@ function createdMarkup(
         <div class="container-foto">
         <img class="upcoming__foto"
         src="https://image.tmdb.org/t/p/original/${poster_path}"
-        srcset="https://image.tmdb.org/t/p/original/${backdrop_path} 768w,
-                https://image.tmdb.org/t/p/original/${poster_path} 480w"
+        srcset="https://image.tmdb.org/t/p/w1280/${backdrop_path} 1280w,
+                https://image.tmdb.org/t/p/w780/${poster_path} 500w,
+                https://image.tmdb.org/t/p/w300/${poster_path} 342w
+
+        " sizes="(min-width: 1200px) 1280px, (min-width: 768px) 500px, (min-width: 480px) 342px, 100vw"        
   
         alt="Movie Poster">
   
