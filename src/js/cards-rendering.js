@@ -23,15 +23,17 @@ export default async function renderMoviesCards(movies, selector) {
     // Надо добавить классы
     markup += `<li class='cards__list-item' data-id='${id}'>
                     
-    <img class='cards__list-img' ${movieSrc} width='395' height='574' />
+    <img class='cards__list-img' src='${movieImg}' alt='${title}' width='395' height='574' />
                    <div class='weekly-trends__overlay'></div>
-                    <div class='cards__list-search'>                    
-                         <h3 class='cards__list-title'>${title}</h3>
-                       <div class='cards__bloc-stars'>   
-                         <p class='cards__list-text'> ${movieGenre} | <span class='cards__list-span'>${movieYear}</span></p>
-                          
-                        
-                        <p class='cards__list-stars'>${starRating}</p>
+                    <div class='cardss__list-search'>                    
+                      <h3 class='cardss__list-title'>${title}</h3>
+                      <div class='cardss__bloc-stars'>   
+                        <p class='cardss__list-text'> ${movieGenre} 
+                         <span class='cardss__list-span'>| ${movieYear}</span></p>
+                           
+                       
+                      </div>
+                       <div class='cardss__list-stars'>${starRating}</div>
                     </div>
                     
                 </li>`;
