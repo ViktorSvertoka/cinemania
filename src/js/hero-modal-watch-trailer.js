@@ -36,7 +36,10 @@ export default async function openTrailerModal() {
 
   if (markupId) {
     markupId.addEventListener('click', event => {
-      if (event.target.classList.contains('watch-modal')) {
+      if (
+        event.target.classList.contains('watch-modal') ||
+        event.target.classList.contains('watch-modal__close-icon')
+      ) {
         markupId.innerHTML = '';
       }
     });
