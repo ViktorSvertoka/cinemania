@@ -1,4 +1,6 @@
 import { emptyStar, fullStar, halfStar } from './stars';
+import comingSoonImg from '../images/coming_soon.jpg'
+
 const axios = require('axios').default;
 
 export default async function renderMoviesCards(movies, selector) {
@@ -15,12 +17,14 @@ export default async function renderMoviesCards(movies, selector) {
       vote_average: rating,
     } = movie;
 
+    let movieImg = POSTER_URL + poster; 
+
     // Проверка на картинку, можно что-то придумать чтоб грузилось другое
     if (poster === null || !poster) {
-      continue; // пропускаем фильм без картинки
-    }
+      movieImg = comingSoonImg;
+    } 
 
-    const movieImg = POSTER_URL + poster;
+    
     const movieGenre = await getGenre(id);
     const movieYear = await getYear(date);
     const starRating = await createStarRating(rating);
