@@ -63,7 +63,7 @@
 /* Кнопка закрытия */
 .watch-modal__close {
   position: absolute;
-  color: $black-color;
+  color: var(--modal-secondary-color);
   width: 16px;
   height: 16px;
   left: 244px;
@@ -85,9 +85,15 @@
 
   &:hover,
   &:focus {
-    color: var(--modal-secondary-color);
+    // color: var(--modal-secondary-color);
     text-decoration: none;
     cursor: pointer;
+  }
+
+  &.icon {
+    width: 16px;
+    height: 16px;
+    fill: inherit;
   }
 }
 
@@ -149,18 +155,22 @@
   height: 153px;
   left: 61px;
   top: 128px;
+  background-image: url('/src/images/watch-trailer-modal_mob_2x.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 
   @include tablet {
+    background-image: url('/src/images/watch-trailer-modal_tab_2x.png');
     width: 296px;
     height: 260px;
-
     left: 303px;
     top: 124px;
   }
 
   @include desktop {
-    width: 363px;
-    height: 318px;
+    background-image: url('/src/images/watch-trailer-modal_desk_2x.png');
+    // width: 363px;
+    // height: 318px;
     left: 337px;
     top: 77px;
   }

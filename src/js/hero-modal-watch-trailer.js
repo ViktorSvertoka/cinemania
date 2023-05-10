@@ -48,46 +48,13 @@ export default async function openTrailerModal() {
   function errorModalTemplate() {
     return `<div class='watch-modal modal-error'>
   <div class='watch-modal__content'>
-    <picture class='watch-modal__picture'>
-      <source
-        srcset='./images/watch-trailer-modal_desk_2x.png'
-        media='(min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 1200px) and (min-resolution: 192dpi), (min-width: 1200px) and (min-resolution: 2dppx)'
-      />
-      <source
-        srcset='./images/watch-trailer-modal_desk_1x.png'
-        media='(min-width: 1200px)'
-      />
-      <source
-        srcset='/src/images/watch-trailer-modal_tab_2x.png'
-        media='(min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 768px) and (min-resolution: 192dpi), (min-width: 768px) and (min-resolution: 2dppx)'
-      />
-      <source
-        srcset='/src/images/watch-trailer-modal_tab_1x.png'
-        media='(min-width: 768px)'
-      />
-      <source
-        srcset='/src/images/watch-trailer-modal_mob_2x.png'
-        media='(min-width: 480px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 480px) and (min-resolution: 192dpi), (min-width: 480px) and (min-resolution: 2dppx)'
-      />
-      <source
-        srcset='/src/images/watch-trailer-modal_mob_1x.png'
-        media='(min-width: 480px)'
-      />
-      <img
-        class='watch-modal__error-image'
-        src='/src/images/watch-trailer-modal_desk_1x.png'
-        alt='Error'
-      />
-    </picture>
-    <button type='button' class='watch-modal__close'>
-      <img
-        class='watch-modal__close-image'
-        src='./images/close-watch-trailer-icon.png'
-        alt='Close'
-      />
-
+    <div class='watch-modal__error-image'></div>
+      
+      <button type='button' class='watch-modal__close'>
+      <svg class='watch-modal__close icon'>
+        <use href='../images/close-outline.svg'></use>
+      </svg>
     </button>
-
     <p class='watch-modal__error-message'>
       OOPS... We are very sorry! But we couldn’t find the trailer.
     </p>
