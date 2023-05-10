@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.loader__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); // Semi-transparent black background
+  z-index: 9999; // Ensure the overlay is on top of other elements
+  display: none; // Initially hidden
+
+  &.is-active {
+    display: block !important; // Show the element when is-active class is applied
+  }
+}

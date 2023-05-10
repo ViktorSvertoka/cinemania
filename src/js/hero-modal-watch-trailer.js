@@ -2,10 +2,10 @@ import APIService from './api-service-main';
 import successModalTemplate from '../templates/success-trailer-modal.hbs';
 import errorModalTemplate from '../templates/error-trailer-modal.hbs';
 import { loaderShow, loaderHide } from './loader';
+import icon from '../images/watch-trailer-modal_desk_1x.png';
 
 const markupId = document.getElementById('trailer-modal');
 const apiService = new APIService();
-const loader = document.getElementById('loader');
 
 export default async function openTrailerModal() {
   const watchTrailerButtons = document.querySelectorAll('.watch-trailer');
@@ -14,20 +14,21 @@ export default async function openTrailerModal() {
     btn.addEventListener('click', async e => {
       const movieId = e.target.dataset.movieId;
       document.body.style.overflow = 'hidden';
-      // loaderShow();
+      loaderShow();
 
       try {
         const { key } = await apiService.getMovieTrailer(movieId);
 
         const videoUrl = `https://www.youtube.com/embed/${key}`;
-        // loaderHide();
+        loaderHide();
+
         markupId.insertAdjacentHTML(
           'beforeend',
           successModalTemplate({ videoUrl })
         );
-        // markupId.classList.add('is-active');
+        markupId.classList.add('is-active');
       } catch (error) {
-        // loaderHide();
+        loaderHide();
         markupId.insertAdjacentHTML('beforeend', errorModalTemplate());
         // markupId.classList.add('is-active');
       }

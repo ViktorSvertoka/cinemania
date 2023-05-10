@@ -1,19 +1,32 @@
-function loaderShow() {
-  //   document.getElementById('loader').classList.add('is-active');
-  const loader = document.createElement('div');
+let loader;
+let overlay;
+
+function createLoaderElements() {
+  overlay = document.createElement('div');
+  overlay.className = 'loader__overlay';
+
+  loader = document.createElement('div');
   loader.className = 'loader';
+
+  document.body.appendChild(overlay);
   document.body.appendChild(loader);
-  //   document.body.style.overflow = 'hidden';
+}
+
+function loaderShow() {
+  if (!loader || !overlay) {
+    createLoaderElements();
+  }
+
+  overlay.classList.add('is-active');
   loader.classList.add('is-active');
 }
 
 function loaderHide() {
-  //   document.getElementById('loader').classList.remove('is-active');
-  const loader = document.querySelector('.loader');
-  if (loader) {
+  if (loader && overlay) {
+    overlay.classList.remove('is-active');
     loader.classList.remove('is-active');
-    // document.body.style.overflow = '';
     setTimeout(() => {
+      overlay.remove();
       loader.remove();
     }, 500);
   }

@@ -19,7 +19,7 @@ let currentSlide = 0;
 let currentButton = 0;
 
 loaderShow();
-console.log('hello');
+console.log(loaderShow);
 
 // Создем запрос страницу
 if (document.querySelector('.current-page__my-library').localName !== 'body') {
