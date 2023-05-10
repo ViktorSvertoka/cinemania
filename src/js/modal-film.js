@@ -1,14 +1,25 @@
 import APIService from './api-service-main';
 import sprite from '../images/sprite.svg';
+import BtnState from './btn-state';
 
 const apiService = new APIService();
 
-const btnModalClose = document.querySelector('.modal-film__close');
 const catalog = document.getElementById('movie-list');
+const myLibGallery = document.getElementById('my-lib-gallery-list');
+const weeklyTrends = document.getElementById('weekly-trnds-list');
 const modalWindow = document.querySelector('.modal-film');
 const overlay = document.querySelector('.overlay');
 
-catalog.addEventListener('click', onMovieCardClick);
+addModalListener(catalog);
+addModalListener(weeklyTrends);
+addModalListener(myLibGallery);
+
+function addModalListener(listRef){
+  if (!listRef) {
+    return;
+  }
+  listRef.addEventListener('click',onMovieCardClick);
+}
 
 async function onMovieCardClick(e) {
   if (!e.target.closest('.cards__list-item')) {
@@ -22,7 +33,12 @@ async function onMovieCardClick(e) {
     const movieData = await apiService.getMovieInfo(movieID);
     const markup = createMarkup(movieData);
     updateModal(markup);
+    const btnModalClose = document.querySelector('.modal-film__close');
+    btnModalClose.addEventListener('click', closeModalWindows);
     openModal();
+    const toLibraryBtn = document.getElementById('mylibrary');
+    const btnApi = new BtnState(toLibraryBtn,'modal-btn-attr',movieData);
+    btnApi.setBtnState();
   } catch (error) {
     console.log(error);
   }
@@ -33,20 +49,6 @@ function openModal() {
   overlay.classList.remove('hidden');
   document.body.style.overflow = 'hidden';
 }
-
-function closeModalWindows() {
-  modalWindow.classList.add('hidden');
-  overlay.classList.add('hidden');
-  document.body.style.overflow = 'auto';
-}
-
-// btnModalClose.addEventListener('click', closeModalWindows);
-overlay.addEventListener('click', closeModalWindows);
-window.addEventListener('keydown', function (e) {
-  if (e.key === 'Escape' && !modalWindow.classList.contains('hidden')) {
-    closeModalWindows();
-  }
-});
 
 function updateModal(markup) {
   modalWindow.innerHTML = markup;
@@ -95,3 +97,17 @@ function createMarkup({
     </p>
     <button class="btn" id="mylibrary" data-action="add">Add to my library</button>`;
 }
+
+
+function closeModalWindows() {
+  modalWindow.classList.add('hidden');
+  overlay.classList.add('hidden');
+  document.body.style.overflow = 'auto';
+}
+
+overlay.addEventListener('click', closeModalWindows);
+window.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && !modalWindow.classList.contains('hidden')) {
+    closeModalWindows();
+  }
+});

@@ -199,6 +199,7 @@
 .hero__stars {
   height: 16px;
   margin-bottom: 16px;
+  // background-image: url('../images/stars.png');
 
   @include tablet {
     height: 20px;
