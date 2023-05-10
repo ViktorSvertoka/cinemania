@@ -3,6 +3,7 @@
   @media (max-width: 767px) {
     padding: 40px 20px 16px 20px;
   }
+  color: $white-color;
 }
 
 .weekly-trends li:not(:first-child) {
@@ -86,7 +87,6 @@
 }
 
 .weekly-trends__ganre {
-  color: var(--muted-text-clr);
 }
 
 .weekly-trends__year {
