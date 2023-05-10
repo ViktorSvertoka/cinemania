@@ -17,6 +17,7 @@ function onSubmit(e) {
   e.preventDefault();
 
   movieList.innerHTML = '';
+  paginationCont.innerHTML = '';
 
   let searchValue = searchInput.value.trim();
 
@@ -54,6 +55,7 @@ async function setCatalogCards() {
     console.log(error);
     movieList.classList.add('visually-hidden');
     messageNoMovie.classList.remove('visually-hidden');
+    paginationCont.innerHTML = '';
     paginationCont.classList.add('visually-hidden');
   }
 }
@@ -84,6 +86,7 @@ async function searchMovies(query) {
     console.log(error);
     movieList.classList.add('visually-hidden');
     messageNoMovie.classList.remove('visually-hidden');
+    paginationCont.innerHTML = '';
     paginationCont.classList.add('visually-hidden');
   }
 }

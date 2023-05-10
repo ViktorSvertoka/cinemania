@@ -8,28 +8,31 @@ const apiService = new APIService();
 const loader = document.getElementById('loader');
 
 export default async function openTrailerModal() {
-  const watchTrailerBtn = document.getElementById('watch__btn');
-  const movieId = watchTrailerBtn.dataset.movieId;
-  console.log(movieId);
+  loaderClassAdd();
 
-  watchTrailerBtn.addEventListener('click', async () => {
-    console.log('object');
-    //   loaderClassAdd();
+  const watchTrailerButtons = document.querySelectorAll('.watch-trailer');
 
-    try {
-      const { key } = await apiService.getMovieTrailer(movieId);
+  watchTrailerButtons.forEach(btn => {
+    btn.addEventListener('click', async e => {
+      const movieId = e.target.dataset.movieId;
 
-      const videoUrl = `https://www.youtube.com/embed/${key}`;
-      loaderClassRemove();
-      markupId.insertAdjacentHTML(
-        'beforeend',
-        successModalTemplate({ videoUrl })
-      );
-    } catch (error) {
-      loaderClassRemove();
-      console.log(error);
-      markupId.insertAdjacentHTML('beforeend', errorModalTemplate());
-    }
+      try {
+        const { key } = await apiService.getMovieTrailer(movieId);
+
+        const videoUrl = `https://www.youtube.com/embed/${key}`;
+        loaderClassRemove();
+        markupId.insertAdjacentHTML('beforeend', errorModalTemplate());
+
+        // markupId.insertAdjacentHTML(
+        //   'beforeend',
+        //   successModalTemplate({ videoUrl })
+        // );
+      } catch (error) {
+        loaderClassRemove();
+        console.log(error);
+        markupId.insertAdjacentHTML('beforeend', errorModalTemplate());
+      }
+    });
   });
 
   if (markupId) {
@@ -46,5 +49,3 @@ export default async function openTrailerModal() {
     });
   }
 }
-
-errorModalTemplate();
