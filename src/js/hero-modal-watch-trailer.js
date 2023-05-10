@@ -49,10 +49,29 @@ export default async function openTrailerModal() {
     return `<div class='watch-modal modal-error'>
   <div class='watch-modal__content'>
     <div class='watch-modal__error-image'></div>
-      
       <button type='button' class='watch-modal__close'>
-      <svg class='watch-modal__close icon'>
-        <use href='../images/close-outline.svg'></use>
+      <svg
+        class='watch-modal__close-icon'
+        width='24'
+        height='24'
+        viewBox='0 0 24 24'
+        fill='none'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path
+          d='M18 6L6 18'
+          stroke='#F3F3F3'
+          stroke-width='2'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        />
+        <path
+          d='M6 6L18 18'
+          stroke='#F3F3F3'
+          stroke-width='2'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        />
       </svg>
     </button>
     <p class='watch-modal__error-message'>

@@ -109,6 +109,8 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
+  text-align: left;
+  white-space: pre-line;
 
   color: var(--modal--text-color);
 
@@ -130,6 +132,12 @@
 
     font-size: 24px;
     line-height: 28px;
+  }
+}
+
+p {
+  span {
+    display: block; // Added property to start each sentence on a new line
   }
 }
 
