@@ -18,9 +18,6 @@ const refs = {
 let currentSlide = 0;
 let currentButton = 0;
 
-loaderShow();
-console.log(loaderShow);
-
 // Создем запрос страницу
 if (document.querySelector('.current-page__my-library').localName !== 'body') {
   createHeroCard();
@@ -34,7 +31,6 @@ async function createHeroCard() {
     const markup = await getTrendsMovieMarkUp();
 
     if (markup !== undefined) {
-      loaderHide();
       updateHeroMarkup(markup); //вывод карточки Героя на страницу
       const slides = document.querySelectorAll('.slider-card');
       const navBtns = [];
@@ -62,7 +58,6 @@ async function createHeroCard() {
 
 // формирование карточки
 async function getTrendsMovieMarkUp() {
-  loaderHide();
   try {
     const results = await apiService.getTrends('day'); //запрос данных на сервере
     currentSlide = Math.ceil(Math.random(results.length) * 5);
@@ -139,7 +134,6 @@ function createHeroWithoutFilms() {
 function updateHeroMarkup(markup) {
   if (markup !== undefined) {
     refs.hero.insertAdjacentHTML('beforeend', markup);
-    loaderHide();
 
     // const watchTrailerBtn = document.getElementById('watch__btn');
     // watchTrailerBtn.removeEventListener();
