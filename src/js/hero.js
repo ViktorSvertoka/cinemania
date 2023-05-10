@@ -5,7 +5,7 @@ import {
   addSlideListener
 } from './hero-slider';
 import { loaderShow, loaderHide } from './loader';
-import slick from 'slick-carousel'
+
 
 import { createStarRating } from './cards-rendering';
 
