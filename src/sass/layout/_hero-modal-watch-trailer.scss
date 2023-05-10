@@ -21,7 +21,7 @@
   transition: all 0.3s ease-out;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 16px;
-  background-color: var(--secondary-bcg-clr);
+  background-color: var(--page-bgc);
 
   @include mobile {
     width: 280px; /* Ширина на мобильных устройствах */
@@ -57,7 +57,7 @@
 /* Кнопка закрытия */
 .watch-modal__close {
   position: absolute;
-  color: #fff;
+  color: $black-color;
   width: 16px;
   height: 16px;
   left: 244px;
@@ -79,7 +79,7 @@
 
   &:hover,
   &:focus {
-    color: black;
+    color: var(--modal-secondary-color);
     text-decoration: none;
     cursor: pointer;
   }
@@ -98,7 +98,7 @@
   font-size: 16px;
   line-height: 19px;
 
-  color: #ffffff;
+  color: var(--modal--text-color);
 
   @include tablet {
     width: 321px;

@@ -1,3 +1,4 @@
+import './js/loader';
 import './js/my-library';
 import './js/theme-switcher';
 import './js/hero';
@@ -8,4 +9,3 @@ import './js/upcoming-mounth';
 import './js/scroll-up';
 import './js/footer-modal-team';
 import './js/modal-film';
-import './js/loader';
