@@ -23,7 +23,7 @@ async function getRandomUpcomingMovie() {
   try {
     const data = await apiService.getUpcoming();
     const randomMovie = data[Math.floor(Math.random() * data.length)];
-    const randomMovieGenresId = randomMovie.genre_ids.slice(0, 2);
+    const randomMovieGenresId = randomMovie.genre_ids.slice(0, 5);
     const allGenres = await apiService.getGenresList();
     const randomMovieGenres = allGenres
       .filter(g => randomMovieGenresId.includes(g.id))
@@ -53,12 +53,14 @@ function createdMarkup(
       <div class="container-position">
         <div class="container-foto">
         <img class="upcoming__foto"
-        src="https://image.tmdb.org/t/p/original/${poster_path}"
-        srcset="https://image.tmdb.org/t/p/w1280/${backdrop_path} 1280w,
-                https://image.tmdb.org/t/p/w780/${poster_path} 500w,
+        
+        srcset="https://image.tmdb.org/t/p/w500/${backdrop_path} 1200w,
+                https://image.tmdb.org/t/p/w500/${poster_path} 500w,
                 https://image.tmdb.org/t/p/w300/${poster_path} 342w
+                https://image.tmdb.org/t/p/w185/${poster_path} 185w
+        src="https://image.tmdb.org/t/p/w1280/${poster_path}"
 
-        " sizes="(min-width: 1200px) 1280px, (min-width: 768px) 500px, (min-width: 480px) 342px, 100vw"        
+        " sizes="(min-width: 1200px) 1200px, (min-width: 768px) 500px, (min-width: 480px) 342px, (min-width: 320px) 185px, 100vw"        
   
         alt="Movie Poster">
   
