@@ -1,4 +1,10 @@
 import APIService from './api-service-main';
+import LibraryAPI from './library-api-service';
+import BtnState from './btn-state';
+
+const libraryApi = new LibraryAPI();
+
+libraryApi.setLibrary();
 
 const insertResult = document.querySelector('.upcoming__content');
 const apiService = new APIService();
@@ -10,6 +16,9 @@ async function makeUpcomingMovieMarkup() {
     const data = await getRandomUpcomingMovie();
     const markup = createdMarkup(...data);
     insertResult.insertAdjacentHTML('beforeend', markup);
+    const libraryBtn = document.getElementById('library-btn-home');
+    const btn = new BtnState(libraryBtn, 'btn-upcoming', data[0]);
+    btn.setBtnState();
   } catch (error) {
     console.log(error);
   }
@@ -19,7 +28,6 @@ async function getRandomUpcomingMovie() {
   try {
     const data = await apiService.getUpcoming();
     const randomMovie = data[Math.floor(Math.random() * data.length)];
-    console.log(randomMovie.genre_ids);
     const randomMovieGenresId = randomMovie.genre_ids.slice(0, 2);
     const allGenres = await apiService.getGenresList();
     const randomMovieGenres = allGenres
@@ -51,8 +59,11 @@ function createdMarkup(
         <div class="container-foto">
         <img class="upcoming__foto"
         src="https://image.tmdb.org/t/p/original/${poster_path}"
-        srcset="https://image.tmdb.org/t/p/original/${backdrop_path} 768w,
-                https://image.tmdb.org/t/p/original/${poster_path} 480w"
+        srcset="https://image.tmdb.org/t/p/w1280/${backdrop_path} 1280w,
+                https://image.tmdb.org/t/p/w780/${poster_path} 500w,
+                https://image.tmdb.org/t/p/w300/${poster_path} 342w
+
+        " sizes="(min-width: 1200px) 1280px, (min-width: 768px) 500px, (min-width: 480px) 342px, 100vw"        
   
         alt="Movie Poster">
   
@@ -93,7 +104,7 @@ function createdMarkup(
           <p class="upcoming__about-title">ABOUT</p>
           <p class="upcoming__about">${overview}</p>
   
-          <button type="button" class="upcoming__btn" data-id=${id}>Remind me</button>
+          <button type="button" class="upcoming__btn" id ="library-btn-home" data-id=${id}>Remind me</button>
         </div>
       </div>
     `;

@@ -35,7 +35,7 @@ async function createHeroCard() {
       const navBtns = [];
       const navBtnsLeft = document.querySelectorAll('.slider-btn-left');
       const navBtnsRight = document.querySelectorAll('.slider-btn-right');
-      console.log('slides.length', slides.length);
+
       for (let i = 0; i < slides.length; i += 1) {
         navBtns.push(slides[i].querySelectorAll('.slider-nav-btn'));
       }
@@ -92,7 +92,7 @@ function createCardTrendsOfDay({
                 <p class="hero__text hero__text--render">
                 ${overview}    
                 </p>
-                <button class="watch-trailer button" type="button" id ="hero__btn" data-movie-id="${id}">Watch trailer</button>
+                <button class="watch-trailer" type="button" id ="watch__btn" data-movie-id="${id}">Watch trailer</button>
                       <div class="slider__buttons">
         <button type="button" class="slider-btn-left slider-btn">
         </button>
@@ -133,7 +133,10 @@ function createHeroWithoutFilms() {
 function updateHeroMarkup(markup) {
   if (markup !== undefined) {
     refs.hero.insertAdjacentHTML('beforeend', markup);
-    console.log('markup', markup);
+
+    // const watchTrailerBtn = document.getElementById('watch__btn');
+    // watchTrailerBtn.removeEventListener();
+
     openTrailerModal();
   }
 }

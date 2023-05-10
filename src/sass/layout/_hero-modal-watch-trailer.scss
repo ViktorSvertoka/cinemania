@@ -2,7 +2,6 @@
 .watch-modal {
   display: flex;
   position: fixed;
-  z-index: 8;
   left: 0;
   top: 0;
   width: 100%;
@@ -22,7 +21,6 @@
   transition: all 0.3s ease-out;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 16px;
-  z-index: 9;
   background-color: #111111;
 
   @include mobile {

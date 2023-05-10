@@ -2,7 +2,6 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  // border: 1px solid red;
 
   @include mobile {
     min-height: 380px;
@@ -69,7 +68,6 @@
 }
 
 .my-lib__hero-container {
-  // border: 1px solid orange;
   display: flex;
   flex-direction: column;
 }
@@ -111,5 +109,91 @@
     max-width: 464px;
     letter-spacing: 0.8;
     line-height: 1.4;
+  }
+}
+
+.my-lib__gallery {
+  padding: 40px 0;
+
+  @include tablet {
+    padding: 90px 0 60px 0;
+  }
+
+  @include desktop {
+    padding: 117px 0 96px 0;
+  }
+}
+
+
+.my-lib__gallery-list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  list-style-type: none;
+  // padding-top: 48px;
+  //  position: absolute;
+  @media screen and (max-width: 480px) {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+  }
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+
+  }
+}
+
+.my-lib__no-movies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 0;
+
+  @include tablet {
+    padding: 80px 0 60px 0;
+  }
+
+  @include desktop {
+    padding: 160px 0 100px 0;
+  }
+}
+
+.my-lib__oops-message {
+  text-align: center;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.4;
+  color: var(--modal--text-color);
+
+  margin-bottom: 20px;
+
+  @include tablet {
+    margin-bottom: 25px;
+    line-height: 1.3;
+  }
+
+  @include desktop {
+    margin-bottom: 30px;
+    line-height: 1.12;
   }
 }

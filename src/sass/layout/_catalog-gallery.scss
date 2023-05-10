@@ -44,7 +44,6 @@
   @media screen and (max-width: 767px) {
     justify-content: flex-start;
     margin-left: 15px;
-    
   }
 }
 
@@ -226,11 +225,10 @@
   justify-content: flex-start;
   align-items: flex-start;
   box-sizing: border-box;
-   @include mobile {
+  @include mobile {
     max-width: 280px;
     max-height: 406px;
-    
-    
+
     border-radius: 5px;
     position: relative;
   }
@@ -238,8 +236,7 @@
   @include tablet {
     max-width: 224px;
     max-height: 325px;
-   
-    
+
     border-radius: 5px;
     position: relative;
   }
@@ -247,8 +244,7 @@
   @include desktop {
     max-width: 395px;
     max-height: 574px;
-    
-    
+
     border-radius: 5px;
     position: relative;
   }
@@ -256,14 +252,13 @@
 
 .cards__list-img {
   position: relative;
-  
+
   border-radius: 5px;
-  
+
   @include mobile {
     max-width: 280px;
     max-height: 406px;
   }
-  
 
   @include tablet {
     max-width: 224px;
@@ -273,17 +268,15 @@
   @include desktop {
     max-width: 395px;
     max-height: 574px;
-    
   }
-  }
+}
 //  <div class="weekly-trends__overlay">
-.star:not(:last-child) { 
+.star:not(:last-child) {
   margin-right: 3px;
-
 }
 .cards__list-search {
-   width: 100%;
-  
+  width: 100%;
+
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
@@ -295,12 +288,11 @@
   padding: 0 10;
   // width: calc(100% - 20px);
 }
-// 
+//
 .cards__bloc-stars {
   display: flex;
   justify-content: space-between;
 }
-
 
 .weekly-trends__overlay {
   // display: flex;
@@ -329,25 +321,23 @@
   margin: 0;
   margin-bottom: 10px;
   font-family: 'Roboto';
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 1.9;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.9;
   @include mobile {
     font-size: 12px;
     line-height: 20px;
   }
-  
 
   @include tablet {
     font-size: 12px;
-line-height: 1.8;
+    line-height: 1.8;
   }
 
   @include desktop {
     font-size: 20px;
-line-height: 1.2;
-    
+    line-height: 1.2;
   }
 }
 
@@ -361,7 +351,6 @@ line-height: 1.2;
   display: block;
   text-align: right;
   justify-content: space-between;
-   
 }
 .cards__list-star {
   align-self: flex-end;
@@ -461,3 +450,138 @@ line-height: 1.2;
   }
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  @include mobile {
+    padding-top: 20px;
+  }
+
+  @include tablet {
+    padding-top: 60px;
+  }
+}
+
+.pagination-button {
+  color: #b7b7b7;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #b7b7b7;
+  border-radius: 50%;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include mobile {
+    width: 24px;
+    height: 24px;
+
+    font-size: 10px;
+    line-height: 10px;
+  }
+
+  @include tablet {
+    width: 40px;
+    height: 40px;
+
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+
+.pagination-button:not(:last-child) {
+  margin-right: 8px;
+  @include mobile {
+    margin-right: 8px;
+  }
+
+  @include tablet {
+    margin-right: 16px;
+  }
+}
+
+.pagination-button:nth-last-child(2) {
+  @include mobile {
+    margin-right: 4px;
+  }
+
+  @include tablet {
+    margin-right: 12px;
+  }
+}
+
+.dots {
+  color: #b7b7b7;
+
+  @include mobile {
+    margin-right: 8px;
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: 400;
+  }
+
+  @include tablet {
+    margin-right: 16px;
+
+    font-size: 14px;
+    line-height: 14px;
+
+    font-weight: 500;
+  }
+}
+
+.pagination-button-current {
+  border: 1px solid rgba(255, 194, 38, 1);
+  color: #ffffff;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+}
+
+.pagination-button.button-arrow-left {
+  background-image: url(/src/images/left-arrow.svg);
+  background-repeat: no-repeat;
+  @include mobile {
+    margin-right: 4px;
+    background-size: 20px;
+  }
+
+  @include tablet {
+    margin-right: 12px;
+    background-size: 28px;
+  }
+}
+
+.pagination-button.button-arrow-right {
+  background-image: url(/src/images/right-arrow.svg);
+  background-repeat: no-repeat;
+  @include mobile {
+    margin-right: 4px;
+    background-size: 20px;
+  }
+
+  @include tablet {
+    margin-right: 12px;
+    background-size: 28px;
+  }
+}
+
+.pagination-button.button-arrow-left,
+.pagination-button.button-arrow-right {
+  border: none;
+
+  @include mobile {
+    width: 20px;
+    height: 20px;
+  }
+
+  @include tablet {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+// классы для стилизации button-arrow-left - стрелочка влево, button-arrow-right - стрелочка вправо
+
+// pagination-button-current - текущая кнопка (активная), .pagination-button - общий класс на все кнопки пагинации

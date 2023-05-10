@@ -23,23 +23,23 @@ export default class LibraryAPI {
   }
 
   addMovie(movie) {
-    if (!this.movies.some(m => m.id === movie.id)) {
+    // if (!this.movies.some(m => m.id === movie.id)) {
     this.movies.push(movie);
     this.updateLocalStorage();
-    } else {
-      console.log('movie already in library', movie.id, movie.title);
-      return;
-    }
+    // } else {
+    //   console.log('movie already in library', movie.id, movie.title);
+    //   return;
+    // }
   }
 
   deleteMovie(movie) {
     const index = this.movies.findIndex(m => m.id === movie.id);
-    if (index !== -1) {
+    // if (index !== -1) {
       this.movies.splice(index, 1);
       this.updateLocalStorage();
-    } else {
-      console.log('there is no such movie', movie.id, movie.title);
-      return;
-    }
+    // } else {
+    //   console.log('there is no such movie', movie.id, movie.title);
+    //   return;
+    // }
   }
 }
