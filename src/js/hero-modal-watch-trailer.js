@@ -23,7 +23,10 @@ export default async function openTrailerModal() {
 
         console.log(markupId);
 
-        await createMarkup(videoUrl);
+        markupId.insertAdjacentHTML(
+          'beforeend',
+          await successModalTemplate({ videoUrl })
+        );
         loaderHide();
       } catch (error) {
         markupId.insertAdjacentHTML('beforeend', errorModalTemplate());
@@ -32,13 +35,6 @@ export default async function openTrailerModal() {
       }
     });
   });
-
-  async function createMarkup(videoUrl) {
-    markupId.insertAdjacentHTML(
-      'beforeend',
-      await successModalTemplate({ videoUrl })
-    );
-  }
 
   if (markupId) {
     markupId.addEventListener('click', event => {
