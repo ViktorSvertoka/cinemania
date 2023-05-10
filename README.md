@@ -48,7 +48,7 @@
 
 - Revert(JS) Rollback to previous commits
 
-- Style(SCSS) Code style edits (tabs, indents, dots, commas, etc.)
+- Style(SCSS) Code style edits
 
 - Docs(README) Documentation update
 
