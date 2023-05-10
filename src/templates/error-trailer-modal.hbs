@@ -1,39 +1,35 @@
 <div class='watch-modal modal-error'>
   <div class='watch-modal__content'>
+    <img
+      class='watch-modal__error-image'
+      src='/src/images/watch-trailer-modal_desk_1x.png'
+      alt='Error'
+    />
     <button type='button' class='watch-modal__close'>
-      X
+      <svg
+        class='watch-modal__close-icon'
+        width='80'
+        height='80'
+        viewBox='0 0 80 80'
+        xmlns='http://www.w3.org/2000/svg'
+      >
+        <path
+          d='M18 6L6 18'
+          stroke='#F3F3F3'
+          stroke-width='2'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        />
+        <path
+          d='M6 6L18 18'
+          stroke='#F3F3F3'
+          stroke-width='2'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        />
+      </svg>
     </button>
-    <picture class='watch-modal__picture'>
-      <source
-        srcset='/src/images/watch-trailer-modal_desk_2x.png'
-        media='(min-width: 1200px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 1200px) and (min-resolution: 192dpi), (min-width: 1200px) and (min-resolution: 2dppx)'
-      />
-      <source
-        srcset='/src/images/watch-trailer-modal_desk_1x.png'
-        media='(min-width: 1200px)'
-      />
-      <source
-        srcset='/src/images/watch-trailer-modal_tab_2x.png'
-        media='(min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 768px) and (min-resolution: 192dpi), (min-width: 768px) and (min-resolution: 2dppx)'
-      />
-      <source
-        srcset='/src/images/watch-trailer-modal_tab_1x.png'
-        media='(min-width: 768px)'
-      />
-      <source
-        srcset='/src/images/watch-trailer-modal_mob_2x.png'
-        media='(min-width: 480px) and (-webkit-min-device-pixel-ratio: 2), (min-width: 480px) and (min-resolution: 192dpi), (min-width: 480px) and (min-resolution: 2dppx)'
-      />
-      <source
-        srcset='/src/images/watch-trailer-modal_mob_1x.png'
-        media='(min-width: 480px)'
-      />
-      <img
-        class='watch-modal__error-image'
-        src='/src/images/watch-trailer-modal_desk_1x.png'
-        alt='Error'
-      />
-    </picture>
+
     <p class='watch-modal__error-message'>
       OOPS... We are very sorry! But we couldn’t find the trailer.
     </p>

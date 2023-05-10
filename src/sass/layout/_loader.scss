@@ -10,7 +10,7 @@
   height: 100px;
   z-index: 9999;
 
-  & .is-active {
+  &.is-active {
     display: flex;
   }
 }
