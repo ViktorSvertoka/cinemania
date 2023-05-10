@@ -21,12 +21,11 @@ export default async function openTrailerModal() {
 
         const videoUrl = `https://www.youtube.com/embed/${key}`;
         loaderClassRemove();
-        markupId.insertAdjacentHTML('beforeend', errorModalTemplate());
 
-        // markupId.insertAdjacentHTML(
-        //   'beforeend',
-        //   successModalTemplate({ videoUrl })
-        // );
+        markupId.insertAdjacentHTML(
+          'beforeend',
+          successModalTemplate({ videoUrl })
+        );
       } catch (error) {
         loaderClassRemove();
         console.log(error);
