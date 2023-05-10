@@ -56,8 +56,8 @@ function createdMarkup(
         
         srcset="https://image.tmdb.org/t/p/w500/${backdrop_path} 1200w,
                 https://image.tmdb.org/t/p/w500/${poster_path} 500w,
-                https://image.tmdb.org/t/p/w300/${poster_path} 342w
-                https://image.tmdb.org/t/p/w185/${poster_path} 185w
+                https://image.tmdb.org/t/p/w300/${poster_path} 342w,
+                https://image.tmdb.org/t/p/w185/${poster_path} 185w"
         src="https://image.tmdb.org/t/p/w1280/${poster_path}"
 
         " sizes="(min-width: 1200px) 1200px, (min-width: 768px) 500px, (min-width: 480px) 342px, (min-width: 320px) 185px, 100vw"        
