@@ -19,9 +19,8 @@ let currentSlide = 0;
 let currentButton = 0;
 
 // Создем запрос страницу
-if (document.querySelector('.current-page__my-library').localName !== 'body') {
-  createHeroCard();
-}
+createHeroCard();
+
 //   .then(() => {})
 //   .finally(() => {});
 
@@ -113,6 +112,21 @@ function createCardTrendsOfDay({
 }
 
 function createHeroWithoutFilms() {
+
+  if (document.querySelector('.current-page__my-library').localName !== 'body') {
+    return `  <div class="my-lib__hero-container container">
+    <h2 class="my-lib__hero-title">
+      Create Your <br />
+      Dream Cinema
+    </h2>
+    <p class="my-lib__hero-description">
+      Is a guide to designing a personalized movie theater experience with the
+      right equipment, customized decor, and favorite films. This guide helps
+      you bring the cinema experience into your own home with cozy seating, dim
+      lighting, and movie theater snacks.
+    </p>
+  </div>`
+  }
   return `<div class="container"  >
         <div class="hero__container">
             <div class="hero__block-left">
