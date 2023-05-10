@@ -160,6 +160,11 @@
     gap: 16px;
 
   }
+
+  & .cards__list-text,
+  & .cards__list-title{
+    color: $white-color;
+  }
 }
 
 .my-lib__no-movies {
