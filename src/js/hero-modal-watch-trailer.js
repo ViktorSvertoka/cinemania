@@ -13,19 +13,23 @@ export default async function openTrailerModal() {
   watchTrailerButtons.forEach(btn => {
     btn.addEventListener('click', async e => {
       const movieId = e.target.dataset.movieId;
+      document.body.style.overflow = 'hidden';
+      // loaderShow();
 
       try {
         const { key } = await apiService.getMovieTrailer(movieId);
 
         const videoUrl = `https://www.youtube.com/embed/${key}`;
-
+        // loaderHide();
         markupId.insertAdjacentHTML(
           'beforeend',
           successModalTemplate({ videoUrl })
         );
+        // markupId.classList.add('is-active');
       } catch (error) {
-        console.log(error);
+        // loaderHide();
         markupId.insertAdjacentHTML('beforeend', errorModalTemplate());
+        // markupId.classList.add('is-active');
       }
     });
   });
@@ -37,12 +41,14 @@ export default async function openTrailerModal() {
         event.target.classList.contains('watch-modal__close-icon')
       ) {
         markupId.innerHTML = '';
+        document.body.style.overflow = '';
       }
     });
 
     window.addEventListener('keydown', event => {
       if (event.code === 'Escape') {
         markupId.innerHTML = '';
+        document.body.style.overflow = '';
       }
     });
   }

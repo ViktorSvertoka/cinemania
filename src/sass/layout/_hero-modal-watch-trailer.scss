@@ -6,7 +6,7 @@
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 /* Модальное окно видео */
@@ -21,7 +21,7 @@
   transition: all 0.3s ease-out;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 16px;
-  background-color: #111111;
+  background-color: var(--secondary-bcg-clr);
 
   @include mobile {
     width: 280px; /* Ширина на мобильных устройствах */
