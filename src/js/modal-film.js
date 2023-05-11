@@ -73,7 +73,14 @@ function createMarkup({
     if (poster_path === null || !poster_path) {
       return `src='${comingSoonImg}'`;
     }
-    return `src = 'https://image.tmdb.org/t/p/w500/${poster_path}'`;
+    return `srcset="
+                https://image.tmdb.org/t/p/w500/${poster_path} 500w,
+                https://image.tmdb.org/t/p/w300/${poster_path} 342w,
+                https://image.tmdb.org/t/p/w185/${poster_path} 185w"
+        src="https://image.tmdb.org/t/p/w500/${poster_path}"
+
+        " sizes=" (min-width: 768px) 500px, (min-width: 480px) 342px, (min-width: 320px) 185px, 100vw"   
+    `;
   }
 
   return `<div class="modal-film__container" data-id=${id}>
