@@ -14,11 +14,11 @@ addModalListener(catalog);
 addModalListener(weeklyTrends);
 addModalListener(myLibGallery);
 
-function addModalListener(listRef){
+function addModalListener(listRef) {
   if (!listRef) {
     return;
   }
-  listRef.addEventListener('click',onMovieCardClick);
+  listRef.addEventListener('click', onMovieCardClick);
 }
 
 async function onMovieCardClick(e) {
@@ -37,7 +37,7 @@ async function onMovieCardClick(e) {
     btnModalClose.addEventListener('click', closeModalWindows);
     openModal();
     const toLibraryBtn = document.getElementById('mylibrary');
-    const btnApi = new BtnState(toLibraryBtn,'modal-btn-attr',movieData);
+    const btnApi = new BtnState(toLibraryBtn, 'modal-btn-attr', movieData);
     btnApi.setBtnState();
   } catch (error) {
     console.log(error);
@@ -67,7 +67,7 @@ function createMarkup({
   return `<div class="modal-film__container" data-id=${id}>
   <button class="modal-film__close">
     <svg width="18" height="18" class="modal-film__close-icon">
-    <use href="${sprite}#icon-cross"></use>       
+    <use href="${sprite}#icon-cross-closed"></use>       
 </svg>
   </button>
   <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="movie-poster" class="modal-film__img" />
@@ -97,7 +97,6 @@ function createMarkup({
     </p>
     <button class="btn" id="mylibrary" data-action="add">Add to my library</button>`;
 }
-
 
 function closeModalWindows() {
   modalWindow.classList.add('hidden');
