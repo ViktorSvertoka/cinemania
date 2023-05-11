@@ -66,33 +66,74 @@
   @include font(400, 16px, 1.19, null);
   color: var(--muted-text-clr);
 
-  &--active:hover {
-    color: $orange-color;
-  }
+  // &--active:hover {
+  //   color: $orange-color;
+  // }
 
-  &--animation {
-    text-decoration: none;
+  // &--animation {
+  //   text-decoration: none;
+  //   position: relative;
+  //   padding-bottom: 1px; /* padding for pseudo element */
+  // }
+
+  // &--animation::before {
+  //   content: '';
+  //   position: absolute;
+  //   bottom: 0;
+  //   left: 0;
+  //   height: 1px;
+  //   width: 100%;
+  //   background-color: var(--muted-text-clr);
+  //   transform: scaleX(1); /* show the line */
+  //   transform-origin: left; /* starting point of transformation */
+  //   transition: transform 0.3s ease-out;
+  // }
+
+  // &--animation:hover::before {
+  //   transform: scaleX(0); /* hide the line */
+  //   transform-origin: right; /* transformation endpoint */
+  //   color: var(--muted-text-clr);
+  //   background-color: $orange-color;
+  // }
+}
+
+:root {
+  --line-active: #f87719;
+}
+
+.footer__draw-text {
+  margin-left: 5px;
+  color: var(--muted-text-clr);
+
+  .footer__draw-link {
+    display: inline-block;
     position: relative;
-    padding-bottom: 1px; /* padding for pseudo element */
-  }
+    text-decoration: none;
+    color: inherit;
+    margin: 0 var(--spacing, 0px);
+    transition: margin 0.6s;
 
-  &--animation::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    width: 100%;
-    background-color: var(--muted-text-clr);
-    transform: scaleX(1); /* show the line */
-    transform-origin: left; /* starting point of transformation */
-    transition: transform 0.3s ease-out;
-  }
-
-  &--animation:hover::before {
-    transform: scaleX(0); /* hide the line */
-    transform-origin: right; /* transformation endpoint */
-    color: var(--muted-text-clr);
-    background-color: $orange-color;
+    .footer__draw-svg {
+      width: 250px;
+      height: 65px;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 17px) translateZ(0);
+      fill: none;
+      stroke: var(--stroke, var(--muted-text-clr));
+      stroke-linecap: round;
+      stroke-width: 1px; // <---------товщина лыныї підкреслення.
+      stroke-dasharray: var(--offset, 69px) 278px;
+      stroke-dashoffset: 361px;
+      transition: stroke 0.55s ease var(--stroke-delay, 0s),
+        stroke-dasharray 0.75s;
+    }
+    &:hover {
+      --spacing: 4px;
+      --stroke: var(--line-active);
+      --stroke-delay: 0.1s;
+      --offset: 180px;
+    }
   }
 }
