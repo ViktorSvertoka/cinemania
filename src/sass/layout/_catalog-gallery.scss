@@ -139,7 +139,6 @@
   }
 
   @include desktop {
-    cursor: pointer;
     position: absolute;
     width: 48px;
     height: 48px;
@@ -211,7 +210,6 @@
 }
 
 .cards__list-item {
-  cursor: pointer;
   position: relative;
   justify-content: flex-start;
   align-items: flex-start;
@@ -236,10 +234,10 @@
   }
 }
 .cards__list-item:hover {
-  transform: scale(1.06);
+  transform: scale(1.01);
   //  2px -2px 2px 4px rgba(248, 159, 25, 0.68);
-   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
-  border-radius: 20px;
+  box-shadow: 1px 1px 5px 1px rgba(255, 107, 8, 0.42);
+  // border-radius: 20px;
 }
 
 .cards__list-img {
@@ -311,7 +309,7 @@
   // width: 100%;
   // max-width: 100%;
   font-weight: 500;
- 
+
   padding-left: 10px;
 
   @include mobile {
@@ -332,7 +330,7 @@
 
 .cards__list-text {
   // display: inline-block;
-   display: flex;
+  display: flex;
   align-items: end;
   // max-width: 75%;
   width: 100px;
@@ -380,7 +378,7 @@
 
 .star {
   max-width: 18px;
-    max-height: 18px;
+  max-height: 18px;
   @include mobile {
     max-width: 14px;
     max-height: 14px;
@@ -503,12 +501,12 @@
     #f84119 9.4%,
     rgba(248, 159, 25, 0.68) 91.91%
   );
-   color: var(--hero-title-clr);
+  color: var(--hero-title-clr);
   // color: rgba(255, 194, 38, 1);
   transition: background-color 0.5s ease-in-out;
 }
 
-//fill: var(--hero-title-clr); 
+//fill: var(--hero-title-clr);
 .pagination-button:not(:last-child) {
   margin-right: 8px;
   @include mobile {
@@ -550,13 +548,13 @@
   }
 }
 
-.dots:hover{
+.dots:hover {
   color: var(--hero-title-clr);
 }
 
 .pagination-button-current {
   border: 1px solid rgba(255, 194, 38, 1);
- 
+
   color: var(--hero-title-clr);
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 }
@@ -593,7 +591,7 @@
 .pagination-button.button-arrow-left,
 .pagination-button.button-arrow-right {
   border: none;
-  
+
   @include mobile {
     width: 20px;
     height: 20px;
