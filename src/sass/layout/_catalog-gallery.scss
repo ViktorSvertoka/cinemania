@@ -52,6 +52,7 @@
 
 .catalog__form-input {
   max-width: 180px;
+  width: 100%;
   @include font(500, 16px, 1.19, null);
   color: var(--hero-title-clr);
 
@@ -237,7 +238,8 @@
 .cards__list-item:hover {
   transform: scale(1.06);
   //  2px -2px 2px 4px rgba(248, 159, 25, 0.68);
-  box-shadow: 2px -2px 2px 2px #ffffff;
+   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+  border-radius: 20px;
 }
 
 .cards__list-img {
@@ -303,12 +305,13 @@
 }
 
 .cards__list-title {
-  display: inline;
+  display: inline-block;
   text-transform: uppercase;
   color: #ffffff;
-
+  // width: 100%;
+  // max-width: 100%;
   font-weight: 500;
-
+ 
   padding-left: 10px;
 
   @include mobile {
@@ -328,9 +331,11 @@
 }
 
 .cards__list-text {
-  display: flex;
+  // display: inline-block;
+   display: flex;
   align-items: end;
-  max-width: 75%;
+  // max-width: 75%;
+  width: 100px;
   margin: 0;
   color: #b7b7b7;
   margin-bottom: 10px;
@@ -338,13 +343,13 @@
 
   @include mobile {
     font-size: 12px;
-    line-height: 1.6;
+    line-height: 1.5;
     //   max-width: 70%;
   }
 
   @include tablet {
     font-size: 12px;
-    line-height: 1.5;
+    line-height: 1.15;
     //  max-width: 70%;
   }
 
@@ -374,19 +379,21 @@
 }
 
 .star {
+  max-width: 18px;
+    max-height: 18px;
   @include mobile {
-    width: 14px;
-    height: 14px;
+    max-width: 14px;
+    max-height: 14px;
   }
 
   @include tablet {
-    width: 10px;
-    height: 10px;
+    max-width: 10px;
+    max-height: 10px;
   }
 
   @include desktop {
-    width: 18px;
-    height: 18px;
+    max-width: 18px;
+    max-height: 18px;
   }
 }
 
@@ -462,10 +469,10 @@
 }
 
 .pagination-button {
-  color: #b7b7b7;
+  color: #595959;
   width: 24px;
   height: 24px;
-  border: 1px solid #b7b7b7;
+  border: 1px solid $gray-color;
   border-radius: 50%;
   font-weight: 400;
   display: flex;
@@ -496,9 +503,12 @@
     #f84119 9.4%,
     rgba(248, 159, 25, 0.68) 91.91%
   );
-  color: rgba(255, 194, 38, 1);
+   color: var(--hero-title-clr);
+  // color: rgba(255, 194, 38, 1);
   transition: background-color 0.5s ease-in-out;
 }
+
+//fill: var(--hero-title-clr); 
 .pagination-button:not(:last-child) {
   margin-right: 8px;
   @include mobile {
@@ -540,15 +550,21 @@
   }
 }
 
+.dots:hover{
+  color: var(--hero-title-clr);
+}
+
 .pagination-button-current {
   border: 1px solid rgba(255, 194, 38, 1);
-  color: #ffffff;
+ 
+  color: var(--hero-title-clr);
   background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 }
 
 .pagination-button.button-arrow-left {
-  background-image: url(/src/images/left-arrow.svg);
+  background-image: url(/src/images/right-arrow.svg);
   background-repeat: no-repeat;
+  transform: rotate(180deg);
   @include mobile {
     margin-right: 4px;
     background-size: 20px;
@@ -577,7 +593,7 @@
 .pagination-button.button-arrow-left,
 .pagination-button.button-arrow-right {
   border: none;
-
+  
   @include mobile {
     width: 20px;
     height: 20px;
@@ -587,6 +603,11 @@
     width: 28px;
     height: 28px;
   }
+}
+
+.pagination-button.button-arrow-left,
+.pagination-button.button-arrow-right:hover {
+  color: $orange-color;
 }
 
 // классы для стилизации button-arrow-left - стрелочка влево, button-arrow-right - стрелочка вправо
