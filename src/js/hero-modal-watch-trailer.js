@@ -1,7 +1,7 @@
 import APIService from './api-service-main';
 import { loaderShow, loaderHide } from './loader';
 
-const markupId = document.getElementById('trailer-modal');
+const markupId = document.querySelector('.trailer-modal');
 const apiService = new APIService();
 
 export default async function openTrailerModal() {
