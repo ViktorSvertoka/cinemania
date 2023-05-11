@@ -63,12 +63,17 @@ async function getTrendsMovieMarkUp() {
     if (results.length === 0) {
       return createHeroWithoutFilms(); //рендер карточки, если нет данные
     } else {
-      const buttonSlider = createButtonSlider(results.length > 5 ? 5 : results.length);
+      const buttonSlider = createButtonSlider(
+        results.length > 5 ? 5 : results.length
+      );
       refs.sliderBtn.insertAdjacentHTML('beforeend', buttonSlider);
-      return results.reduce(
-        (markup, movie) => markup + createCardTrendsOfDay(movie),
-        ''
-      ); //рендер карточек слайдера, если есть данные
+      return results
+        .slice(0, 5)
+        .reduce((markup, movie) => markup + createCardTrendsOfDay(movie), ''); //рендер карточек слайдера, если есть данные
+      // results.reduce(
+      //   (markup, movie) => markup + createCardTrendsOfDay(movie),
+      //   ''
+      // ); //рендер карточек слайдера, если есть данные
     }
   } catch (error) {
     console.error(error);
@@ -92,17 +97,21 @@ function createCardTrendsOfDay({
   vote_average,
   overview,
 }) {
-  // const stars = createStarRating(vote_average);
-  return `<div class=" imgApi slider-card"  style="background-image: url('https://image.tmdb.org/t/p/w1280${backdrop_path}')" >
-  <img src="" alt="">      
+  const stars = createStarRating(vote_average);
+  return `<div class=" imgApi slider-card"  >
+  <img class="hero__img" width="1280" height="720"
+  srcset="https://image.tmdb.org/t/p/w1280${backdrop_path} 1280w,
+  https://image.tmdb.org/t/p/w780${backdrop_path} 768w,
+  https://image.tmdb.org/t/p/w300${backdrop_path} 320w"
+  src="https://image.tmdb.org/t/p/w1280${backdrop_path}" "sizes="(min-width: 1280px) 1280px, (min-width: 768px) 768px, (min-width: 320px) 320px, 100vw " alt="${title}">      
   <div class="hero__container hero__container--render"> 
             <div class="hero__block-left--render">
                 <h2 class="hero__title hero__title--render">${title}</h2>
-                <div class = "hero__stars">${vote_average} </div>
+                <div class = "hero__stars">${stars} </div>
                 <p class="hero__text hero__text--render">
                 ${overview}    
                 </p>
-                <button class="watch-trailer" type="button" id ="watch__btn" data-movie-id="${id}">Watch trailer</button>
+                <button class="watch-trailer" type="button" data-movie-id="${id}">Watch trailer</button>
        </div>
             </div>
         </div>
@@ -147,9 +156,6 @@ function createHeroWithoutFilms() {
 function updateHeroMarkup(markup) {
   if (markup !== undefined) {
     refs.slider.insertAdjacentHTML('afterbegin', markup);
-
-    // const watchTrailerBtn = document.getElementById('watch__btn');
-    // watchTrailerBtn.removeEventListener();
 
     openTrailerModal();
   }
