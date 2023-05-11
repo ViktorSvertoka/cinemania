@@ -1,6 +1,7 @@
 import APIService from './api-service-main';
 import sprite from '../images/sprite.svg';
 import BtnState from './btn-state';
+import { checkStorage } from './my-library';
 import comingSoonImg from '../images/coming_soon.jpg';
 
 const apiService = new APIService();
@@ -122,6 +123,7 @@ function closeModalWindows() {
   overlay.classList.add('hidden');
   document.body.style.paddingRight = '0px';
   document.body.style.overflow = 'auto';
+  checkStorage();
 }
 
 overlay.addEventListener('click', closeModalWindows);
