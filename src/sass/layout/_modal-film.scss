@@ -89,10 +89,10 @@
 }
 
 .modal-film__close-icon {
-  fill: var(--hero-title-clr);
+  stroke: var(--hero-title-clr);
   &:hover,
   &:focus {
-    fill: $orange-color;
+    stroke: $orange-color;
   }
 }
 
