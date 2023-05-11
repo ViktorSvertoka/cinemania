@@ -2,6 +2,7 @@ import APIService from './api-service-main';
 import sprite from '../images/sprite.svg';
 import BtnState from './btn-state';
 import { checkStorage } from './my-library';
+import comingSoonImg from '../images/coming_soon.jpg';
 
 const apiService = new APIService();
 
@@ -46,8 +47,11 @@ async function onMovieCardClick(e) {
 }
 
 function openModal() {
+  const lockPaddingValue = window.innerWidth - document.body.offsetWidth + 'px';
+
   modalWindow.classList.remove('hidden');
   overlay.classList.remove('hidden');
+  document.body.style.paddingRight = lockPaddingValue;
   document.body.style.overflow = 'hidden';
 }
 
@@ -65,13 +69,28 @@ function createMarkup({
   vote_count,
   genres,
 }) {
+  const getMoivePoster = getPoster(poster_path);
+  function getPoster(poster_path) {
+    if (poster_path === null || !poster_path) {
+      return `src='${comingSoonImg}'`;
+    }
+    return `srcset="
+                https://image.tmdb.org/t/p/w500/${poster_path} 500w,
+                https://image.tmdb.org/t/p/w300/${poster_path} 342w,
+                https://image.tmdb.org/t/p/w185/${poster_path} 185w"
+        src="https://image.tmdb.org/t/p/w500/${poster_path}"
+
+        " sizes=" (min-width: 768px) 500px, (min-width: 480px) 342px, (min-width: 320px) 185px, 100vw"   
+    `;
+  }
+
   return `<div class="modal-film__container" data-id=${id}>
   <button class="modal-film__close">
     <svg width="18" height="18" class="modal-film__close-icon">
     <use href="${sprite}#icon-cross-closed"></use>       
 </svg>
   </button>
-  <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="movie-poster" class="modal-film__img" />
+  <img ${getMoivePoster} alt="movie-poster" class="modal-film__img" />
   <div class="modal-film__card">
     <h2 class="modal-film__title">${title}</h2>
     <div class="modal-film__blok">
@@ -102,6 +121,7 @@ function createMarkup({
 function closeModalWindows() {
   modalWindow.classList.add('hidden');
   overlay.classList.add('hidden');
+  document.body.style.paddingRight = '0px';
   document.body.style.overflow = 'auto';
   checkStorage();
 }
