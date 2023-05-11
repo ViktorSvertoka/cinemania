@@ -45,8 +45,11 @@ async function onMovieCardClick(e) {
 }
 
 function openModal() {
+  const lockPaddingValue = window.innerWidth - document.body.offsetWidth + 'px';
+
   modalWindow.classList.remove('hidden');
   overlay.classList.remove('hidden');
+  document.body.style.paddingRight = lockPaddingValue;
   document.body.style.overflow = 'hidden';
 }
 
@@ -101,6 +104,7 @@ function createMarkup({
 function closeModalWindows() {
   modalWindow.classList.add('hidden');
   overlay.classList.add('hidden');
+  document.body.style.paddingRight = '0px';
   document.body.style.overflow = 'auto';
 }
 
