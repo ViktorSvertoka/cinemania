@@ -3,8 +3,6 @@
   font-weight: 500;
   font-size: 12px;
   line-height: calc(14 / 12);
-
-  cursor: pointer;
   color: var(--hero-title-clr);
   padding: 12px 24px;
   border-radius: 74px;
@@ -71,7 +69,6 @@
   width: 24px;
   height: 24px;
   outline: none;
-  cursor: pointer;
   background-color: transparent;
   transition-property: color;
   transition-duration: 250ms;
