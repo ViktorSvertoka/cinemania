@@ -47,6 +47,13 @@ async function setCatalogCards() {
 
     renderMoviesCards(movies, '.cards__list');
 
+    if (response.total_pages === 1) {
+      paginationCont.innerHTML = '';
+      paginationCont.classList.add('visually-hidden');
+      loaderHide();
+      return;
+    }
+
     renderPagination(response.page, response.total_pages);
 
     loaderHide();

@@ -58,11 +58,11 @@ export default function renderPagination(currentPage, totalPages, query) {
     }
   }
 
-  if (currentPage < totalPages - 2) {
+  if (currentPage < totalPages - 2 && totalPages > 4) {
     buttons.push(createDotsEl());
   }
 
-  if (currentPage <= totalPages - 2 && totalPages > 4) {
+  if (currentPage <= totalPages - 2 && totalPages >= 4) {
     buttons.push(createButton(totalPages, true, 'last-button'));
   }
 
