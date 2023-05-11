@@ -21,12 +21,11 @@
     line-height: calc(16 / 12);
   }
 }
-.btn:hover,
-.btn:focus {
-  background-color: $black-color;
-  color: $orange-color;
-  border: none;
-}
+
+// .btn:hover,
+// .btn:focus {
+//   background-color: $orange-color;
+// }
 
 .modal-film {
   z-index: 10;
