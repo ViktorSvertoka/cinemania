@@ -67,7 +67,7 @@ function createMarkup({
   return `<div class="modal-film__container" data-id=${id}>
   <button class="modal-film__close">
     <svg width="18" height="18" class="modal-film__close-icon">
-    <use href="${sprite}#icon-cross"></use>       
+    <use href="${sprite}#icon-cross-closed"></use>       
 </svg>
   </button>
   <img src="https://image.tmdb.org/t/p/w500/${poster_path}" alt="movie-poster" class="modal-film__img" />
