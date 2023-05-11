@@ -1,10 +1,11 @@
 import { emptyStar, fullStar, halfStar } from './stars';
+import comingSoonImg from '../images/coming_soon.jpg';
+
 const axios = require('axios').default;
 
 export default async function renderMoviesCards(movies, selector) {
   // в каталоге рендерится в переданный селектор
   const movieList = document.querySelector(`${selector}`);
-  const POSTER_URL = 'https://image.tmdb.org/t/p/w500/';
   let markup = '';
   for (const movie of movies) {
     const {
@@ -15,29 +16,25 @@ export default async function renderMoviesCards(movies, selector) {
       vote_average: rating,
     } = movie;
 
-    // Проверка на картинку, можно что-то придумать чтоб грузилось другое
-    if (poster === null || !poster) {
-      continue; // пропускаем фильм без картинки
-    }
-
-    const movieImg = POSTER_URL + poster;
+    const movieSrc = await getImg(poster, title);
     const movieGenre = await getGenre(id);
     const movieYear = await getYear(date);
     const starRating = await createStarRating(rating);
     // Надо добавить классы
     markup += `<li class='cards__list-item' data-id='${id}'>
                     
-    <img class='cards__list-img' src='${movieImg}' alt='${title}' width='395' height='574' />
+    <img class='cards__list-img' ${movieSrc} width='395' height='574'/>
+    
                    <div class='weekly-trends__overlay'></div>
-                    <div class='cards__list-search'>                    
-                         <h3 class='cards__list-title'>${title}</h3>
-                       <div class='cards__bloc-stars'>   
-                         <p class='cards__list-text'> ${movieGenre} | <span class='cards__list-span'>${movieYear}</span></p>
-                          
+                    <div class='cards__list-search'>                       
+                        <div class='cards__bloc-stars'>
+                          <h3 class='cards__list-title'>${title}</h3>
+                          <div class='cards__list-text'>${movieGenre}|${movieYear}<span class='cards__list-span'></span></div>
+                        </div>  
                         
-                        <p class='cards__list-stars'>${starRating}</p>
+                        
                     </div>
-                    
+                    <div class='cards__list-stars'>${starRating}</div>
                 </li>`;
   }
 
@@ -137,5 +134,20 @@ function createStarRating(data) {
   return `<div>${ratingStars}</div>`;
 }
 
+function getImg(poster, title) {
+  if (poster === null || !poster) {
+    return `src='${comingSoonImg}' alt='${title}'`;
+  }
+
+  return `
+    srcset="
+                https://image.tmdb.org/t/p/w500/${poster} 500w,
+                https://image.tmdb.org/t/p/w300/${poster} 342w,
+                https://image.tmdb.org/t/p/w185/${poster} 185w"
+        src="https://image.tmdb.org/t/p/w500/${poster}"
+
+        " sizes=" (min-width: 768px) 500px, (min-width: 480px) 342px, (min-width: 320px) 185px, 100vw"   
+     alt='${title}'`;
+}
 
 export { createStarRating };

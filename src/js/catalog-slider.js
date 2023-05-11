@@ -1,5 +1,6 @@
 import APIService from './api-service-main';
 import renderMoviesCards from './cards-rendering';
+import { loaderShow, loaderHide } from './loader';
 const apiService = new APIService();
 let currentQuary;
 
@@ -11,7 +12,6 @@ export default function renderPagination(currentPage, totalPages, query) {
     query = null;
   }
   currentQuary = query;
-  console.log(currentQuary);
   let buttons = [];
 
   if (totalPages === 2) {
@@ -62,7 +62,7 @@ export default function renderPagination(currentPage, totalPages, query) {
     buttons.push(createDotsEl());
   }
 
-  if (currentPage <= totalPages - 2) {
+  if (currentPage <= totalPages - 2 && totalPages > 4) {
     buttons.push(createButton(totalPages, true, 'last-button'));
   }
 
@@ -114,6 +114,8 @@ function createButton(
 
 async function pageButtonPressed(event) {
   const page = event.target.dataset.page;
+  const catalogForm = document.querySelector('.catalog__form');
+  loaderShow();
 
   try {
     if (currentQuary === null) {
@@ -131,9 +133,10 @@ async function pageButtonPressed(event) {
       renderMoviesCards(movies, '.cards__list');
       renderPagination(response.page, response.total_pages, currentQuary);
     }
+    catalogForm.scrollIntoView({ behavior: 'smooth' });
+    loaderHide();
   } catch (error) {
     console.log(error);
+    loaderHide();
   }
 }
-
-

@@ -1,15 +1,25 @@
 .site-header {
-  padding: 8px 20px;
 
-  @include tablet {
-    padding: 12px 32px;
-  }
 }
 
 .header__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+    padding-top: 8px ;
+    padding-bottom: 8px;
+
+  @include tablet {
+
+    padding-top: 12px ;
+    padding-bottom: 12px;
+  }
+  @include desktop {
+
+     padding-top: 6px ;
+    padding-bottom: 6px;
+  }
 }
 
 //========================== LOGO ================================

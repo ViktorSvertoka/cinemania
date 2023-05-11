@@ -2,21 +2,26 @@ import APIService from './api-service-main';
 import openTrailerModal from './hero-modal-watch-trailer';
 import {
   showSlide,
-  addSlideListener,
-  onNavButtonLeft,
-  onNavButtonRight,
+  addSlideListener
 } from './hero-slider';
 import { loaderShow, loaderHide } from './loader';
+
 
 import { createStarRating } from './cards-rendering';
 
 const apiService = new APIService();
 
+
+
+
+
+
 const refs = {
-  hero: document.querySelector('.slider'),
+  slider: document.querySelector('.slider'),
+  sliderBtn: document.querySelector('.slider-nav'),
 };
 let currentSlide = 0;
-let currentButton = 0;
+
 
 // Создем запрос страницу
 createHeroCard();
@@ -32,20 +37,15 @@ async function createHeroCard() {
     if (markup !== undefined) {
       updateHeroMarkup(markup); //вывод карточки Героя на страницу
       const slides = document.querySelectorAll('.slider-card');
-      const navBtns = [];
-      const navBtnsLeft = document.querySelectorAll('.slider-btn-left');
-      const navBtnsRight = document.querySelectorAll('.slider-btn-right');
-
-      for (let i = 0; i < slides.length; i += 1) {
-        navBtns.push(slides[i].querySelectorAll('.slider-nav-btn'));
-      }
-
-      showSlide(currentSlide, 5, navBtns, slides, currentButton);
+      const navBtns = document.querySelectorAll('.slider-nav-btn');
+      const navBtnsLeft = document.querySelector('.slider-btn-left');
+      const navBtnsRight = document.querySelector('.slider-btn-right');
+// console.log('slides', slides[1]);
+     
+      showSlide(currentSlide, 5, navBtns, slides);
       addSlideListener(
         navBtns,
         slides,
-        currentSlide,
-        currentButton,
         navBtnsLeft,
         navBtnsRight
       );
@@ -59,13 +59,12 @@ async function createHeroCard() {
 async function getTrendsMovieMarkUp() {
   try {
     const results = await apiService.getTrends('day'); //запрос данных на сервере
-    currentSlide = Math.ceil(Math.random(results.length) * 5);
-    currentButton = currentSlide - 1;
+    currentSlide = Math.ceil(Math.random(results.length) * 5)-1;
     if (results.length === 0) {
       return createHeroWithoutFilms(); //рендер карточки, если нет данные
     } else {
-      //   createButtonSlider(results.length > 5 ? 5 : results.length);
-
+      const buttonSlider = createButtonSlider(results.length > 5 ? 5 : results.length);
+      refs.sliderBtn.insertAdjacentHTML('beforeend', buttonSlider);
       return results.reduce(
         (markup, movie) => markup + createCardTrendsOfDay(movie),
         ''
@@ -76,6 +75,16 @@ async function getTrendsMovieMarkUp() {
   }
 }
 
+
+function createButtonSlider(numberCards) {
+  let buttonsNav = '';
+  for (let index = 0; index < numberCards; index++) {
+    buttonsNav +=`<button class="slider-nav-btn" type="button" data-slide="${index}">0${index+1}</button>`;
+
+  }
+  return buttonsNav;
+}
+
 function createCardTrendsOfDay({
   id,
   backdrop_path,
@@ -84,36 +93,26 @@ function createCardTrendsOfDay({
   overview,
 }) {
   // const stars = createStarRating(vote_average);
-  return `<div class="container imgApi slider-card"  style="background-image:linear-gradient(87.8deg, #0E0E0E 15.61%, rgba(14, 14, 14, 0) 60.39%), url('https://image.tmdb.org/t/p/w1280${backdrop_path}')" >
-        <div class="hero__container hero__container--render"> 
+  return `<div class=" imgApi slider-card"  style="background-image: url('https://image.tmdb.org/t/p/w1280${backdrop_path}')" >
+  <img src="" alt="">      
+  <div class="hero__container hero__container--render"> 
             <div class="hero__block-left--render">
-                <h1 class="hero__title hero__title--render">${title}</h1>
+                <h2 class="hero__title hero__title--render">${title}</h2>
                 <div class = "hero__stars">${vote_average} </div>
                 <p class="hero__text hero__text--render">
                 ${overview}    
                 </p>
                 <button class="watch-trailer" type="button" id ="watch__btn" data-movie-id="${id}">Watch trailer</button>
-                      <div class="slider__buttons">
-        <button type="button" class="slider-btn-left slider-btn">
-        </button>
-        <div class="slider-nav">
-            <button class="slider-nav-btn" type="button" data-slide="1">01</button>
-            <button class="slider-nav-btn" type="button" data-slide="2">02</button>
-            <button class="slider-nav-btn" type="button" data-slide="3">03</button>
-            <button class="slider-nav-btn" type="button" data-slide="4">04</button>
-            <button class="slider-nav-btn" type="button" data-slide="5">05</button>
-        </div>
-        <button type="button" class="slider-btn-right slider-btn">
-        </button>
-      </div>
+       </div>
             </div>
         </div>
     </div>`;
 }
 
 function createHeroWithoutFilms() {
-
-  if (document.querySelector('.current-page__my-library').localName !== 'body') {
+  if (
+    document.querySelector('.current-page__my-library').localName !== 'body'
+  ) {
     return `  <div class="my-lib__hero-container container">
     <h2 class="my-lib__hero-title">
       Create Your <br />
@@ -125,7 +124,7 @@ function createHeroWithoutFilms() {
       you bring the cinema experience into your own home with cozy seating, dim
       lighting, and movie theater snacks.
     </p>
-  </div>`
+  </div>`;
   }
   return `<div class="container"  >
         <div class="hero__container">
@@ -147,7 +146,7 @@ function createHeroWithoutFilms() {
 // вывод галереи на страницу
 function updateHeroMarkup(markup) {
   if (markup !== undefined) {
-    refs.hero.insertAdjacentHTML('beforeend', markup);
+    refs.slider.insertAdjacentHTML('afterbegin', markup);
 
     // const watchTrailerBtn = document.getElementById('watch__btn');
     // watchTrailerBtn.removeEventListener();
