@@ -13,6 +13,8 @@ function loaderShow() {
   // }
   // overlay.classList.add('is-active');
   if (!document.querySelector('.wrap-spinner')) {
+    console.log('hello loader');
+
     return;
   } else {
     document.querySelector('.wrap-spinner').classList.add('is-active');
