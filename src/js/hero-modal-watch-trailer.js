@@ -15,7 +15,7 @@ export default async function openTrailerModal() {
       document.body.style.overflow = 'hidden';
 
       try {
-        const { key } = await apiService.getMovieTrailer();
+        const { key } = await apiService.getMovieTrailer(movieId);
         const videoUrl = `https://www.youtube.com/embed/${key}`;
 
         markupId.insertAdjacentHTML(
