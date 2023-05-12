@@ -59,7 +59,9 @@ async function createHeroCard() {
 async function getTrendsMovieMarkUp() {
   try {
     const results = await apiService.getTrends('day'); //запрос данных на сервере
-    currentSlide = Math.ceil(Math.random(results.length) * 5)-1;
+    currentSlide = Math.ceil(Math.random(results.length) * 5) - 1;
+    const firstSlide = Math.ceil(Math.random(results.length) * 15) - 1;
+    // console.log("firstSlide ", firstSlide);
     if (results.length === 0) {
       return createHeroWithoutFilms(); //рендер карточки, если нет данные
     } else {
@@ -67,8 +69,9 @@ async function getTrendsMovieMarkUp() {
         results.length > 5 ? 5 : results.length
       );
       refs.sliderBtn.insertAdjacentHTML('beforeend', buttonSlider);
+      
       return results
-        .slice(0, 5)
+        .slice(firstSlide, firstSlide+5)
         .reduce((markup, movie) => markup + createCardTrendsOfDay(movie), ''); //рендер карточек слайдера, если есть данные
       // results.reduce(
       //   (markup, movie) => markup + createCardTrendsOfDay(movie),
@@ -103,7 +106,7 @@ function createCardTrendsOfDay({
   srcset="https://image.tmdb.org/t/p/w1280${backdrop_path} 1280w,
   https://image.tmdb.org/t/p/w780${backdrop_path} 768w,
   https://image.tmdb.org/t/p/w300${backdrop_path} 320w"
-  src="https://image.tmdb.org/t/p/w1280${backdrop_path}" "sizes="(min-width: 1280px) 1280px, (min-width: 768px) 768px, (min-width: 320px) 320px, 100vw " alt="${title}">      
+  src="https://image.tmdb.org/t/p/w300${backdrop_path}" "sizes="(min-width: 1280px) 1280px, (min-width: 768px) 768px, (min-width: 320px) 320px, 100vw " alt="${title}">      
   <div class="hero__container hero__container--render"> 
             <div class="hero__block-left--render">
                 <h2 class="hero__title hero__title--render">${title}</h2>
