@@ -249,7 +249,9 @@
   height: 128px;
   height: 100%;
   overflow: hidden;
-
+&::-webkit-scrollbar {
+  background-color: transparent;
+}
   @include tablet {
     color: var(--primary-text-clr);
     margin-bottom: 32px;
