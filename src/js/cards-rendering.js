@@ -98,23 +98,8 @@ async function getGenre(movieId) {
     console.log(error);
     return 'There are no genres';
   }
-
-function getGenre(id) {
-  if (!id) {
-    return 'There are no genres';
-  }
-
-  const movieGenresId = id.slice(0, 2);
-
-  const filteredGenres = genreList.filter(genre =>
-    movieGenresId.includes(genre.id)
-  );
-
-  const movieGenres = filteredGenres.map(genre => genre.name).join(', ');
-
-  return movieGenres;
-
 }
+
 
 // Преобразует рейтинг в рейтинг из звезд
 function createStarRating(data) {
