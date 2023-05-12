@@ -52,7 +52,7 @@ function createdMarkup(
   return `
       <div class="container-position">
         <div class="container-foto">
-        <img class="upcoming__foto"
+        <img loading="lazy" class="upcoming__foto"
         
         srcset="https://image.tmdb.org/t/p/w500/${backdrop_path} 1200w,
                 https://image.tmdb.org/t/p/w500/${poster_path} 500w,

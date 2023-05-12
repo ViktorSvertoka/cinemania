@@ -1,27 +1,17 @@
 import APIService from './api-service-main';
 import openTrailerModal from './hero-modal-watch-trailer';
-import {
-  showSlide,
-  addSlideListener
-} from './hero-slider';
+import { showSlide, addSlideListener } from './hero-slider';
 import { loaderShow, loaderHide } from './loader';
-
 
 import { createStarRating } from './cards-rendering';
 
 const apiService = new APIService();
-
-
-
-
-
 
 const refs = {
   slider: document.querySelector('.slider'),
   sliderBtn: document.querySelector('.slider-nav'),
 };
 let currentSlide = 0;
-
 
 // Создем запрос страницу
 createHeroCard();
@@ -40,15 +30,10 @@ async function createHeroCard() {
       const navBtns = document.querySelectorAll('.slider-nav-btn');
       const navBtnsLeft = document.querySelector('.slider-btn-left');
       const navBtnsRight = document.querySelector('.slider-btn-right');
-// console.log('slides', slides[1]);
-     
+      // console.log('slides', slides[1]);
+
       showSlide(currentSlide, 5, navBtns, slides);
-      addSlideListener(
-        navBtns,
-        slides,
-        navBtnsLeft,
-        navBtnsRight
-      );
+      addSlideListener(navBtns, slides, navBtnsLeft, navBtnsRight);
     }
   } catch (error) {
     onError(error);
@@ -69,9 +54,9 @@ async function getTrendsMovieMarkUp() {
         results.length > 5 ? 5 : results.length
       );
       refs.sliderBtn.insertAdjacentHTML('beforeend', buttonSlider);
-      
+
       return results
-        .slice(firstSlide, firstSlide+5)
+        .slice(firstSlide, firstSlide + 5)
         .reduce((markup, movie) => markup + createCardTrendsOfDay(movie), ''); //рендер карточек слайдера, если есть данные
       // results.reduce(
       //   (markup, movie) => markup + createCardTrendsOfDay(movie),
@@ -83,12 +68,12 @@ async function getTrendsMovieMarkUp() {
   }
 }
 
-
 function createButtonSlider(numberCards) {
   let buttonsNav = '';
   for (let index = 0; index < numberCards; index++) {
-    buttonsNav +=`<button class="slider-nav-btn" type="button" data-slide="${index}">0${index+1}</button>`;
-
+    buttonsNav += `<button class="slider-nav-btn" type="button" data-slide="${index}">0${
+      index + 1
+    }</button>`;
   }
   return buttonsNav;
 }
@@ -102,7 +87,7 @@ function createCardTrendsOfDay({
 }) {
   const stars = createStarRating(vote_average);
   return `<div class=" imgApi slider-card"  >
-  <img class="hero__img" width="1280" height="720"
+  <img class="hero__img" loading="lazy" width="1280" height="720"
   srcset="https://image.tmdb.org/t/p/w1280${backdrop_path} 1280w,
   https://image.tmdb.org/t/p/w780${backdrop_path} 768w,
   https://image.tmdb.org/t/p/w300${backdrop_path} 320w"

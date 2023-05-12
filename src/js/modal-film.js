@@ -90,7 +90,7 @@ function createMarkup({
     <use href="${sprite}#icon-cross-closed"></use>       
 </svg>
   </button>
-  <img ${getMoivePoster} alt="movie-poster" class="modal-film__img" />
+  <img ${getMoivePoster} loading="lazy" alt="movie-poster" class="modal-film__img" />
   <div class="modal-film__card">
     <h2 class="modal-film__title">${title}</h2>
     <div class="modal-film__blok">

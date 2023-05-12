@@ -23,7 +23,7 @@ export default async function renderMoviesCards(movies, selector) {
     // Надо добавить классы
     markup += `<li class='cards__list-item' data-id='${id}'>
                     
-    <img class='cards__list-img' ${movieSrc} width='395' height='574'/>
+    <img class='cards__list-img' loading="lazy" ${movieSrc} width='395' height='574'/>
     
                    <div class='weekly-trends__overlay'></div>
                     <div class='cards__list-search'>                       
