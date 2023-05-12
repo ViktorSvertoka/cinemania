@@ -72,7 +72,7 @@ function createMarkup({
   const getMoivePoster = getPoster(poster_path);
   function getPoster(poster_path) {
     if (poster_path === null || !poster_path) {
-      return `src='${comingSoonImg}'`;
+      return `data-src='${comingSoonImg}'`;
     }
     return `srcset="
                 https://image.tmdb.org/t/p/w500/${poster_path} 500w,
@@ -90,7 +90,7 @@ function createMarkup({
     <use href="${sprite}#icon-cross-closed"></use>       
 </svg>
   </button>
-  <img ${getMoivePoster} alt="movie-poster" class="modal-film__img" />
+  <img data-${getMoivePoster} alt="movie-poster" class="modal-film__img" />
   <div class="modal-film__card">
     <h2 class="modal-film__title">${title}</h2>
     <div class="modal-film__blok">
