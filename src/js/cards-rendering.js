@@ -1,7 +1,24 @@
 import { emptyStar, fullStar, halfStar } from './stars';
 import comingSoonImg from '../images/coming_soon.jpg';
 
+
 const axios = require('axios').default;
+
+import APIService from './api-service-main';
+const apiService = new APIService();
+let genreList;
+
+getGenresList();
+
+async function getGenresList() {
+  try {
+    const response = await apiService.getGenresList();
+    return (genreList = response);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 
 export default async function renderMoviesCards(movies, selector) {
   // в каталоге рендерится в переданный селектор
@@ -55,6 +72,7 @@ async function getYear(data) {
 }
 
 // Получает жанры фильма
+
 async function getGenre(movieId) {
   const API_KEY = '992758a4802a699e8df27d4d6efc34fb';
   const URL = 'https://api.themoviedb.org/3/movie/';
@@ -80,6 +98,22 @@ async function getGenre(movieId) {
     console.log(error);
     return 'There are no genres';
   }
+
+function getGenre(id) {
+  if (!id) {
+    return 'There are no genres';
+  }
+
+  const movieGenresId = id.slice(0, 2);
+
+  const filteredGenres = genreList.filter(genre =>
+    movieGenresId.includes(genre.id)
+  );
+
+  const movieGenres = filteredGenres.map(genre => genre.name).join(', ');
+
+  return movieGenres;
+
 }
 
 // Преобразует рейтинг в рейтинг из звезд
