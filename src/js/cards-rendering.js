@@ -1,19 +1,7 @@
 import { emptyStar, fullStar, halfStar } from './stars';
 import comingSoonImg from '../images/coming_soon.jpg';
-import APIService from './api-service-main';
-const apiService = new APIService();
-let genreList;
 
-getGenresList();
-
-async function getGenresList() {
-  try {
-    const response = await apiService.getGenresList();
-    return (genreList = response);
-  } catch (error) {
-    console.log(error);
-  }
-}
+const axios = require('axios').default;
 
 export default async function renderMoviesCards(movies, selector) {
   // в каталоге рендерится в переданный селектор
@@ -21,7 +9,7 @@ export default async function renderMoviesCards(movies, selector) {
   let markup = '';
   for (const movie of movies) {
     const {
-      genre_ids: id,
+      id,
       poster_path: poster,
       title,
       release_date: date,
@@ -67,22 +55,32 @@ async function getYear(data) {
 }
 
 // Получает жанры фильма
-function getGenre(id) {
-  if (!id) {
+async function getGenre(movieId) {
+  const API_KEY = '992758a4802a699e8df27d4d6efc34fb';
+  const URL = 'https://api.themoviedb.org/3/movie/';
+
+  try {
+    const response = await axios.get(`${URL}${movieId}`, {
+      params: {
+        api_key: API_KEY,
+      },
+    });
+
+    if (response.data.genres.length === 0) {
+      return error;
+    }
+
+    const genres = response.data.genres
+      .slice(0, 2)
+      .map(genre => genre.name)
+      .join(', ');
+
+    return genres;
+  } catch (error) {
+    console.log(error);
     return 'There are no genres';
   }
-
-  const movieGenresId = id.slice(0, 2);
-
-  const filteredGenres = genreList.filter(genre =>
-    movieGenresId.includes(genre.id)
-  );
-
-  const movieGenres = filteredGenres.map(genre => genre.name).join(', ');
-
-  return movieGenres;
 }
-
 
 // Преобразует рейтинг в рейтинг из звезд
 function createStarRating(data) {
