@@ -2,8 +2,6 @@ import { emptyStar, fullStar, halfStar } from './stars';
 import comingSoonImg from '../images/coming_soon.jpg';
 import APIService from './api-service-main';
 const apiService = new APIService();
-
-const axios = require('axios').default;
 let genreList;
 
 getGenresList();
@@ -70,6 +68,10 @@ function getYear(data) {
 
 // Получает жанры фильма
 function getGenre(id) {
+  if (!id) {
+    return 'There are no genres';
+  }
+
   const movieGenresId = id.slice(0, 2);
 
   const filteredGenres = genreList.filter(genre =>
@@ -77,10 +79,6 @@ function getGenre(id) {
   );
 
   const movieGenres = filteredGenres.map(genre => genre.name).join(', ');
-
-  if (!movieGenres) {
-    return 'There are no genres';
-  }
 
   return movieGenres;
 }
