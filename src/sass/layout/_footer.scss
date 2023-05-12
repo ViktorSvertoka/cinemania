@@ -47,6 +47,11 @@
   margin-right: 5px;
 }
 
+.footer__wrapper {
+  display: flex;
+  align-items: center;
+}
+
 .footer__desc {
   @include font(400, 16px, 1.19, null);
   color: var(--muted-text-clr);
@@ -102,6 +107,7 @@
 }
 
 .footer__draw-text {
+  margin-top: 10px;
   margin-left: 5px;
   color: var(--muted-text-clr);
 
@@ -135,5 +141,13 @@
       --stroke-delay: 0.1s;
       --offset: 180px;
     }
+  }
+
+  @include tablet {
+    margin-bottom: 10px;
+  }
+
+  @include desktop {
+    margin-bottom: 10px;
   }
 }
