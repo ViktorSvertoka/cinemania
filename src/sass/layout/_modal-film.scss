@@ -247,16 +247,9 @@
   line-height: calc(20 / 12);
   color: var(--modal-secondary-color);
   margin-bottom: 16px;
-  overflow: auto;
-  max-height: 180px;
-  &::-webkit-scrollbar {
-    background-color: transparent;
-  }
-
   @media screen and (min-width: 768px) {
     margin-top: 4px;
     margin-bottom: 24px;
-    max-height: 180px;
   }
 
   @media screen and (min-width: 1200px) {
@@ -264,7 +257,6 @@
     line-height: calc(20 / 14);
     margin-top: 4px;
     margin-bottom: 24px;
-    max-height: 180px;
   }
 }
 
