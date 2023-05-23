@@ -1,6 +1,6 @@
 # Sprite icons
 
-![GitHub actions settings](./assets/free-time.mov)
+![GitHub actions settings](https://youtu.be/-prD4qdgO9g)
 
 ### Development team :
 
