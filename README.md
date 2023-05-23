@@ -1,6 +1,6 @@
-# Sprite icons
+# Presentation
 
-![GitHub actions settings](https://youtu.be/-prD4qdgO9g)
+[presentation](https://youtu.be/-prD4qdgO9g)
 
 ### Development team :
 
