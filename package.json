@@ -1,21 +1,21 @@
 {
-  "name": "free-time",
+  "name": "cinemania",
   "version": "2.0.0",
   "description": "cinemania team project",
-  "homepage": "https://ViktorSvertoka.github.io/free-time",
+  "homepage": "https://ViktorSvertoka.github.io/cinemania",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /free-time/"
+    "build": "parcel build src/*.html --public-url /cinemania/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ViktorSvertoka/free-time.git"
+    "url": "git+https://github.com/ViktorSvertoka/cinemania.git"
   },
   "keywords": [],
   "author": "Viktor Svertoka <victor.svertoka@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ViktorSvertoka/free-time/issues"
+    "url": "https://github.com/ViktorSvertoka/cinemania/issues"
   },
   "dependencies": {
     "@anikin/parcel-transformer-handlebars-precompile": "^1.0.1",
