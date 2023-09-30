@@ -4,7 +4,7 @@
 
 ## Presentation
 
-[Presentation](https://youtu.be/-prD4qdgO9g)
+[Presentation](./assets/presentation.gif)
 
 ### Development team :
 
