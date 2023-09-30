@@ -4,7 +4,7 @@
 
 ## Presentation
 
-[Presentation](./assets/presentation.gif)
+![Presentation](./assets/presentation.gif)
 
 ### Development team :
 
